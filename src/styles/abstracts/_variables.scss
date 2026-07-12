@@ -1,0 +1,40 @@
+// variables for font
+$weight-medium: 500;
+$weight-semiBold: 600;
+$weight-bold: 700;
+
+$font-primary: Inter;
+
+$font-path: '/assets/fonts/';
+
+$fonts: (
+    Inter: (
+        'medium': (
+            'file-name': 'Inter-medium',
+            'font-weight': $weight-medium,
+        ),
+        'semiBold': (
+            'file-name': 'Inter-semiBold',
+            'font-weight': $weight-semiBold,
+        ),
+        'bold': (
+            'file-name': 'Inter-bold',
+            'font-weight': $weight-bold,
+        ),
+    ),
+);
+
+$green-palette: (
+    50: #e8eaf6,
+    100: #c5cae9,
+    200: #9fa8da,
+    300: #7986cb,
+    // ... continues to 900
+    contrast: (
+            50: rgba(black, 0.87),
+            100: rgba(black, 0.87),
+            200: rgba(black, 0.87),
+            300: white,
+            // ... continues to 900
+        ),
+);
