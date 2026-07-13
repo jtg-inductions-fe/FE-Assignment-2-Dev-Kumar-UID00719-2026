@@ -21,7 +21,7 @@
         // "ignoreDeprecations": "6.0",
         "lib": ["ES2022", "dom"],
         "paths": {
-            "@styles/*": ["./src/assets/styles/*"],
+            "@styles/*": ["./src/styles/*"],
             "@fonts/*": ["./src/assets/fonts/*"]
         }
     },

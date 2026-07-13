@@ -1,4 +1,4 @@
-@use '../abstracts/variables' as v;
+@use 'abstracts/variables' as v;
 
 @mixin flex-layout($justify: center, $align: center, $direction: row) {
     display: flex;

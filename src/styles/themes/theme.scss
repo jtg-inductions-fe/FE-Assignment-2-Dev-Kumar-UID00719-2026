@@ -1,8 +1,8 @@
 @use '@angular/material' as mat;
-@use '../abstracts/variables' as v;
-@use '../abstracts/functions' as *;
-@use '../abstracts/colors' as c;
-@use '../base/typography' as t;
+@use 'abstracts/variables' as v;
+@use 'abstracts/functions' as *;
+@use 'abstracts/colors' as c;
+@use 'base/typography' as t;
 
 $primary: mat.define-palette(c.$green-palette, 500);
 

@@ -1,23 +1,23 @@
 @use '@angular/material' as mat;
-@use '../abstracts/variables' as v;
-@use '../abstracts/mixins' as m;
-@use '../abstracts/functions' as *;
-@use '../abstracts/colors' as c;
+@use 'abstracts/variables' as v;
+@use 'abstracts/mixins' as m;
+@use 'abstracts/functions' as *;
+@use 'abstracts/colors' as c;
 
 @include m.font-face(v.$font-primary);
 
 $headline-1: mat.define-typography-level(
     //header heading
     $font-family: 'Inter',
-    $font-size: rem(48),
+    $font-size: pixelToRem(48),
     $font-weight: v.$weight-bold,
-    $line-height: rem(62.5)
+    $line-height: pixelToRem(62.5)
 );
 
 $headline-2: mat.define-typography-level(
     //header heading phone
     $font-family: 'Inter',
-    $font-size: rem(30),
+    $font-size: pixelToRem(30),
     $font-weight: v.$weight-bold,
     $line-height: 1.2
 );
@@ -25,89 +25,89 @@ $headline-2: mat.define-typography-level(
 $headline-3: mat.define-typography-level(
     //stat value
     $font-family: 'Inter',
-    $font-size: rem(20),
+    $font-size: pixelToRem(20),
     $font-weight: v.$weight-semiBold,
-    $line-height: rem(30)
+    $line-height: pixelToRem(30)
 );
 
 $headline-4: mat.define-typography-level(
     // card heading
     $font-family: 'Inter',
-    $font-size: rem(20),
+    $font-size: pixelToRem(20),
     $font-weight: v.$weight-bold,
-    $line-height: rem(30)
+    $line-height: pixelToRem(30)
 );
 
 $headline-5: mat.define-typography-level(
     //customer spending
     $font-family: 'Inter',
-    $font-size: rem(16),
+    $font-size: pixelToRem(16),
     $font-weight: v.$weight-semiBold,
-    $line-height: rem(24)
+    $line-height: pixelToRem(24)
 );
 
 $headline-6: mat.define-typography-level(
     //sidebar labels
     $font-family: 'Inter',
-    $font-size: rem(16),
+    $font-size: pixelToRem(16),
     $font-weight: v.$weight-medium,
-    $line-height: rem(24)
+    $line-height: pixelToRem(24)
 );
 
 $subtitle-1: mat.define-typography-level(
     //amount
     $font-family: 'Inter',
-    $font-size: rem(12),
+    $font-size: pixelToRem(12),
     $font-weight: v.$weight-bold,
-    $line-height: rem(18)
+    $line-height: pixelToRem(18)
 );
 
 $subtitle-2: mat.define-typography-level(
     //stat heading
     $font-family: 'Inter',
-    $font-size: rem(12),
+    $font-size: pixelToRem(12),
     $font-weight: v.$weight-semiBold,
-    $line-height: rem(18)
+    $line-height: pixelToRem(18)
 );
 
 $subtitle-3: mat.define-typography-level(
     //customer and resturant name in active orders and report generator para
     $font-family: 'Inter',
-    $font-size: rem(12),
+    $font-size: pixelToRem(12),
     $font-weight: v.$weight-medium,
-    $line-height: rem(18)
+    $line-height: pixelToRem(18)
 );
 
 $body-1: mat.define-typography-level(
     //report generator heading
     $font-family: 'Inter',
-    $font-size: rem(16),
+    $font-size: pixelToRem(16),
     $font-weight: v.$weight-bold,
-    $line-height: rem(24)
+    $line-height: pixelToRem(24)
 );
 
 $body-2: mat.define-typography-level(
     //welcome para
     $font-family: 'Inter',
-    $font-size: rem(14),
+    $font-size: pixelToRem(14),
     $font-weight: v.$weight-medium,
-    $line-height: rem(20)
+    $line-height: pixelToRem(20)
 );
 
 $button: mat.define-typography-level(
     //buttons
     $font-family: 'Inter',
-    $font-size: rem(14),
+    $font-size: pixelToRem(14),
     $font-weight: v.$weight-semiBold,
-    $line-height: rem(21)
+    $line-height: pixelToRem(21)
 );
 
 $caption: mat.define-typography-level(
     //chips
     $font-family: 'Inter',
-    $font-size: rem(13),
+    $font-size: pixelToRem(13),
     $font-weight: v.$weight-semiBold,
-    $line-height: rem(18)
+    $line-height: pixelToRem(18)
 );
 
 $app-typography: mat.define-typography-config(

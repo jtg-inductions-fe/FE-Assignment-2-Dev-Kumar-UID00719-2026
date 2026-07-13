@@ -1,0 +1,53 @@
+@use '@angular/material' as mat;
+@use '../../../styles/abstracts/mixins' as m;
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/base/typography' as t;
+@use '../../../styles/abstracts/colors' as c;
+@use '../../../styles/abstracts/functions' as *;
+
+.not-found {
+    @include m.flex-layout(space-between, center, column);
+    width: 100%;
+    padding: pixelToRem(16);
+    gap: 60px;
+
+    &__image-container {
+        overflow: hidden;
+        width: 100%;
+        max-width: 1031px;
+    }
+
+    &__image {
+        object-fit: cover;
+        width: 100%;
+    }
+
+    &__text-box {
+        @include m.flex-layout(space-between, center, column);
+        gap: 12px;
+    }
+
+    &__heading {
+        color: c.$font-color-primary;
+        margin: 0;
+    }
+
+    &__paragraph {
+        font-weight: 400;
+        color: c.$font-color-secondary;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    &__button {
+        border-radius: 9px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .not-found {
+        &__heading {
+            font-size: 48px;
+        }
+    }
+}

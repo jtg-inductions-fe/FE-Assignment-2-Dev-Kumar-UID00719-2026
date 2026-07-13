@@ -1,9 +1,9 @@
-@use './abstracts/functions';
-@use './abstracts/variables';
-@use './abstracts/mixins';
-@use './abstracts/colors';
+@use 'abstracts/functions';
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+@use 'abstracts/colors';
 
-@use './base/reset';
-@use './base/typography';
+@use 'base/reset';
+@use 'base/typography';
 
-@use './themes/theme.scss';
+@use 'themes/theme.scss';
