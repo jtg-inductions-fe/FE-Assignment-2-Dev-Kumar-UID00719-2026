@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { inject } from '@angular/core';
+import { ErrorStateService } from './core/services/error-state.service';
 
 @Component({
     selector: 'app-root',
