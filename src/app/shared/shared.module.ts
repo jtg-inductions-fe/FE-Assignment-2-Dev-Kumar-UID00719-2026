@@ -7,8 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ButtonComponent } from '@shared/components/button/button.component';
 
 @NgModule({
-    declarations: [ButtonComponent],
+    declarations: [ButtonComponent,],
     imports: [CommonModule, MatButtonModule, MatIconModule],
-    exports: [ButtonComponent],
+    exports: [ButtonComponent,],
 })
 export class SharedModule {}
