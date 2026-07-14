@@ -1,0 +1,46 @@
+@use '@angular/material' as mat;
+@use 'abstracts/mixins' as m;
+@use 'abstracts/variables' as v;
+@use 'base/typography' as t;
+@use 'abstracts/colors' as c;
+@use 'abstracts/functions' as *;
+
+.login {
+    @include m.flex-layout(center, center, row);
+    width: 100%;
+    height: 100%;
+
+    &__container {
+        @include m.flex-layout(space-between, center, column);
+        max-width: pixelToRem(400);
+        padding: pixelToRem(12);
+        gap: pixelToRem(16);
+    }
+
+    &__heading {
+        margin: 0;
+        text-align: center;
+    }
+
+    &__description {
+        color: c.$font-color-secondary;
+    }
+
+    &__input {
+        width: 100%;
+    }
+
+    &__button {
+        width: 100%;
+    }
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}

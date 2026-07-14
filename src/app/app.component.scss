@@ -1,0 +1,20 @@
+@use 'abstracts/mixins' as m;
+@use 'abstracts/variables' as v;
+@use 'base/typography' as t;
+@use 'abstracts/colors' as c;
+@use 'abstracts/functions' as *;
+
+:host {
+    @include m.flex-layout(center, center, column);
+    height: 100vh;
+}
+.app-layout {
+    @include m.flex-layout(center, center, row);
+    flex: 1;
+    overflow: hidden;
+
+    &__content {
+        @include m.flex-layout(center, center, row);
+        flex: 1;
+    }
+}
