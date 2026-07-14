@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { GlobalErrorHandlerService } from './services/global-error-handler.service';
+import { GlobalErrorHandlerService } from './core/services/global-error-handler.service';
 
 @NgModule({
     declarations: [AppComponent],
