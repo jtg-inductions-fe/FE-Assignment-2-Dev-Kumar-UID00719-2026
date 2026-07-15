@@ -1,10 +1,8 @@
 @use '@angular/material' as mat;
-@use 'abstracts/variables' as v;
-@use 'abstracts/functions' as *;
-@use 'abstracts/colors' as c;
-@use 'base/typography' as t;
+@use 'abstracts' as *;
+@use 'base' as *;
 
-$primary: mat.define-palette(c.$green-palette, 500);
+$primary: mat.define-palette($green-palette, 500);
 
 $app-theme: mat.define-light-theme(
     (
@@ -12,7 +10,7 @@ $app-theme: mat.define-light-theme(
             primary: $primary,
             accent: $primary,
         ),
-        typography: t.$app-typography,
+        typography: $app-typography,
     )
 );
 

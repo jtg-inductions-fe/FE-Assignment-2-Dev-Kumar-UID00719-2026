@@ -3,9 +3,16 @@ $weight-medium: 500;
 $weight-semiBold: 600;
 $weight-bold: 700;
 
+$base: 16;
+
 $font-primary: Inter;
 
 $font-path: '/assets/fonts/';
+
+$viewPort-phone: 430px;
+$viewPort-tablet: 1024px;
+$viewPort-desktop: 1600px;
+$viewPort-large-desktop: 2550px;
 
 $fonts: (
     Inter: (

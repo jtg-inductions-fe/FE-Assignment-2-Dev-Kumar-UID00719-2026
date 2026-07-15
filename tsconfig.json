@@ -22,7 +22,16 @@
         "lib": ["ES2022", "dom"],
         "paths": {
             "@styles/*": ["./src/styles/*"],
-            "@fonts/*": ["./src/assets/fonts/*"]
+            "@fonts/*": ["./src/assets/fonts/*"],
+            "@images/*": ["./src/assets/images/*"],
+            "@data/*": ["./src/app/core/data/*"],
+            "@guards/*": ["./src/app/core/guards/*"],
+            "@models/*": ["./src/app/core/models/*"],
+            "@constants/*": ["./src/app/core/constants/*"],
+            "@services/*": ["./src/app/core/services/*"],
+            "@features/*": ["./src/app/features/*"],
+            "@core/*": ["./src/app/core/*"],
+            "@shared/*": ["./src/app/shared/*"]
         }
     },
     "angularCompilerOptions": {
