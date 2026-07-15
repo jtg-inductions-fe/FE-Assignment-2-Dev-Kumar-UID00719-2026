@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { PAGE_STATES } from 'src/app/core/constants/page-state';
+import { PAGE_STATES } from '@constants/page-state';
 
 @Component({
     selector: 'app-not-found',
