@@ -12,6 +12,7 @@ import { AuthenticationService } from 'src/app/core/services/authentication.serv
 export class LoginComponent {
     loginForm: FormGroup;
     loginError = false;
+    hide = true;
 
     constructor(
         private fb: FormBuilder,
