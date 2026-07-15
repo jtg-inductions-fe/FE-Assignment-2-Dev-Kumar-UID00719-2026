@@ -41,7 +41,12 @@
 
     &__button {
         border-radius: pixelToRem(9);
+        width: 100%;
     }
+}
+
+.test {
+    background-color: red !important;
 }
 
 @media screen and (min-width: v.$viewPort-tablet) {

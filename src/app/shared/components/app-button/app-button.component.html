@@ -1,0 +1,34 @@
+<ng-container [ngSwitch]="variant">
+    <button
+        *ngSwitchDefault
+        mat-raised-button
+        [color]="color"
+        [disabled]="disabled"
+        [type]="type"
+        [ngClass]="buttonClass"
+    >
+        {{ label }}
+    </button>
+
+    <button
+        *ngSwitchCase="'stroked'"
+        mat-stroked-button
+        [color]="color"
+        [disabled]="disabled"
+        [type]="type"
+        [ngClass]="buttonClass"
+    >
+        {{ label }}
+    </button>
+
+    <button
+        *ngSwitchCase="'flat'"
+        mat-flat-button
+        [color]="color"
+        [disabled]="disabled"
+        [type]="type"
+        [ngClass]="buttonClass"
+    >
+        {{ label }}
+    </button>
+</ng-container>

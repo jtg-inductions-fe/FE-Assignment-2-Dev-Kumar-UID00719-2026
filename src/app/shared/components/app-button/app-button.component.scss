@@ -1,0 +1,14 @@
+@use 'abstracts/mixins' as m;
+@use 'abstracts/variables' as v;
+@use 'base/typography' as t;
+@use 'abstracts/colors' as c;
+@use 'abstracts/functions' as *;
+
+button {
+    border-radius: pixelToRem(4);
+    width: 100%;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
