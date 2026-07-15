@@ -37,16 +37,18 @@
 
                 <input
                     matInput
-                    type="password"
+                    [type]="hide ? 'password' : 'text'"
                     placeholder="Password"
                     formControlName="password"
                 />
+
                 <button
                     mat-icon-button
                     matSuffix
                     (click)="hide = !hide"
                     [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide"
+                    type="button"
                 >
                     <mat-icon>{{
                         hide ? 'visibility_off' : 'visibility'

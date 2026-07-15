@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from '@features/errorComponent/error.component';
 import { LoginComponent } from '@features/login/login.component';
 
+import { authGuard } from '@guards/auth.guard';
+
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: '**', component: ErrorComponent },
