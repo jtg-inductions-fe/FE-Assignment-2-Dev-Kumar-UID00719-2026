@@ -3,13 +3,13 @@ import { CanActivateFn, Router } from '@angular/router';
 
 import { AuthenticationService } from '@services/authentication.service';
 
-export const authGuard: CanActivateFn = () => {
+export const loginGuard: CanActivateFn = (route, state) => {
     const authenticationService = inject(AuthenticationService);
     const router = inject(Router);
 
     if (authenticationService.isLoggedIn()) {
-        return true;
+        return router.createUrlTree(['/dashboard']);
     } else {
-        return router.createUrlTree(['/login']);
+        return true;
     }
 };

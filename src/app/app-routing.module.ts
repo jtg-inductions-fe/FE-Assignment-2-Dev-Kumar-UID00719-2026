@@ -5,9 +5,12 @@ import { ErrorComponent } from '@features/error/error.component';
 import { LoginComponent } from '@features/login/login.component';
 
 import { authGuard } from '@guards/auth.guard';
+import { loginGuard } from '@guards/login.guard';
 
 const routes: Routes = [
-    { path: 'login', component: LoginComponent },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: 'login', component: LoginComponent, canActivate: [loginGuard] },
+    //to Do  { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
     { path: '**', component: ErrorComponent, canActivate: [authGuard] },
 ];
 

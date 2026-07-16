@@ -9,6 +9,7 @@ export interface User {
     email: string;
     password: string;
     role: Role;
+    profileImageUrl: string;
 }
 
 export type AuthenticatedUser = Omit<User, 'password'>;
