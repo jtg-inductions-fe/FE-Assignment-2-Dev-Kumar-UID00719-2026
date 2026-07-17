@@ -26,6 +26,11 @@
 
     &__input {
         width: 100%;
+        margin: pixelToRem(8) 0;
+    }
+
+    &__error {
+        padding: pixelToRem(8);
     }
 
     &__button {
