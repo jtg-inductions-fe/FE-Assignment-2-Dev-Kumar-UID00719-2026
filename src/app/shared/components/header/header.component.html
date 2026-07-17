@@ -1,6 +1,6 @@
 <div class="header">
-    <div class="header__logo">
-        <img [src]="appLogo" alt="" />
+    <div class="header__logo" *ngIf="isDesktop || !isLoggedIn">
+        <img src="assets/images/icons/main-logo.svg" alt="" />
     </div>
 
     <app-button

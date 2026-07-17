@@ -1,0 +1,77 @@
+@use 'abstracts' as *;
+@use 'base' as *;
+:host {
+    @include flex-layout();
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.sidenav-container {
+    height: 100%;
+    width: 100%;
+    flex: 1;
+}
+
+.sidenav {
+    @include flex-layout(space-between, normal, column);
+    min-width: pixelToRem(250);
+    height: 100%;
+
+    &__link {
+        @include flex-layout(flex-start, center, row, pixelToRem(16));
+        width: 100%;
+        color: $font-color-primary;
+        font-weight: 500;
+        padding: pixelToRem(8);
+
+        &--active {
+            color: $color-accent-primary;
+        }
+    }
+
+    &__divider {
+        margin: pixelToRem(16) 0;
+    }
+
+    &__bottom {
+        @include flex-layout(center, center, row);
+        align-self: flex-end;
+        width: 100%;
+    }
+
+    &__tree-hidden {
+        display: none;
+    }
+
+    &__tree-item {
+        @include flex-layout(normal, center, row, pixelToRem(16));
+        width: 100%;
+        padding: pixelToRem(8);
+    }
+
+    &__tree-button {
+        background: transparent;
+    }
+}
+
+.sidenav__tree,
+.sidenav__tree ul,
+.sidenav__tree li {
+    margin: 0;
+    padding: 0;
+}
+
+.sidenav__tree .mat-nested-tree-node div[role='group'] {
+    padding-left: pixelToRem(40);
+}
+
+.sidenav__tree div[role='group'] {
+    padding-left: pixelToRem(40);
+}
+
+.sidenav-content {
+    @include flex-layout(center, center, column);
+    width: 100%;
+    height: 100%;
+}

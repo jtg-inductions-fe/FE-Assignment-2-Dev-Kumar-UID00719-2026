@@ -1,6 +1,7 @@
-import { Component, OnInit, DestroyRef } from '@angular/core';
+import { Component,EventEmitter, OnInit, DestroyRef, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 import { AuthenticationService } from '@services/authentication.service';
 import { AuthenticatedUser } from '@models/user';
@@ -17,14 +18,22 @@ export class HeaderComponent implements OnInit {
     isLoggedIn = false;
     buttonVariant = ButtonVariant;
     appLogo = APP_LOGO;
+    isDesktop = true;
 
     constructor(
         private authenticationService: AuthenticationService,
         private router: Router,
         private destroyRef: DestroyRef,
+        private breakPointObserver: BreakpointObserver,
     ) {}
 
     ngOnInit() {
+        this.breakPointObserver
+            .observe('(min-width: 1024px)')
+            .subscribe((result) => {
+                this.isDesktop = result.matches;
+            });
+
         this.authenticationService.currentUser$
             .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe((user) => {
@@ -37,9 +46,16 @@ export class HeaderComponent implements OnInit {
             });
     }
 
+    @Output()
+    menuButtonClicked = new EventEmitter<void>();
+
     logout() {
         this.authenticationService.logout();
 
         this.router.navigate(['/login']);
+    }
+
+    onMenuClick() {
+        this.menuButtonClicked.emit();
     }
 }
