@@ -25,9 +25,14 @@
     &__heading {
         color: $font-color-primary;
         margin: 0;
+
+        @include respond-above($viewPort-tablet) {
+            font-size: pixelToRem(48);
+        }
     }
 
     &__paragraph {
+        @include text-ellipsis(3);
         font-weight: 400;
         color: $font-color-secondary;
         line-height: 1.5;
@@ -37,13 +42,5 @@
     &__button {
         border-radius: pixelToRem(9);
         width: 100%;
-    }
-}
-
-@media screen and (min-width: $viewPort-tablet) {
-    .error {
-        &__heading {
-            font-size: pixelToRem(48);
-        }
     }
 }
