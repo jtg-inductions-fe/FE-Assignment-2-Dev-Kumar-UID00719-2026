@@ -10,7 +10,7 @@
                 [treeControl]="treeControl"
                 class="sidenav__tree"
             >
-                <mat-tree-node *matTreeNodeDef="let node">
+                <mat-tree-node *matTreeNodeDef="let node; when: isLink">
                     <a
                         class="sidenav__link"
                         [routerLink]="node.route"
@@ -23,6 +23,10 @@
                             {{ node.label }}
                         </span>
                     </a>
+                </mat-tree-node>
+
+                <mat-tree-node *matTreeNodeDef="let node; when: isDivider">
+                    <mat-divider class="sidenav__divider"></mat-divider>
                 </mat-tree-node>
 
                 <mat-nested-tree-node

@@ -13,11 +13,8 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 
 import { SidenavItem } from '@models/sidebar-item';
 import { SIDENAV_ITEMS } from '@data/sidebar-item.data';
+import { SidenavItemType } from '@models/sidebar-item';
 import { AuthenticationService } from '@services/authentication.service';
-
-export interface Section {
-    name: string;
-}
 
 @Component({
     selector: 'app-sidemenu',
@@ -32,7 +29,6 @@ export class SidemenuComponent implements OnInit {
     );
 
     treeControl = new NestedTreeControl<SidenavItem>((node) => node.children);
-
     dataSource = new MatTreeNestedDataSource<SidenavItem>();
 
     constructor(
@@ -41,12 +37,16 @@ export class SidemenuComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        const currentUser = this.authenticationService.getCurrentUser();
-        console.log('Just after login from sidemenu', currentUser);
+        this.authenticationService.currentUser$.subscribe((currentUser) => {
+            if (!currentUser) {
+                this.dataSource.data = [];
+                return;
+            }
 
-        this.dataSource.data = SIDENAV_ITEMS.filter((item) =>
-            item.roles.includes(currentUser!.role),
-        );
+            this.dataSource.data = SIDENAV_ITEMS.filter((item) =>
+                item.roles.includes(currentUser!.role),
+            );
+        });
 
         this.breakpointObserver
             .observe('(min-width: 1024px)')
@@ -69,4 +69,10 @@ export class SidemenuComponent implements OnInit {
 
     hasChild = (_: number, node: SidenavItem): boolean =>
         !!node.children?.length;
+
+    isLink = (_: number, node: SidenavItem): boolean =>
+        node.type === SidenavItemType.Link;
+
+    isDivider = (_: number, node: SidenavItem): boolean =>
+        node.type === SidenavItemType.Divider;
 }

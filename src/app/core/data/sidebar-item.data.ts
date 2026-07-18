@@ -1,10 +1,10 @@
 import { Role } from '@models/user';
-import { SidenavItem } from '@models/sidebar-item';
-import { Divider } from '@models/sidebar-item';
+import { SidenavItem, SidenavItemType } from '@models/sidebar-item';
 
 export const SIDENAV_ITEMS: SidenavItem[] = [
     {
         id: 'overview',
+        type: SidenavItemType.Link,
         label: 'Overview',
         icon: 'pie_chart',
         route: '/dashboard',
@@ -13,6 +13,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
     {
         id: 'restaurants',
+        type: SidenavItemType.Link,
         label: 'Restaurants',
         icon: 'restaurant',
         route: '/restaurants',
@@ -21,6 +22,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
     {
         id: 'messages',
+        type: SidenavItemType.Link,
         label: 'Messages',
         icon: 'message',
         route: '/messages',
@@ -28,7 +30,14 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
     },
 
     {
+        id: 'divider-1',
+        type: SidenavItemType.Divider,
+        roles: [Role.Admin, Role.Owner],
+    },
+
+    {
         id: 'access-management',
+        type: SidenavItemType.Tree,
         label: 'Access Management',
         icon: 'lock',
         roles: [Role.Admin],
@@ -36,6 +45,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
         children: [
             {
                 id: 'users',
+                type: SidenavItemType.Link,
                 label: 'Users',
                 icon: 'person',
                 route: '/access/users',
@@ -44,6 +54,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
             {
                 id: 'roles',
+                type: SidenavItemType.Tree,
                 label: 'Roles',
                 icon: 'admin_panel_settings',
                 roles: [Role.Admin],
@@ -51,6 +62,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
                 children: [
                     {
                         id: 'admin-role',
+                        type: SidenavItemType.Link,
                         label: 'Administrators',
                         icon: 'shield',
                         route: '/access/roles/admin',
@@ -59,6 +71,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
                     {
                         id: 'owner-role',
+                        type: SidenavItemType.Link,
                         label: 'Restaurant Owners',
                         icon: 'store',
                         route: '/access/roles/owners',
@@ -67,6 +80,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
                     {
                         id: 'permissions',
+                        type: SidenavItemType.Tree,
                         label: 'Permissions',
                         icon: 'vpn_key',
                         roles: [Role.Admin],
@@ -74,6 +88,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
                         children: [
                             {
                                 id: 'menu-permissions',
+                                type: SidenavItemType.Link,
                                 label: 'Menu Permissions',
                                 icon: 'restaurant_menu',
                                 route: '/access/permissions/menu',
@@ -82,6 +97,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
                             {
                                 id: 'order-permissions',
+                                type: SidenavItemType.Link,
                                 label: 'Order Permissions',
                                 icon: 'receipt_long',
                                 route: '/access/permissions/orders',
@@ -96,6 +112,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
     {
         id: 'gallery',
+        type: SidenavItemType.Link,
         label: 'Gallery',
         icon: 'collections',
         route: '/gallery',
@@ -104,6 +121,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
     {
         id: 'help',
+        type: SidenavItemType.Link,
         label: 'Help',
         icon: 'help',
         route: '/help',
@@ -114,6 +132,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
     {
         id: 'menu',
+        type: SidenavItemType.Tree,
         label: 'Menu',
         icon: 'restaurant_menu',
         roles: [Role.Owner],
@@ -121,6 +140,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
         children: [
             {
                 id: 'categories',
+                type: SidenavItemType.Link,
                 label: 'Categories',
                 icon: 'category',
                 route: '/menu/categories',
@@ -129,6 +149,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
             {
                 id: 'items',
+                type: SidenavItemType.Tree,
                 label: 'Items',
                 icon: 'lunch_dining',
                 roles: [Role.Owner],
@@ -136,6 +157,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
                 children: [
                     {
                         id: 'starters',
+                        type: SidenavItemType.Link,
                         label: 'Starters',
                         icon: 'tapas',
                         route: '/menu/items/starters',
@@ -144,6 +166,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
                     {
                         id: 'main-course',
+                        type: SidenavItemType.Link,
                         label: 'Main Course',
                         icon: 'ramen_dining',
                         route: '/menu/items/main-course',
@@ -152,6 +175,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
                     {
                         id: 'desserts',
+                        type: SidenavItemType.Tree,
                         label: 'Desserts',
                         icon: 'icecream',
                         roles: [Role.Owner],
@@ -159,6 +183,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
                         children: [
                             {
                                 id: 'cakes',
+                                type: SidenavItemType.Link,
                                 label: 'Cakes',
                                 icon: 'cake',
                                 route: '/menu/items/desserts/cakes',
@@ -167,6 +192,7 @@ export const SIDENAV_ITEMS: SidenavItem[] = [
 
                             {
                                 id: 'ice-creams',
+                                type: SidenavItemType.Link,
                                 label: 'Ice Creams',
                                 icon: 'icecream',
                                 route: '/menu/items/desserts/ice-creams',
