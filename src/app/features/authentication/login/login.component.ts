@@ -1,24 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,} from '@angular/core';
 import {
     FormBuilder,
     FormGroup,
-    FormControl,
     Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AuthenticationService } from '@services/authentication.service';
-import { InputType } from '@shared/components/form-field/formField.const';
-import { ButtonType } from '@constants/buttonComponent';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { LoginFormFields } from './login.const';
+import { AuthenticationService } from '@services/authentication.service';
+import { ButtonType } from '@constants/buttonComponent';
+import { InputType } from '@shared/components/form-field/formField.const';
+import { NotificationService } from '@services/notification.service';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
     loginForm!: FormGroup;
     loginError = false;
     hide = true;
@@ -29,19 +29,12 @@ export class LoginComponent implements OnInit {
         private fb: FormBuilder,
         private authenticationService: AuthenticationService,
         private router: Router,
-    ) {}
-
-    ngOnInit(): void {
-        this.loginForm = this.initializeFormGroup();
-    }
-
-    private initializeFormGroup(): FormGroup {
-        return this.fb.group({
-            [LoginFormFields.Email]: [
-                '',
-                [Validators.required, Validators.email],
-            ],
-            [LoginFormFields.Password]: ['', Validators.required],
+        private _snackBar: MatSnackBar,
+        private notificationService: NotificationService,
+    ) {
+        this.loginForm = this.fb.group({
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', Validators.required],
         });
     }
 
@@ -53,24 +46,17 @@ export class LoginComponent implements OnInit {
 
         const { email, password } = this.loginForm.value;
 
-        setTimeout(() => {
-            this.authenticationService.login(email, password).subscribe({
-                next: () => {
-                    this.loginError = false;
-                    this.router.navigate(['/dashboard']);
-                },
-                error: () => {
-                    this.loginError = true;
-                },
-            });
-        }, 1500);
-    }
+        const isLoggedIn = this.authenticationService.login(email, password);
+        if (!isLoggedIn) {
+            this.notificationService.showErrorSnackBar(
+                'Invalid credentials',
+                'cancel',
+            );
+            return;
+        }
 
-    get email(): FormControl {
-        return this.loginForm.get(LoginFormFields.Email) as FormControl;
-    }
-
-    get password(): FormControl {
-        return this.loginForm.get(LoginFormFields.Password) as FormControl;
+        this.loginError = false;
+        this.router.navigate(['/dashboard']);
+        this.notificationService.showErrorSnackBar('Login success!', 'cancel');
     }
 }

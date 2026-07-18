@@ -25,22 +25,22 @@
                 />
             </div>
 
-            <div class="profile-card__data">
-                <p>
+            <div class="profile-card__data-container">
+                <p class="profile-card__data">
                     Name :
                     <span
                         class="profile-card__username mat-headline-6 profile-card__value"
                         >{{ currentUser?.name }}</span
                     >
                 </p>
-                <p>
+                <p class="profile-card__data">
                     Email :
                     <span
                         class="profile-card__username mat-headline-6 profile-card__value"
                         >{{ currentUser?.email }}</span
                     >
                 </p>
-                <p>
+                <p class="profile-card__data">
                     Role :
                     <span
                         class="profile-card__username mat-headline-6 profile-card__value"
@@ -49,7 +49,7 @@
                 </p>
             </div>
 
-            <app-button label="LOG-OUT" (clicked)="logout()"></app-button>
+            <app-button label="Log out" (clicked)="logout()"></app-button>
         </div>
     </mat-menu>
 </div>

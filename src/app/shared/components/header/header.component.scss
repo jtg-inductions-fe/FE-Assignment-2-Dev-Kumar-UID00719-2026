@@ -30,10 +30,17 @@
     &__container {
         @include flex-layout(space-between, center, column, pixelToRem(16));
         padding: 16px;
+        width: 250px;
     }
 
     &__value {
         color: $font-color-secondary;
+    }
+
+    &__data {
+        display: inline-block;
+        width: 100%;
+        @include text-ellipsis(1);
     }
 
     &__image-container {

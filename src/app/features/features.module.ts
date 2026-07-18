@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SharedModule } from '@shared/shared.module';
 import { LoginComponent } from './authentication/login/login.component';
@@ -28,6 +29,7 @@ import { HeaderComponent } from '@shared/components/header/header.component';
         MatInputModule,
         MatSelectModule,
         MatIconModule,
+        MatSnackBarModule,
 
         SharedModule,
     ],
