@@ -1,11 +1,6 @@
-@use 'abstracts/variables' as v;
+@use 'abstracts/variables' as *;
 
-@mixin flex-layout(
-    $justify: normal,
-    $align: normal,
-    $direction: row,
-    $gap: 0rem
-) {
+@mixin flex-layout($justify: normal, $align: normal, $direction: row, $gap: 0) {
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
@@ -14,12 +9,12 @@
 }
 
 @mixin font-face($font-family) {
-    $styles: map-get(v.$fonts, $font-family);
+    $styles: map-get($fonts, $font-family);
 
     @each $style, $font in $styles {
         @font-face {
             font-family: '#{$font-family}';
-            src: url('#{v.$font-path}#{map-get($font,"file-name")}.woff2');
+            src: url('#{$font-path}#{map-get($font,"file-name")}.woff2');
             font-weight: map-get($font, 'font-weight');
             font-style: normal;
             font-display: swap;
@@ -34,7 +29,7 @@
     overflow: hidden;
 }
 
-@mixin respond-above($min-viewPort-width: $viewPort-tablet) {
+@mixin breakpoint($min-viewPort-width: $viewPort-tablet) {
     @media only screen and (min-width: $min-viewPort-width) {
         @content;
     }
