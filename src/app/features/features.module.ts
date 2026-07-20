@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '@shared/shared.module';
-import { ErrorComponent } from './errorComponent/error.component';
+import { ErrorComponent } from '@features/errorComponent/error.component';
 
 @NgModule({
     declarations: [ErrorComponent],

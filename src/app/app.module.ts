@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { GlobalErrorHandlerService } from '@services/global-error-handler.service';
+import { CoreModule } from '@core/core.module';
+import { FeaturesModule } from '@features/features.module';
+import { SharedModule } from '@shared/shared.module';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -12,6 +16,10 @@ import { AppComponent } from './app.component';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+
+        CoreModule,
+        FeaturesModule,
+        SharedModule,
     ],
     providers: [
         {
