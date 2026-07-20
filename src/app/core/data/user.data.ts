@@ -1,4 +1,4 @@
-import { Role, User } from '../models/user';
+import { Role, User } from '@core/models/user';
 
 export const USERS: User[] = [
     {

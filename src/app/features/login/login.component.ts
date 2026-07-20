@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from '@services/authentication.service';
+import { ButtonType } from '@constants/buttonComponent';
 
 @Component({
     selector: 'app-login',
@@ -13,6 +14,7 @@ export class LoginComponent {
     loginForm: FormGroup;
     loginError = false;
     hide = true;
+    buttonType = ButtonType;
 
     constructor(
         private fb: FormBuilder,
@@ -23,14 +25,6 @@ export class LoginComponent {
             email: ['', [Validators.required, Validators.email]],
             password: ['', Validators.required],
         });
-    }
-
-    get email() {
-        return this.loginForm.get('email');
-    }
-
-    get password() {
-        return this.loginForm.get('password');
     }
 
     onSubmit(): void {
@@ -51,5 +45,13 @@ export class LoginComponent {
 
         this.loginError = false;
         this.router.navigate(['/dasboard']);
+    }
+
+    get email() {
+        return this.loginForm.get('email');
+    }
+
+    get password() {
+        return this.loginForm.get('password');
     }
 }

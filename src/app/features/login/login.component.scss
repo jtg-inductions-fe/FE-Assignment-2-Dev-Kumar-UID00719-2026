@@ -6,13 +6,12 @@
     @include flex-layout(center, center, row);
     width: 100%;
     height: 100%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-
+    padding: pixelToRem(16);
     &__container {
         @include flex-layout(space-between, center, column, pixelToRem(16));
         max-width: pixelToRem(400);
         padding: pixelToRem(12);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 pixelToRem(4) pixelToRem(12) rgba(0, 0, 0, 0.2);
     }
 
     &__heading {

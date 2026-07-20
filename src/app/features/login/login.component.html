@@ -2,7 +2,6 @@
     <mat-card class="login__container">
         <div class="login__header">
             <h1 class="mat-headline-4 login__heading">Restaurant Portal</h1>
-
             <p class="mat-subtitle-2 login__description">
                 Log in to manage orders, menus, and stats.
             </p>
@@ -60,11 +59,7 @@
                 Invalid email or password
             </div>
 
-            <app-button
-                type="submit"
-                label="LOGIN"
-                buttonClass="test"
-            ></app-button>
+            <app-button [type]="buttonType.submit" label="LOGIN"></app-button>
         </form>
     </mat-card>
 </div>

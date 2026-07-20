@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { ButtonVariant, ButtonType } from '@constants/button-component';
+import { ButtonVariant, ButtonType } from '@constants/buttonComponent';
 
 @Component({
     selector: 'app-button',
