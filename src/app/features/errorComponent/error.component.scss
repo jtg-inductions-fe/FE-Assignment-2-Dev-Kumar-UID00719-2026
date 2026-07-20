@@ -26,7 +26,7 @@
         color: $font-color-primary;
         margin: 0;
 
-        @include respond-above($viewPort-tablet) {
+        @include breakpoint($viewPort-tablet) {
             font-size: pixelToRem(48);
         }
     }
