@@ -11,14 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { SharedModule } from '@shared/shared.module';
 import { LoginComponent } from './login/login.component';
-import { ErrorComponent } from './errorComponent/error.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
     declarations: [LoginComponent, ErrorComponent],
     imports: [
         CommonModule,
         ReactiveFormsModule,
-
         MatButtonModule,
         MatCardModule,
         MatFormFieldModule,

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { ButtonVariant, ButtonType } from '@constants/buttonComponent';
 
@@ -14,4 +14,11 @@ export class ButtonComponent {
     @Input() buttonClass = '';
     @Input() label = '';
     @Input() icon? = '';
+    @Input() isSuffix = false;
+
+    @Output() clicked = new EventEmitter<void>();
+
+    onClick(): void {
+        this.clicked.emit();
+    }
 }

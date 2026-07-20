@@ -1,0 +1,25 @@
+<mat-form-field class="input" [appearance]="appearance">
+    <mat-label>{{ label }}</mat-label>
+
+    <input
+        matInput
+        [type]="inputType"
+        [placeholder]="placeholder"
+        [formControl]="control"
+    />
+
+    <app-button
+        *ngIf="variant === InputVariant.password"
+        matSuffix
+        [variant]="ButtonVariant.icon"
+        [type]="ButtonType.button"
+        [icon]="hide ? 'visibility_off' : 'visibility'"
+        (clicked)="togglePassword()"
+    >
+    </app-button>
+
+    <app-error-template
+        [control]="control"
+        [label]="label"
+    ></app-error-template>
+</mat-form-field>

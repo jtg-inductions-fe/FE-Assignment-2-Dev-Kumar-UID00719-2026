@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ErrorComponent } from '@features/errorComponent/error.component';
+import { ErrorComponent } from '@features/error/error.component';
 import { LoginComponent } from '@features/login/login.component';
 
 import { authGuard } from '@guards/auth.guard';

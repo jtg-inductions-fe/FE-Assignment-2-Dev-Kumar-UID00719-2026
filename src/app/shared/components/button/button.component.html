@@ -5,8 +5,10 @@
         [disabled]="disabled"
         [type]="type"
         color="primary"
+        (click)="onClick()"
         [ngClass]="buttonClass"
     >
+        <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
         {{ label }}
     </button>
 
@@ -16,8 +18,10 @@
         [disabled]="disabled"
         [type]="type"
         color="primary"
+        (click)="onClick()"
         [ngClass]="buttonClass"
     >
+        <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
         {{ label }}
     </button>
 
@@ -27,19 +31,21 @@
         [disabled]="disabled"
         [type]="type"
         color="primary"
+        (click)="onClick()"
         [ngClass]="buttonClass"
     >
+        <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
         {{ label }}
     </button>
 
     <button
         *ngSwitchCase="'icon'"
-        mat-flat-button
+        mat-icon-button
         [disabled]="disabled"
         [type]="type"
-        color="primary"
+        (click)="onClick()"
         [ngClass]="buttonClass"
     >
-        <mat-icon>{{ icon }}</mat-icon>
+        <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
     </button>
 </ng-container>
