@@ -1,0 +1,189 @@
+import { Order, OrderStatus } from '@models/resturant';
+
+export const ORDERS: Order[] = [
+    // -------------------------
+    // Pizza Palace
+    // -------------------------
+
+    {
+        id: 1001,
+        restaurantId: 1,
+        customerId: 1,
+        status: OrderStatus.Pending,
+        items: [
+            { dishName: 'Margherita Pizza', quantity: 2, unitPrice: 12 },
+            { dishName: 'Soft Drink', quantity: 2, unitPrice: 3 },
+        ],
+        totalPrice: 30,
+    },
+
+    {
+        id: 1002,
+        restaurantId: 1,
+        customerId: 2,
+        status: OrderStatus.Pending,
+        items: [
+            { dishName: 'Pepperoni Pizza', quantity: 1, unitPrice: 15 },
+            { dishName: 'Garlic Bread', quantity: 1, unitPrice: 6 },
+        ],
+        totalPrice: 21,
+    },
+
+    {
+        id: 1003,
+        restaurantId: 1,
+        customerId: 3,
+        status: OrderStatus.Preparing,
+        items: [
+            { dishName: 'Truffle Pasta', quantity: 1, unitPrice: 18 },
+            { dishName: 'Soft Drink', quantity: 1, unitPrice: 3 },
+        ],
+        totalPrice: 21,
+    },
+
+    {
+        id: 1004,
+        restaurantId: 1,
+        customerId: 1,
+        status: OrderStatus.Completed,
+        items: [
+            { dishName: 'Margherita Pizza', quantity: 1, unitPrice: 12 },
+            { dishName: 'Garlic Bread', quantity: 2, unitPrice: 6 },
+        ],
+        totalPrice: 24,
+    },
+
+    {
+        id: 1005,
+        restaurantId: 1,
+        customerId: 4,
+        status: OrderStatus.Completed,
+        items: [
+            { dishName: 'Pepperoni Pizza', quantity: 2, unitPrice: 15 },
+            { dishName: 'Soft Drink', quantity: 1, unitPrice: 3 },
+        ],
+        totalPrice: 33,
+    },
+
+    {
+        id: 1006,
+        restaurantId: 1,
+        customerId: 2,
+        status: OrderStatus.Completed,
+        items: [
+            { dishName: 'Margherita Pizza', quantity: 1, unitPrice: 12 },
+            { dishName: 'Truffle Pasta', quantity: 1, unitPrice: 18 },
+        ],
+        totalPrice: 30,
+    },
+
+    {
+        id: 1007,
+        restaurantId: 1,
+        customerId: 5,
+        status: OrderStatus.Completed,
+        items: [
+            { dishName: 'Garlic Bread', quantity: 2, unitPrice: 6 },
+            { dishName: 'Soft Drink', quantity: 2, unitPrice: 3 },
+        ],
+        totalPrice: 18,
+    },
+
+    {
+        id: 1008,
+        restaurantId: 1,
+        customerId: 6,
+        status: OrderStatus.Rejected,
+        items: [{ dishName: 'Pepperoni Pizza', quantity: 1, unitPrice: 15 }],
+        totalPrice: 15,
+    },
+
+    // -------------------------
+    // Burger Bistro
+    // -------------------------
+
+    {
+        id: 2001,
+        restaurantId: 2,
+        customerId: 1,
+        status: OrderStatus.Completed,
+        items: [
+            { dishName: 'Cheeseburger', quantity: 2, unitPrice: 10 },
+            { dishName: 'French Fries', quantity: 1, unitPrice: 5 },
+        ],
+        totalPrice: 25,
+    },
+
+    {
+        id: 2002,
+        restaurantId: 2,
+        customerId: 7,
+        status: OrderStatus.Completed,
+        items: [
+            { dishName: 'Chicken Burger', quantity: 1, unitPrice: 11 },
+            { dishName: 'Cola', quantity: 2, unitPrice: 3 },
+        ],
+        totalPrice: 17,
+    },
+
+    {
+        id: 2003,
+        restaurantId: 2,
+        customerId: 3,
+        status: OrderStatus.Completed,
+        items: [
+            { dishName: 'Veg Burger', quantity: 2, unitPrice: 9 },
+            { dishName: 'French Fries', quantity: 1, unitPrice: 5 },
+        ],
+        totalPrice: 23,
+    },
+
+    {
+        id: 2004,
+        restaurantId: 2,
+        customerId: 4,
+        status: OrderStatus.Completed,
+        items: [
+            { dishName: 'Cheeseburger', quantity: 1, unitPrice: 10 },
+            { dishName: 'Cola', quantity: 1, unitPrice: 3 },
+        ],
+        totalPrice: 13,
+    },
+
+    // -------------------------
+    // Sushi Zen
+    // -------------------------
+
+    {
+        id: 3001,
+        restaurantId: 3,
+        customerId: 5,
+        status: OrderStatus.Completed,
+        items: [{ dishName: 'California Roll', quantity: 2, unitPrice: 14 }],
+        totalPrice: 28,
+    },
+
+    {
+        id: 3002,
+        restaurantId: 3,
+        customerId: 2,
+        status: OrderStatus.Completed,
+        items: [
+            { dishName: 'Salmon Nigiri', quantity: 2, unitPrice: 16 },
+            { dishName: 'Green Tea', quantity: 2, unitPrice: 4 },
+        ],
+        totalPrice: 40,
+    },
+
+    {
+        id: 3003,
+        restaurantId: 3,
+        customerId: 6,
+        status: OrderStatus.Completed,
+        items: [
+            { dishName: 'Tempura', quantity: 1, unitPrice: 13 },
+            { dishName: 'Miso Soup', quantity: 2, unitPrice: 5 },
+        ],
+        totalPrice: 23,
+    },
+];

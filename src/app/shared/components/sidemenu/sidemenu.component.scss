@@ -74,7 +74,7 @@
 }
 
 .sidenav-content {
-    @include flex-layout(center, center, column);
+    @include flex-layout(normal, normal, column);
     width: 100%;
     height: 100%;
 }

@@ -14,7 +14,15 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
+import { NgIf } from '@angular/common';
+import { MatListModule } from '@angular/material/list';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
+import { LayoutHeaderComponent } from './components/layout-header/layout-header.component';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
+import { StatsContainerComponent } from './components/stats-container/stats-container.component';
+import { ReportGeneratorComponent } from './components/report-generator/report-generator.component';
+import { DataListCardComponent } from './components/data-list-card/data-list-card.component';
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { FormFieldComponent } from '@shared/components/form-field/form-field.component';
 import { ErrorTemplateComponent } from '@shared/components/error-template/error-template.component';
@@ -27,6 +35,11 @@ import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.componen
         ErrorTemplateComponent,
         HeaderComponent,
         SidemenuComponent,
+        LayoutHeaderComponent,
+        AutocompleteComponent,
+        StatsContainerComponent,
+        ReportGeneratorComponent,
+        DataListCardComponent,
     ],
     imports: [
         RouterModule,
@@ -43,6 +56,10 @@ import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.componen
         MatTreeModule,
         MatSidenavModule,
         MatDividerModule,
+        MatListModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule,
+        NgIf,
     ],
     exports: [
         ButtonComponent,
@@ -50,6 +67,11 @@ import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.componen
         ErrorTemplateComponent,
         HeaderComponent,
         SidemenuComponent,
+        AutocompleteComponent,
+        LayoutHeaderComponent,
+        StatsContainerComponent,
+        ReportGeneratorComponent,
+        DataListCardComponent,
     ],
 })
 export class SharedModule {}

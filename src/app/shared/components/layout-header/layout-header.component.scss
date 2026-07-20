@@ -1,0 +1,21 @@
+@use 'abstracts' as *;
+@use '@angular/material' as mat;
+@use 'base' as *;
+
+:host {
+    width: 100%;
+}
+
+.layout-header {
+    width: 100%;
+    @include flex-layout(space-between, center, row);
+    padding: 16px;
+
+    &__heading {
+        margin: 0;
+    }
+
+    &__subHeading {
+        color: $font-color-secondary;
+    }
+}

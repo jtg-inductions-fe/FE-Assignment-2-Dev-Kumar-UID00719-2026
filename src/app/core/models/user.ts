@@ -10,6 +10,7 @@ export interface User {
     password: string;
     role: Role;
     profileImageUrl: string;
+    resturantIds?: number[];
 }
 
 export type AuthenticatedUser = Omit<User, 'password'>;

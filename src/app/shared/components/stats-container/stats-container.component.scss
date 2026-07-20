@@ -1,0 +1,44 @@
+@use '@angular/material' as mat;
+@use 'abstracts' as *;
+@use 'base' as *;
+
+.stats-container {
+    @include flex-layout(space-between, center, row, pixelToRem(12));
+    width: 100%;
+    padding: 0 pixelToRem(16);
+}
+
+.stats-card {
+    @include flex-layout(space-between, center, row);
+    flex-grow: 1;
+    max-width: pixelToRem(400);
+    padding: pixelToRem(10);
+    border: 0.83px solid rgba(0, 0, 0, 0.12);
+    border-radius: pixelToRem(12);
+
+    &__icon {
+        width: pixelToRem(44);
+        height: pixelToRem(44);
+        text-align: center;
+        padding: pixelToRem(8);
+        border-radius: pixelToRem(8) &--green {
+            color: rgba(46, 125, 50, 1);
+            background-color: rgba(76, 175, 80, 0.08);
+        }
+
+        &--blue {
+            color: rgba(2, 136, 209, 1);
+            background-color: rgba(3, 169, 244, 0.08);
+        }
+
+        &--orange {
+            color: rgba(237, 108, 2, 1);
+            background-color: rgba(255, 152, 0, 0.08);
+        }
+
+        &--green {
+            color: rgba(46, 125, 50, 1);
+            background-color: rgba(76, 175, 80, 0.08);
+        }
+    }
+}

@@ -1,0 +1,16 @@
+@use 'abstracts' as *;
+
+@use 'base' as *;
+
+button {
+    border-radius: pixelToRem(4);
+    width: 100%;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+button.mat-mdc-outlined-button {
+    border: 1px solid currentColor;
+}

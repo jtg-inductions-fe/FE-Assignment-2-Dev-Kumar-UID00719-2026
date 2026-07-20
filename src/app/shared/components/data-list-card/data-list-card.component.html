@@ -1,0 +1,30 @@
+<mat-card class="stats-list-card">
+    <h2 class="stats-list-card__heading">
+        {{ data.heading }}
+    </h2>
+
+    <div class="stats-list-card__item" *ngFor="let item of data.items">
+        <div class="stats-list-card__image-container">
+            <img
+                *ngIf="item.image"
+                [src]="item.image"
+                [alt]="item.title"
+                class="stats-list-card__image"
+            />
+        </div>
+
+        <div class="stats-list-card__content">
+            <p class="stats-list-card__title">
+                {{ item.title }}
+            </p>
+
+            <p *ngIf="item.subtitle" class="stats-list-card__subtitle">
+                {{ item.subtitle }}
+            </p>
+        </div>
+
+        <span *ngIf="item.trailingText" class="stats-list-card__trailing">
+            {{ item.trailingText }}
+        </span>
+    </div>
+</mat-card>

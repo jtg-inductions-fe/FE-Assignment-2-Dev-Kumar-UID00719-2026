@@ -12,6 +12,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SharedModule } from '@shared/shared.module';
+import { DashboardModule } from '@features/dashboard/dashboard.module';
 import { LoginComponent } from './authentication/login/login.component';
 import { ErrorComponent } from './error/error.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
@@ -29,6 +30,7 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
         MatIconModule,
         MatSnackBarModule,
         SharedModule,
+        DashboardModule,
     ],
     exports: [ErrorComponent, LoginComponent, MainLayoutComponent],
 })

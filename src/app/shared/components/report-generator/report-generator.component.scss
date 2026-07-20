@@ -1,0 +1,27 @@
+@use 'abstracts' as *;
+
+.report-generator {
+    @include flex-layout(space-between, center, row);
+    padding: pixelToRem(16);
+    margin: pixelToRem(16);
+    border: 0.83px solid rgba(0, 0, 0, 0.12);
+    border-radius: pixelToRem(12);
+
+    &__text-box {
+        @include flex-layout(center, normal, column);
+        max-width: pixelToRem(380);
+        padding: 16px;
+    }
+
+    &__heading {
+        margin: 0;
+    }
+
+    &__caption {
+        color: $font-color-secondary;
+    }
+
+    &__button-container {
+        @include flex-layout(space-between, center, row, 8px);
+    }
+}
