@@ -1,0 +1,29 @@
+@use 'abstracts' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+main {
+    width: 100%;
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}

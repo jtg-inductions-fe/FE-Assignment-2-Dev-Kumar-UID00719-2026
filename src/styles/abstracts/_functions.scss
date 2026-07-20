@@ -1,0 +1,6 @@
+@use 'abstracts/variables' as *;
+@use 'sass:math';
+
+@function pixelToRem($px, $base-value: $base) {
+    @return math.div($px, $base-value) * 1rem;
+}
