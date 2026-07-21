@@ -9,6 +9,7 @@ import { DashboardService } from '@services/dashboard.service';
 })
 export class DashboardComponent implements OnInit {
     topCustomers!: CardListData;
+    topDishes!: CardListData;
 
     constructor(private dashboardService: DashboardService) {}
 
@@ -16,6 +17,7 @@ export class DashboardComponent implements OnInit {
         this.dashboardService.currentRestaurant$.subscribe((restaurantName) => {
             this.topCustomers =
                 this.dashboardService.getTopCustomers(restaurantName);
+            this.topDishes = this.dashboardService.getTopDishes(restaurantName);
         });
     }
 }

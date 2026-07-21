@@ -2,5 +2,14 @@
     <app-layout-header class="dashboard__header"></app-layout-header>
     <app-stats-container></app-stats-container>
     <app-report-generator></app-report-generator>
-    <app-data-list-card [data]="topCustomers"></app-data-list-card>
+    <div class="dashboard__data-list-cards">
+        <app-data-list-card
+            [data]="topCustomers"
+            class="dashboard__top-customers"
+        ></app-data-list-card>
+        <app-data-list-card
+            [data]="topDishes"
+            class="dashboard__top-dishes"
+        ></app-data-list-card>
+    </div>
 </div>

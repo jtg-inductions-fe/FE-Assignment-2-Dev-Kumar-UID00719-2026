@@ -119,4 +119,47 @@ export class DashboardService {
             })),
         };
     }
+
+    getTopDishes(restaurantName?: string): CardListData {
+        const orders = this.getOrders(restaurantName).filter(
+            (order) => order.status === OrderStatus.Completed,
+        );
+
+        const dishNames = [
+            ...new Set(
+                orders.flatMap((order) =>
+                    order.items.map((item) => item.dishName),
+                ),
+            ),
+        ];
+
+        const topDishes = dishNames.map((dishName) => {
+            const completedOrders = orders.filter((order) =>
+                order.items.some((item) => item.dishName === dishName),
+            );
+
+            const restaurant = RESTAURANTS.find(
+                (restaurant) =>
+                    restaurant.id === completedOrders[0].restaurantId,
+            )!;
+
+            return {
+                title: dishName,
+                subtitle: restaurant.name,
+                trailingText: `${completedOrders.length} Orders`,
+                totalOrders: completedOrders.length,
+            };
+        });
+
+        topDishes.sort((a, b) => b.totalOrders - a.totalOrders);
+
+        return {
+            heading: 'Top Dishes',
+            items: topDishes.slice(0, 5).map((dish) => ({
+                title: dish.title,
+                subtitle: dish.subtitle,
+                trailingText: dish.trailingText,
+            })),
+        };
+    }
 }

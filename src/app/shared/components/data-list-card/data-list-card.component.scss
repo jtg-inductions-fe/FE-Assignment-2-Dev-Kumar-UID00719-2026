@@ -1,16 +1,26 @@
 @use 'abstracts' as *;
+@use 'base' as *;
 
 .stats-list-card {
     @include flex-layout(space-between, center, column);
     padding: pixelToRem(24);
+    margin: pixelToRem(16);
+    border-radius: pixelToRem(16);
 
     &__heading {
         width: 100%;
     }
 
     &__item {
-        @include flex-layout(space-between, center, row);
+        @include flex-layout(space-between, center, row, pixelToRem(16));
+        border-bottom: 0.83px solid rgba(0, 0, 0, 0.12);
         width: 100%;
+        padding: pixelToRem(8) 0;
+    }
+
+    &__content {
+        flex: 1;
+        padding: pixelToRem(4) 0;
     }
 
     &__image-container {
