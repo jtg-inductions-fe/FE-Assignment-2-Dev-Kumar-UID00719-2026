@@ -2,19 +2,20 @@
     <div class="header__logo">
         <img src="assets/images/icons/main-logo.svg" alt="" />
     </div>
-    <button
-        class="header__profile-button"
+
+    <app-button
         *ngIf="isLoggedIn"
-        mat-icon-button
-        [matMenuTriggerFor]="menu"
-        aria-label="Example icon-button with a menu"
+        [variant]="buttonVariant.Icon"
+        [menu]="menu"
+        buttonClass="profile-button"
     >
         <img
             class="header__profile-button-image"
             [src]="currentUser?.profileImageUrl"
             alt="User profile picture"
         />
-    </button>
+    </app-button>
+
     <mat-menu #menu="matMenu" class="profile-card">
         <div class="profile-card__container">
             <div class="profile-card__image-container">

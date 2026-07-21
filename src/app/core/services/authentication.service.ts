@@ -24,13 +24,12 @@ export class AuthenticationService {
         const storedUser = localStorage.getItem(STORAGE_KEYS.CURRENT_USER);
 
         if (storedUser) {
-            const user: User = JSON.parse(storedUser);
+            const user: AuthenticatedUser = JSON.parse(storedUser);
 
             this.currentUserSubject.next(user);
             this.isLoggedInSubject.next(true);
         }
     }
-
 
     login(email: string, password: string): Observable<AuthenticatedUser> {
         return new Observable((observer) => {

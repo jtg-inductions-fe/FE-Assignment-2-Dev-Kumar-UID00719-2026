@@ -45,7 +45,9 @@
         [type]="type"
         (click)="onClick()"
         [ngClass]="buttonClass"
+        [matMenuTriggerFor]="menu"
     >
+        <ng-content></ng-content>
         <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
     </button>
 </ng-container>

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DestroyRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { AuthenticationService } from '@services/authentication.service';
-import { User } from '@models/user';
+import { AuthenticatedUser } from '@models/user';
+import { ButtonVariant } from '@constants/buttonComponent';
 
 @Component({
     selector: 'app-header',
@@ -11,24 +12,27 @@ import { User } from '@models/user';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-    currentUser: User | null = null;
+    currentUser: AuthenticatedUser | null = null;
     isLoggedIn = false;
+    buttonVariant = ButtonVariant;
 
     constructor(
         private authenticationService: AuthenticationService,
         private router: Router,
+        private destroyRef: DestroyRef,
     ) {}
 
     ngOnInit() {
         this.authenticationService.currentUser$
-            .pipe(takeUntilDestroyed())
+            .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe((user) => {
                 this.currentUser = user;
             });
         this.authenticationService.isLoggedIn$
-            .pipe(takeUntilDestroyed())
+            .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe((value) => {
                 this.isLoggedIn = value;
+                console.log('isLoggedIn', this.isLoggedIn);
             });
     }
 

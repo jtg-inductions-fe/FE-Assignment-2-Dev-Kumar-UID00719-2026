@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+import { MatMenu } from '@angular/material/menu';
+
 import { ButtonVariant, ButtonType } from '@constants/buttonComponent';
 
 @Component({
@@ -15,6 +17,7 @@ export class ButtonComponent {
     @Input() label = '';
     @Input() icon? = '';
     @Input() isSuffix = false;
+    @Input() menu: MatMenu | null = null;
 
     @Output() clicked = new EventEmitter<void>();
 
