@@ -1,12 +1,12 @@
 export enum ButtonVariant {
-    flat = 'flat',
-    stroked = 'stroked',
-    raised = 'raised',
-    icon = 'icon',
+    Flat = 'flat',
+    Stroked = 'stroked',
+    Raised = 'raised',
+    Icon = 'icon',
 }
 
 export enum ButtonType {
-    button = 'button',
-    submit = 'submit',
-    reset = 'reset',
+    Button = 'button',
+    Submit = 'submit',
+    Reset = 'reset',
 }

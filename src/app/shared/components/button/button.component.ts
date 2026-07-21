@@ -8,8 +8,8 @@ import { ButtonVariant, ButtonType } from '@constants/button-component';
     styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-    @Input() variant: ButtonVariant = ButtonVariant.raised;
-    @Input() type: ButtonType = ButtonType.button;
+    @Input() variant: ButtonVariant = ButtonVariant.Raised;
+    @Input() type: ButtonType = ButtonType.Button;
     @Input() disabled = false;
     @Input() buttonClass = '';
     @Input() label = '';
