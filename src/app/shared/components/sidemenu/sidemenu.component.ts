@@ -11,10 +11,10 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
-import { SidenavItem } from '@models/sidebar-item';
-import { SIDENAV_ITEMS } from '@data/sidebar-item.data';
-import { SidenavItemType } from '@models/sidebar-item';
 import { AuthenticationService } from '@services/authentication.service';
+import { SidenavItem } from '@models/sidebar-item';
+import { SidenavItemType } from '@models/sidebar-item';
+import { SIDENAV_ITEMS } from '@data/sidebar-item.data';
 
 @Component({
     selector: 'app-sidemenu',

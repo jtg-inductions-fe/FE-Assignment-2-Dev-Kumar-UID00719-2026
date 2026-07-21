@@ -4,6 +4,14 @@
     </div>
 
     <app-button
+        *ngIf="!isDesktop && isLoggedIn"
+        [variant]="buttonVariant.Icon"
+        (click)="onMenuClick()"
+        icon="menu"
+    >
+    </app-button>
+
+    <app-button
         *ngIf="isLoggedIn"
         buttonClass="profile-button"
         [variant]="buttonVariant.Icon"

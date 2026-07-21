@@ -1,4 +1,10 @@
-import { Component,EventEmitter, OnInit, DestroyRef, Output } from '@angular/core';
+import {
+    Component,
+    EventEmitter,
+    OnInit,
+    DestroyRef,
+    Output,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BreakpointObserver } from '@angular/cdk/layout';
@@ -46,8 +52,7 @@ export class HeaderComponent implements OnInit {
             });
     }
 
-    @Output()
-    menuButtonClicked = new EventEmitter<void>();
+    @Output() menuButtonClicked = new EventEmitter<void>();
 
     logout() {
         this.authenticationService.logout();
