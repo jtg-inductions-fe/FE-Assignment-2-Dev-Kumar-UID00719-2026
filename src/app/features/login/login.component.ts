@@ -50,19 +50,18 @@ export class LoginComponent implements OnInit {
             return;
         }
 
-        if (!this.email || !this.password) return;
-
         const { email, password } = this.loginForm.value;
 
         setTimeout(() => {
-            this.authenticationService.login(email, password);
-
-            if (!this.authenticationService.isLoggedIn()) {
-                this.loginError = true;
-                return;
-            }
-
-            this.router.navigate(['/dashboard']);
+            this.authenticationService.login(email, password).subscribe({
+                next: () => {
+                    this.loginError = false;
+                    this.router.navigate(['/dashboard']);
+                },
+                error: () => {
+                    this.loginError = true;
+                },
+            });
         }, 1500);
     }
 

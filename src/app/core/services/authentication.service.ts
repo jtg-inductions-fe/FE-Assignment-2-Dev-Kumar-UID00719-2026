@@ -1,40 +1,69 @@
 import { Injectable } from '@angular/core';
-
 import { BehaviorSubject } from 'rxjs';
 
-import { Role, User } from '@models/user';
 import { USERS } from '@data/user.data';
+import { STORAGE_KEYS } from '@constants/storage-keys';
+import { User, AuthenticatedUser } from '@models/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthenticationService {
     private users: User[] = [...USERS];
-    private currentUserSubject = new BehaviorSubject<User | null>(null);
+
+    private currentUserSubject = new BehaviorSubject<AuthenticatedUser | null>(
+        null,
+    );
     private isLoggedInSubject = new BehaviorSubject<boolean>(false);
 
     currentUser$ = this.currentUserSubject.asObservable();
     isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
-    login(email: string, password: string): void {
-        const user = this.users.find(
-            (user) => user.email === email && user.password === password,
-        );
+    constructor() {
+        const storedUser = localStorage.getItem(STORAGE_KEYS.CURRENT_USER);
+        if (storedUser) {
+            const user: AuthenticatedUser = JSON.parse(storedUser);
 
-        if (!user) {
-            return;
+            this.currentUserSubject.next(user);
+            this.isLoggedInSubject.next(true);
         }
+    }
 
-        this.currentUserSubject.next(user);
-        this.isLoggedInSubject.next(true);
+    login(email: string, password: string): Observable<AuthenticatedUser> {
+        return new Observable((observer) => {
+            const user = this.users.find(
+                (user) => user.email === email && user.password === password,
+            );
+
+            if (!user) {
+                observer.error(new Error('Validation failed!'));
+                return;
+            }
+
+            const { password: passwordToRemove, ...authenticatedUser } = user;
+
+            localStorage.setItem(
+                STORAGE_KEYS.CURRENT_USER,
+                JSON.stringify(authenticatedUser),
+            );
+
+            this.currentUserSubject.next(authenticatedUser);
+            this.isLoggedInSubject.next(true);
+
+            observer.next(authenticatedUser);
+            observer.complete();
+        });
     }
 
     logout(): void {
+        localStorage.removeItem(STORAGE_KEYS.CURRENT_USER);
+
         this.currentUserSubject.next(null);
         this.isLoggedInSubject.next(false);
     }
 
-    getCurrentUser(): User | null {
+    getCurrentUser(): AuthenticatedUser | null {
         return this.currentUserSubject.value;
     }
 
