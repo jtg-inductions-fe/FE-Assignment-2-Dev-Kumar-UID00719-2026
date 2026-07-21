@@ -12,7 +12,7 @@
     }
 
     &__data-list-cards {
-        @include flex-layout(space-between, normal, row);
+        @include flex-layout(space-between, normal, column);
     }
 
     &__top-customers {
@@ -21,5 +21,19 @@
 
     &__top-dishes {
         flex: 2;
+    }
+
+    @include breakpoint($viewPort-tablet) {
+        &__data-list-cards {
+            @include flex-layout(space-between, normal, row);
+        }
+
+        &__top-customers {
+            flex: 1;
+        }
+
+        &__top-dishes {
+            flex: 1;
+        }
     }
 }

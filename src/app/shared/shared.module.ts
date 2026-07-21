@@ -28,6 +28,7 @@ import { FormFieldComponent } from '@shared/components/form-field/form-field.com
 import { ErrorTemplateComponent } from '@shared/components/error-template/error-template.component';
 import { HeaderComponent } from '@shared/components/header/header.component';
 import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.component';
+import { DashboardFooterComponent } from '@shared/components/dashboard-footer/dashboard-footer.component';
 @NgModule({
     declarations: [
         ButtonComponent,
@@ -40,6 +41,7 @@ import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.componen
         StatsContainerComponent,
         ReportGeneratorComponent,
         DataListCardComponent,
+        DashboardFooterComponent,
     ],
     imports: [
         RouterModule,
@@ -72,6 +74,7 @@ import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.componen
         StatsContainerComponent,
         ReportGeneratorComponent,
         DataListCardComponent,
+        DashboardFooterComponent,
     ],
 })
 export class SharedModule {}

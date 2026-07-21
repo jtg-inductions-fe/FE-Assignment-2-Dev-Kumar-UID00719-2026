@@ -3,9 +3,15 @@
 @use 'base' as *;
 
 .stats-container {
-    @include flex-layout(space-between, center, row, pixelToRem(12));
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: pixelToRem(16);
     width: 100%;
     padding: 0 pixelToRem(16);
+
+    @include breakpoint($viewPort-phone) {
+        @include flex-layout(space-between, center, row, pixelToRem(16));
+    }
 }
 
 .stats-card {
@@ -13,7 +19,7 @@
     flex-grow: 1;
     max-width: pixelToRem(400);
     padding: pixelToRem(10);
-    border: 0.83px solid rgba(0, 0, 0, 0.12);
+    border: $border-primary;
     border-radius: pixelToRem(12);
 
     &__icon {
@@ -21,24 +27,21 @@
         height: pixelToRem(44);
         text-align: center;
         padding: pixelToRem(8);
-        border-radius: pixelToRem(8) &--green {
-            color: rgba(46, 125, 50, 1);
-            background-color: rgba(76, 175, 80, 0.08);
-        }
+        border-radius: pixelToRem(8);
 
         &--blue {
-            color: rgba(2, 136, 209, 1);
-            background-color: rgba(3, 169, 244, 0.08);
+            color: $color-blue;
+            background-color: $color-blue-light;
         }
 
         &--orange {
-            color: rgba(237, 108, 2, 1);
-            background-color: rgba(255, 152, 0, 0.08);
+            color: $color-orange;
+            background-color: $color-orange-light;
         }
 
         &--green {
-            color: rgba(46, 125, 50, 1);
-            background-color: rgba(76, 175, 80, 0.08);
+            color: $color-green;
+            background-color: $color-green-light;
         }
     }
 }

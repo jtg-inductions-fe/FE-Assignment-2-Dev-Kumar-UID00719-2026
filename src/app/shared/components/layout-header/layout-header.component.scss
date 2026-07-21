@@ -8,14 +8,29 @@
 
 .layout-header {
     width: 100%;
-    @include flex-layout(space-between, center, row);
-    padding: 16px;
+    @include flex-layout(space-between, center, column, pixelToRem(32));
+    padding: pixelToRem(16);
 
     &__heading {
         margin: 0;
+        text-align: center;
     }
 
     &__subHeading {
         color: $font-color-secondary;
+        text-align: center;
+        @include text-ellipsis(2);
+    }
+
+    @include breakpoint($viewPort-phone) {
+        @include flex-layout(space-between, center, row);
+
+        &__heading {
+            text-align: start;
+        }
+
+        &__subHeading {
+            text-align: start;
+        }
     }
 }
