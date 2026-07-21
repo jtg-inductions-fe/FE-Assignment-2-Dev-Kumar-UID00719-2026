@@ -16,7 +16,12 @@ import { ErrorTemplateComponent } from '@shared/components/error-template/error-
 import { HeaderComponent } from '@shared/components/header/header.component';
 
 @NgModule({
-    declarations: [ButtonComponent, FormFieldComponent, ErrorTemplateComponent, HeaderComponent],
+    declarations: [
+        ButtonComponent,
+        FormFieldComponent,
+        ErrorTemplateComponent,
+        HeaderComponent,
+    ],
     imports: [
         CommonModule,
         MatButtonModule,
@@ -28,6 +33,11 @@ import { HeaderComponent } from '@shared/components/header/header.component';
         MatFormFieldModule,
         MatSelectModule,
     ],
-    exports: [ButtonComponent, FormFieldComponent, ErrorTemplateComponent, HeaderComponent],
+    exports: [
+        ButtonComponent,
+        FormFieldComponent,
+        ErrorTemplateComponent,
+        HeaderComponent,
+    ],
 })
 export class SharedModule {}

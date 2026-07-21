@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { AuthenticationService } from '@services/authentication.service';
-
 import { User } from '@models/user';
 
 @Component({
@@ -20,12 +20,16 @@ export class HeaderComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.authenticationService.currentUser$.subscribe((user) => {
-            this.currentUser = user;
-        });
-        this.authenticationService.isLoggedIn$.subscribe((value) => {
-            this.isLoggedIn = value;
-        });
+        this.authenticationService.currentUser$
+            .pipe(takeUntilDestroyed())
+            .subscribe((user) => {
+                this.currentUser = user;
+            });
+        this.authenticationService.isLoggedIn$
+            .pipe(takeUntilDestroyed())
+            .subscribe((value) => {
+                this.isLoggedIn = value;
+            });
     }
 
     logout() {

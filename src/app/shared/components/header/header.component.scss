@@ -12,10 +12,10 @@
     border-bottom: 0.83px solid rgba(0, 0, 0, 0.12);
 
     &__profile-button {
-        width: 40px;
-        height: 40px;
+        width: pixelToRem(40);
+        height: pixelToRem(40);
         overflow: hidden;
-        border-radius: 20px;
+        border-radius: pixelToRem(20);
         padding: 0;
     }
 
@@ -29,8 +29,8 @@
 .profile-card {
     &__container {
         @include flex-layout(space-between, center, column, pixelToRem(16));
-        padding: 16px;
-        width: 250px;
+        padding: pixelToRem(16);
+        width: pixelToRem(250);
     }
 
     &__value {
@@ -44,9 +44,9 @@
     }
 
     &__image-container {
-        width: 100px;
-        height: 100px;
-        border-radius: 50px;
+        width: pixelToRem(100);
+        height: pixelToRem(100);
+        border-radius: pixelToRem(50);
         overflow: hidden;
         margin: 0 auto;
     }

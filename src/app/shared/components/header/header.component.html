@@ -3,8 +3,8 @@
         <img src="assets/images/icons/main-logo.svg" alt="" />
     </div>
     <button
-        *ngIf="isLoggedIn"
         class="header__profile-button"
+        *ngIf="isLoggedIn"
         mat-icon-button
         [matMenuTriggerFor]="menu"
         aria-label="Example icon-button with a menu"
@@ -12,7 +12,7 @@
         <img
             class="header__profile-button-image"
             [src]="currentUser?.profileImageUrl"
-            alt=""
+            alt="User profile picture"
         />
     </button>
     <mat-menu #menu="matMenu" class="profile-card">
@@ -21,7 +21,7 @@
                 <img
                     class="profile-card__image"
                     [src]="currentUser?.profileImageUrl"
-                    alt=""
+                    alt="User profile picture"
                 />
             </div>
 
@@ -30,22 +30,25 @@
                     Name :
                     <span
                         class="profile-card__username mat-headline-6 profile-card__value"
-                        >{{ currentUser?.name }}</span
                     >
+                        {{ currentUser?.name }}
+                    </span>
                 </p>
                 <p class="profile-card__data">
                     Email :
                     <span
                         class="profile-card__username mat-headline-6 profile-card__value"
-                        >{{ currentUser?.email }}</span
                     >
+                        {{ currentUser?.email }}
+                    </span>
                 </p>
                 <p class="profile-card__data">
                     Role :
                     <span
                         class="profile-card__username mat-headline-6 profile-card__value"
-                        >{{ currentUser?.role }}</span
                     >
+                        {{ currentUser?.role }}
+                    </span>
                 </p>
             </div>
 

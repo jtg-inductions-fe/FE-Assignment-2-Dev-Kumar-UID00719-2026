@@ -14,14 +14,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SharedModule } from '@shared/shared.module';
 import { LoginComponent } from './authentication/login/login.component';
 import { ErrorComponent } from './error/error.component';
-import { HeaderComponent } from '@shared/components/header/header.component';
-
 @NgModule({
     declarations: [LoginComponent, ErrorComponent],
     imports: [
         CommonModule,
         ReactiveFormsModule,
-
         MatMenuModule,
         MatButtonModule,
         MatCardModule,
@@ -30,7 +27,6 @@ import { HeaderComponent } from '@shared/components/header/header.component';
         MatSelectModule,
         MatIconModule,
         MatSnackBarModule,
-
         SharedModule,
     ],
     exports: [ErrorComponent, LoginComponent],

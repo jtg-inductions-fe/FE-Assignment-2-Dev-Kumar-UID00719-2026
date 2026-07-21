@@ -1,26 +1,25 @@
-import { Component,} from '@angular/core';
+import { Component, OnInit,} from '@angular/core';
 import {
     FormBuilder,
     FormGroup,
     Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormControl } from '@angular/forms';
 
 import { AuthenticationService } from '@services/authentication.service';
 import { ButtonType } from '@constants/buttonComponent';
 import { InputType } from '@shared/components/form-field/formField.const';
 import { NotificationService } from '@services/notification.service';
+import { LoginFormFields } from './login.const';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
     loginForm!: FormGroup;
-    loginError = false;
     hide = true;
     buttonType = ButtonType;
     InputType = InputType;
@@ -29,12 +28,20 @@ export class LoginComponent {
         private fb: FormBuilder,
         private authenticationService: AuthenticationService,
         private router: Router,
-        private _snackBar: MatSnackBar,
         private notificationService: NotificationService,
-    ) {
-        this.loginForm = this.fb.group({
-            email: ['', [Validators.required, Validators.email]],
-            password: ['', Validators.required],
+    ) {}
+
+    ngOnInit(): void {
+        this.loginForm = this.initializeFormGroup();
+    }
+
+    private initializeFormGroup(): FormGroup {
+        return this.fb.group({
+            [LoginFormFields.Email]: [
+                '',
+                [Validators.required, Validators.email],
+            ],
+            [LoginFormFields.Password]: ['', Validators.required],
         });
     }
 
@@ -46,17 +53,30 @@ export class LoginComponent {
 
         const { email, password } = this.loginForm.value;
 
-        const isLoggedIn = this.authenticationService.login(email, password);
-        if (!isLoggedIn) {
-            this.notificationService.showErrorSnackBar(
-                'Invalid credentials',
-                'cancel',
-            );
-            return;
-        }
+        setTimeout(() => {
+            this.authenticationService.login(email, password).subscribe({
+                next: () => {
+                    this.router.navigate(['/dashboard']);
+                    this.notificationService.showSuccessSnackBar(
+                        'Login success!',
+                        'cancel',
+                    );
+                },
+                error: () => {
+                    this.notificationService.showErrorSnackBar(
+                        'Invalid credentials',
+                        'cancel',
+                    );
+                },
+            });
+        }, 1500);
+    }
 
-        this.loginError = false;
-        this.router.navigate(['/dashboard']);
-        this.notificationService.showErrorSnackBar('Login success!', 'cancel');
+    get email(): FormControl {
+        return this.loginForm.get(LoginFormFields.Email) as FormControl;
+    }
+
+    get password(): FormControl {
+        return this.loginForm.get(LoginFormFields.Password) as FormControl;
     }
 }
