@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonVariant } from '../button/button.constant';
+import { ButtonVariant } from '@shared/components/button/button.constant';
 
 @Component({
     selector: 'app-report-generator',

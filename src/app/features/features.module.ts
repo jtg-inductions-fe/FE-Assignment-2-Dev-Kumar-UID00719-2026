@@ -13,9 +13,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SharedModule } from '@shared/shared.module';
 import { DashboardModule } from '@features/dashboard/dashboard.module';
-import { LoginComponent } from './authentication/login/login.component';
-import { ErrorComponent } from './error/error.component';
-import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { LoginComponent } from '@features/authentication/login/login.component';
+import { ErrorComponent } from '@features/error/error.component';
+import { MainLayoutComponent } from '@features/layouts/main-layout/main-layout.component';
 @NgModule({
     declarations: [LoginComponent, ErrorComponent, MainLayoutComponent],
     imports: [

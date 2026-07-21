@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { CardListItem, CardListData } from '@models/stats-card-data';
 
 @Component({
