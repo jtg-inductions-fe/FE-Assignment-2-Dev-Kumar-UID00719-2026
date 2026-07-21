@@ -9,10 +9,10 @@
     />
 
     <app-button
-        *ngIf="variant === InputVariant.password"
+        *ngIf="variant === InputVariant.Password"
         matSuffix
-        [variant]="ButtonVariant.icon"
-        [type]="ButtonType.button"
+        [variant]="ButtonVariant.Icon"
+        [type]="ButtonType.Button"
         [icon]="hide ? 'visibility_off' : 'visibility'"
         (clicked)="togglePassword()"
     >

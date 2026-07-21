@@ -15,8 +15,8 @@ export class FormFieldComponent {
     @Input({ required: true }) control!: FormControl;
     @Input() label = '';
     @Input() placeholder = '';
-    @Input() variant: InputVariant = InputVariant.email;
-    @Input() appearance: FormFieldAppearance = FormFieldAppearance.outline;
+    @Input() variant: InputVariant = InputVariant.Email;
+    @Input() appearance: FormFieldAppearance = FormFieldAppearance.Outline;
 
     hide = true;
     FormFieldAppearance = FormFieldAppearance;
@@ -25,7 +25,7 @@ export class FormFieldComponent {
     InputVariant = InputVariant;
 
     get inputType(): string {
-        if (this.variant === InputVariant.password) {
+        if (this.variant === InputVariant.Password) {
             return this.hide ? 'password' : 'text';
         }
 

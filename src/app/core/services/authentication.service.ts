@@ -16,19 +16,17 @@ export class AuthenticationService {
     currentUser$ = this.currentUserSubject.asObservable();
     isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
-    login(email: string, password: string): boolean {
+    login(email: string, password: string): void {
         const user = this.users.find(
             (user) => user.email === email && user.password === password,
         );
 
         if (!user) {
-            return false;
+            return;
         }
 
         this.currentUserSubject.next(user);
         this.isLoggedInSubject.next(true);
-
-        return true;
     }
 
     logout(): void {

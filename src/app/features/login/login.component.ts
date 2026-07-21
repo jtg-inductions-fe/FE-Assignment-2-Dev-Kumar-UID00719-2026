@@ -36,11 +36,11 @@ export class LoginComponent implements OnInit {
 
     private initializeFormGroup(): FormGroup {
         return this.fb.group({
-            [LoginFormFields.EMAIL]: [
+            [LoginFormFields.Email]: [
                 '',
                 [Validators.required, Validators.email],
             ],
-            [LoginFormFields.PASSWORD]: ['', Validators.required],
+            [LoginFormFields.Password]: ['', Validators.required],
         });
     }
 
@@ -55,11 +55,9 @@ export class LoginComponent implements OnInit {
         const { email, password } = this.loginForm.value;
 
         setTimeout(() => {
-            const isLoggedIn = this.authenticationService.login(
-                email,
-                password,
-            );
-            if (!isLoggedIn) {
+            this.authenticationService.login(email, password);
+
+            if (!this.authenticationService.isLoggedIn()) {
                 this.loginError = true;
                 return;
             }
@@ -69,10 +67,10 @@ export class LoginComponent implements OnInit {
     }
 
     get email(): FormControl {
-        return this.loginForm.get(LoginFormFields.EMAIL) as FormControl;
+        return this.loginForm.get(LoginFormFields.Email) as FormControl;
     }
 
     get password(): FormControl {
-        return this.loginForm.get(LoginFormFields.PASSWORD) as FormControl;
+        return this.loginForm.get(LoginFormFields.Password) as FormControl;
     }
 }
