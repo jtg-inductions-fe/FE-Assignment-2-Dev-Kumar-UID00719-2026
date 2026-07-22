@@ -31,6 +31,7 @@ import { HeaderComponent } from '@shared/components/header/header.component';
 import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.component';
 import { DashboardFooterComponent } from '@shared/components/dashboard-footer/dashboard-footer.component';
 import { TableComponent } from '@shared/components/table/table.component';
+import { InputChipComponent } from './components/input-chip/input-chip.component';
 @NgModule({
     declarations: [
         ButtonComponent,
@@ -45,6 +46,7 @@ import { TableComponent } from '@shared/components/table/table.component';
         DataListCardComponent,
         DashboardFooterComponent,
         TableComponent,
+        InputChipComponent,
     ],
     imports: [
         RouterModule,
@@ -81,6 +83,7 @@ import { TableComponent } from '@shared/components/table/table.component';
         DataListCardComponent,
         DashboardFooterComponent,
         TableComponent,
+        InputChipComponent,
     ],
 })
 export class SharedModule {}
