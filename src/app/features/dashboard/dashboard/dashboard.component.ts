@@ -20,6 +20,43 @@ export class DashboardComponent implements OnInit {
     topDishes!: CardListData;
     isAdmin = false;
 
+    /**
+    orders: OrderTableData[] = [];
+
+    columns = [
+        {
+            key: 'id',
+            label: 'Order ID',
+            type: TableColumnType.Text,
+        },
+        {
+            key: 'customer',
+            label: 'Customer',
+            type: TableColumnType.Text,
+        },
+        {
+            key: 'items',
+            label: 'Items',
+            type: TableColumnType.Text,
+        },
+        {
+            key: 'amount',
+            label: 'Amount',
+            type: TableColumnType.Text,
+        },
+        {
+            key: 'status',
+            label: 'Status',
+            type: TableColumnType.Chip,
+        },
+        {
+            key: 'actions',
+            label: 'Actions',
+            type: TableColumnType.Buttons,
+        },
+    ];
+    */
+
     constructor(
         private dashboardService: DashboardService,
         private authenticationService: AuthenticationService,
@@ -44,6 +81,7 @@ export class DashboardComponent implements OnInit {
         .subscribe((restaurantName) => {
             this.topCustomers =this.dashboardService.getTopCustomers(restaurantName);
             this.topDishes = this.dashboardService.getTopDishes(restaurantName);
+            // this.orders = this.dashboardService.getActiveOrders(restaurantName);
         });
     }
 }

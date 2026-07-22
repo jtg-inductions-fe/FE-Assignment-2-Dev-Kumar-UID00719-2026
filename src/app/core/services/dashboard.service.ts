@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { Order, OrderStatus } from '@models/resturant';
 import { CardListData } from '@models/stats-card-data';
+import { OrderTableData } from '@models/resturant';
 import { Customer } from '@models/resturant';
 import { Restaurant } from '@models/resturant';
 import CustomersData from '@data/customers.data.json';
@@ -181,5 +182,34 @@ export class DashboardService {
                 trailingText: dish.trailingText,
             })),
         };
+    }
+
+    getActiveOrders(restaurantName?: string): OrderTableData[] {
+        const orders = this.getOrders(restaurantName).filter(
+            (order) =>
+                order.status === OrderStatus.Pending ||
+                order.status === OrderStatus.Preparing,
+        );
+
+        return orders.map((order) => {
+            const restaurant = this.restaurants.find(
+                (restaurant) => restaurant.id === order.restaurantId,
+            );
+
+            const customer = this.customers.find(
+                (customer) => customer.id === order.customerId,
+            );
+
+            const items = order.items.map((item) => item.dishName).join(', ');
+
+            return {
+                id: order.id,
+                restaurant: restaurant?.name ?? '',
+                customer: customer?.name ?? '',
+                items: items,
+                amount: `$${order.totalPrice}`,
+                status: order.status,
+            };
+        });
     }
 }
