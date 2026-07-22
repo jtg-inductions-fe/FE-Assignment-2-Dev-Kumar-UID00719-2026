@@ -1,7 +1,10 @@
+import { TemplateRef } from '@angular/core';
+
 export interface TableColumn {
     key: string;
     label: string;
-    type: TableColumnType;
+    template?: TemplateRef<unknown>;
+    columnClass?: string;
 }
 
 export enum TableColumnType {

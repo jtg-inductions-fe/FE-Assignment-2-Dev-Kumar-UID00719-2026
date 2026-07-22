@@ -30,7 +30,7 @@ import { ErrorTemplateComponent } from '@shared/components/error-template/error-
 import { HeaderComponent } from '@shared/components/header/header.component';
 import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.component';
 import { DashboardFooterComponent } from '@shared/components/dashboard-footer/dashboard-footer.component';
-import { TableComponent } from './components/table/table.component';
+import { TableComponent } from '@shared/components/table/table.component';
 @NgModule({
     declarations: [
         ButtonComponent,

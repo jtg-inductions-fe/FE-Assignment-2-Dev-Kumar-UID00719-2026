@@ -54,3 +54,10 @@ export interface OrderTableData {
     amount: string;
     status: OrderStatus;
 }
+
+export interface RestaurantTableData {
+    id: number;
+    restaurant: string;
+    address: string;
+    owners: string[];
+}
