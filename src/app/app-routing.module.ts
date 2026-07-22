@@ -7,6 +7,7 @@ import { DashboardComponent } from '@features/dashboard/dashboard/dashboard.comp
 
 import { authGuard } from '@guards/auth.guard';
 import { loginGuard } from '@guards/login.guard';
+import { PAGE_STATES } from '@constants/page-state';
 
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -16,7 +17,17 @@ const routes: Routes = [
         component: DashboardComponent,
         canActivate: [authGuard],
     },
-    { path: '**', component: ErrorComponent, canActivate: [authGuard] },
+    {
+        path: 'error',
+        component: ErrorComponent,
+        data: { state: PAGE_STATES.ERROR },
+    },
+    {
+        path: '**',
+        component: ErrorComponent,
+        canActivate: [authGuard],
+        data: { state: PAGE_STATES.NOT_FOUND },
+    },
 ];
 
 @NgModule({
