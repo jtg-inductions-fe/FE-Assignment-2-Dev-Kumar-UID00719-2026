@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { USERS } from '@data/user.data';
+// import { USERS } from '@data/user.data';
 import { STORAGE_KEYS } from '@constants/storage-keys';
 import { User, AuthenticatedUser } from '@models/user';
 import { Observable } from 'rxjs';
+import userData from '@data/user.data.json';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthenticationService {
-    private users: User[] = [...USERS];
-
+    private users: User[] = userData.USERS as User[];
     private currentUserSubject = new BehaviorSubject<AuthenticatedUser | null>(
         null,
     );

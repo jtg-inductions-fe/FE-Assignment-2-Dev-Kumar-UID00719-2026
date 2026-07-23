@@ -9,8 +9,8 @@
     padding: pixelToRem(16);
     &__container {
         @include flex-layout(space-between, center, column, pixelToRem(16));
-        max-width: pixelToRem(400);
-        padding: pixelToRem(12);
+        max-width: pixelToRem(450);
+        padding: pixelToRem(24);
         box-shadow: 0 pixelToRem(4) pixelToRem(12) rgba(0, 0, 0, 0.2);
     }
 
@@ -24,8 +24,8 @@
     }
 
     &__input {
-        width: 100%;
-        margin: pixelToRem(8) 0;
+        width: pixelToRem(400);
+        margin: 0;
     }
 
     &__error {

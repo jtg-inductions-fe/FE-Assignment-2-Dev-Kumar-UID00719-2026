@@ -1,11 +1,15 @@
-<mat-error
-    *ngIf="control.hasError('required') && (control.touched || control.dirty)"
->
-    {{ label }} is required
-</mat-error>
+<div class="mat-subtitle-2">
+    <mat-error
+        *ngIf="
+            control.hasError('required') && (control.touched || control.dirty)
+        "
+    >
+        {{ label }} is required
+    </mat-error>
 
-<mat-error
-    *ngIf="control.hasError('email') && (control.touched || control.dirty)"
->
-    Enter a valid email
-</mat-error>
+    <mat-error
+        *ngIf="control.hasError('email') && (control.touched || control.dirty)"
+    >
+        Enter a valid email
+    </mat-error>
+</div>

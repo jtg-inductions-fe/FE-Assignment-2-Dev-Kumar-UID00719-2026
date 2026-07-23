@@ -3,8 +3,8 @@ import { FormControl } from '@angular/forms';
 
 import { ButtonVariant } from '@constants/buttonComponent';
 import { ButtonType } from '@constants/buttonComponent';
-import { InputVariant } from '@constants/formFieldComponent';
-import { FormFieldAppearance } from '@constants/formFieldComponent';
+import { InputType } from './formField.const';
+import { FormFieldAppearance } from './formField.const';
 
 @Component({
     selector: 'app-form-field',
@@ -15,17 +15,17 @@ export class FormFieldComponent {
     @Input({ required: true }) control!: FormControl;
     @Input() label = '';
     @Input() placeholder = '';
-    @Input() variant: InputVariant = InputVariant.Email;
+    @Input() variant: InputType = InputType.Email;
     @Input() appearance: FormFieldAppearance = FormFieldAppearance.Outline;
 
     hide = true;
     FormFieldAppearance = FormFieldAppearance;
     ButtonVariant = ButtonVariant;
     ButtonType = ButtonType;
-    InputVariant = InputVariant;
+    InputType = InputType;
 
     get inputType(): string {
-        if (this.variant === InputVariant.Password) {
+        if (this.variant === InputType.Password) {
             return this.hide ? 'password' : 'text';
         }
 

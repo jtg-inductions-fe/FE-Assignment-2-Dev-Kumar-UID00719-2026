@@ -8,9 +8,10 @@ import {
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from '@services/authentication.service';
+import { InputType } from '@shared/components/form-field/formField.const';
 import { ButtonType } from '@constants/buttonComponent';
-import { InputVariant } from '@constants/formFieldComponent';
-import { LoginFormFields } from '@constants/formFieldComponent';
+
+import { LoginFormFields } from './login.const';
 
 @Component({
     selector: 'app-login',
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
     loginError = false;
     hide = true;
     buttonType = ButtonType;
-    inputVariant = InputVariant;
+    InputType = InputType;
 
     constructor(
         private fb: FormBuilder,

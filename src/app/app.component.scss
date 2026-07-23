@@ -5,6 +5,7 @@
     @include flex-layout(center, center, column);
     height: 100vh;
 }
+
 .app-layout {
     @include flex-layout(center, center, row);
     flex: 1;

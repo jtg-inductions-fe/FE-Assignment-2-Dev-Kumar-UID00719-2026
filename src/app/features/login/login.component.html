@@ -8,23 +8,25 @@
         </div>
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <app-form-field
-                label="Email Address"
-                placeholder="Email address"
-                [variant]="inputVariant.Email"
-                [control]="email"
-                class="login__input"
-            >
-            </app-form-field>
-
-            <app-form-field
-                label="Password"
-                placeholder="Password"
-                [variant]="inputVariant.Password"
-                [control]="password"
-                class="login__input"
-            >
-            </app-form-field>
+            <div class="login__input">
+                <app-form-field
+                    label="Email Address"
+                    placeholder="Email address"
+                    [variant]="InputType.Email"
+                    [control]="email"
+                    class="login__input"
+                >
+                </app-form-field>
+            </div>
+            <div class="login__input">
+                <app-form-field
+                    label="Password"
+                    placeholder="Password"
+                    [variant]="InputType.Password"
+                    [control]="password"
+                >
+                </app-form-field>
+            </div>
 
             <div class="login__error" *ngIf="loginError">
                 Invalid email or password
