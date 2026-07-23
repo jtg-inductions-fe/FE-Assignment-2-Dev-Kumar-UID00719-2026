@@ -9,3 +9,11 @@ button {
         cursor: not-allowed;
     }
 }
+
+.profile-button {
+    width: pixelToRem(40);
+    height: pixelToRem(40);
+    overflow: hidden;
+    border-radius: pixelToRem(20);
+    padding: 0;
+}

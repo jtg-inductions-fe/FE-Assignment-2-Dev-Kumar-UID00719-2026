@@ -27,6 +27,7 @@
     -webkit-line-clamp: $lines;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @mixin breakpoint($min-viewPort-width: $viewPort-tablet) {

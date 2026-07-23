@@ -8,24 +8,27 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SharedModule } from '@shared/shared.module';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './authentication/login/login.component';
 import { ErrorComponent } from './error/error.component';
-
 @NgModule({
     declarations: [LoginComponent, ErrorComponent],
     imports: [
         CommonModule,
         ReactiveFormsModule,
+        MatMenuModule,
         MatButtonModule,
         MatCardModule,
         MatFormFieldModule,
         MatInputModule,
         MatSelectModule,
         MatIconModule,
-
+        MatSnackBarModule,
         SharedModule,
     ],
+    exports: [ErrorComponent, LoginComponent],
 })
 export class FeaturesModule {}

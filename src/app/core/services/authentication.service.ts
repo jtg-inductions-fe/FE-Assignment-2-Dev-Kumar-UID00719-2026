@@ -22,6 +22,7 @@ export class AuthenticationService {
 
     constructor() {
         const storedUser = localStorage.getItem(STORAGE_KEYS.CURRENT_USER);
+
         if (storedUser) {
             const user: AuthenticatedUser = JSON.parse(storedUser);
 

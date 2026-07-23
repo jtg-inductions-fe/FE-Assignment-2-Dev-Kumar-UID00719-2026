@@ -1,0 +1,59 @@
+<div class="header">
+    <div class="header__logo">
+        <img [src]="appLogo" alt="" />
+    </div>
+
+    <app-button
+        *ngIf="isLoggedIn"
+        buttonClass="profile-button"
+        [variant]="buttonVariant.Icon"
+        [menu]="menu"
+    >
+        <img
+            class="header__profile-button-image"
+            [src]="currentUser?.profileImageUrl"
+            alt="User profile picture"
+        />
+    </app-button>
+
+    <mat-menu #menu="matMenu" class="profile-card">
+        <div class="profile-card__container">
+            <div class="profile-card__image-container">
+                <img
+                    class="profile-card__image"
+                    [src]="currentUser?.profileImageUrl"
+                    alt="User profile picture"
+                />
+            </div>
+
+            <div class="profile-card__data-container">
+                <p class="profile-card__data">
+                    Name :
+                    <span
+                        class="profile-card__username mat-headline-6 profile-card__value"
+                    >
+                        {{ currentUser?.name }}
+                    </span>
+                </p>
+                <p class="profile-card__data">
+                    Email :
+                    <span
+                        class="profile-card__username mat-headline-6 profile-card__value"
+                    >
+                        {{ currentUser?.email }}
+                    </span>
+                </p>
+                <p class="profile-card__data">
+                    Role :
+                    <span
+                        class="profile-card__username mat-headline-6 profile-card__value"
+                    >
+                        {{ currentUser?.role }}
+                    </span>
+                </p>
+            </div>
+
+            <app-button label="Log out" (clicked)="logout()"></app-button>
+        </div>
+    </mat-menu>
+</div>

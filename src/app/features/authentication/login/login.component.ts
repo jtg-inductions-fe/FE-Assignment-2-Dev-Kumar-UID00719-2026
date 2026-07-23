@@ -1,16 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {
-    FormBuilder,
-    FormGroup,
-    FormControl,
-    Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 import { AuthenticationService } from '@services/authentication.service';
+import { ButtonType } from '@shared/components/button/button.constant';
 import { InputType } from '@shared/components/form-field/formField.const';
-import { ButtonType } from '@constants/buttonComponent';
-
+import { NotificationService } from '@services/notification.service';
 import { LoginFormFields } from './login.const';
 
 @Component({
@@ -20,7 +16,6 @@ import { LoginFormFields } from './login.const';
 })
 export class LoginComponent implements OnInit {
     loginForm!: FormGroup;
-    loginError = false;
     hide = true;
     buttonType = ButtonType;
     InputType = InputType;
@@ -29,6 +24,7 @@ export class LoginComponent implements OnInit {
         private fb: FormBuilder,
         private authenticationService: AuthenticationService,
         private router: Router,
+        private notificationService: NotificationService,
     ) {}
 
     ngOnInit(): void {
@@ -56,11 +52,17 @@ export class LoginComponent implements OnInit {
         setTimeout(() => {
             this.authenticationService.login(email, password).subscribe({
                 next: () => {
-                    this.loginError = false;
                     this.router.navigate(['/dashboard']);
+                    this.notificationService.showSuccessSnackBar(
+                        'Login success!',
+                        'cancel',
+                    );
                 },
                 error: () => {
-                    this.loginError = true;
+                    this.notificationService.showErrorSnackBar(
+                        'Invalid credentials',
+                        'cancel',
+                    );
                 },
             });
         }, 1500);

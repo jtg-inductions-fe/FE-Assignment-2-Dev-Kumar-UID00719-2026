@@ -1,6 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { ButtonVariant, ButtonType } from '@constants/buttonComponent';
+import { MatMenu } from '@angular/material/menu';
+
+import {
+    ButtonVariant,
+    ButtonType,
+} from '@shared/components/button/button.constant';
 
 @Component({
     selector: 'app-button',
@@ -8,6 +13,8 @@ import { ButtonVariant, ButtonType } from '@constants/buttonComponent';
     styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
+    buttonVariant = ButtonVariant;
+
     @Input() variant: ButtonVariant = ButtonVariant.Raised;
     @Input() type: ButtonType = ButtonType.Button;
     @Input() disabled = false;
@@ -15,6 +22,7 @@ export class ButtonComponent {
     @Input() label = '';
     @Input() icon? = '';
     @Input() isSuffix = false;
+    @Input() menu: MatMenu | null = null;
 
     @Output() clicked = new EventEmitter<void>();
 
