@@ -4,10 +4,12 @@ import {
     Signal,
     ViewChild,
     computed,
+    DestroyRef,
     signal,
 } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { NestedTreeControl } from '@angular/cdk/tree';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { MatDrawer } from '@angular/material/sidenav';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
@@ -15,6 +17,7 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { AuthenticationService } from '@services/authentication.service';
 import { SidenavItem } from '@models/sidebar-item';
 import { SidenavItemType } from '@models/sidebar-item';
+import { SidebarMode } from './sidemenu.const';
 import SidenavData from '@data/sidenav.data.json';
 
 @Component({
@@ -25,6 +28,7 @@ import SidenavData from '@data/sidenav.data.json';
 export class SidemenuComponent implements OnInit {
     isDesktop = signal(true);
     isLoggedIn = signal(false);
+    sidebarMode = SidebarMode;
     isExpanded: Signal<boolean> = computed(
         () => this.isDesktop() && this.isLoggedIn(),
     );
@@ -36,31 +40,36 @@ export class SidemenuComponent implements OnInit {
 
     constructor(
         private breakpointObserver: BreakpointObserver,
+        private destroyRef: DestroyRef,
         private authenticationService: AuthenticationService,
     ) {}
 
     ngOnInit(): void {
-        this.authenticationService.currentUser$.subscribe((currentUser) => {
-            if (!currentUser) {
-                this.dataSource.data = [];
-                return;
-            }
+        this.authenticationService.currentUser$
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe((currentUser) => {
+                if (!currentUser) {
+                    this.dataSource.data = [];
+                    return;
+                }
 
-            this.dataSource.data = this.sidenavItems.filter((item) =>
-                item.roles.includes(currentUser.role),
-            );
-        });
+                this.dataSource.data = this.sidenavItems.filter((item) =>
+                    item.roles.includes(currentUser.role),
+                );
+            });
 
         this.breakpointObserver
             .observe('(min-width: 1024px)')
+            .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe((result) => {
                 this.isDesktop.set(result.matches);
             });
 
-        this.authenticationService.isLoggedIn$.subscribe((value) => {
-            console.log('auth value', value);
-            this.isLoggedIn.set(value);
-        });
+        this.authenticationService.isLoggedIn$
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe((value) => {
+                this.isLoggedIn.set(value);
+            });
     }
 
     @ViewChild('drawer')

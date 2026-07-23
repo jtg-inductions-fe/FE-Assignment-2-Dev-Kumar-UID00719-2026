@@ -3,19 +3,16 @@ import { Role } from '@models/user';
 export interface SidenavItem {
     id: string;
     type: SidenavItemType;
+    roles: Role[];
     label?: string;
     icon?: string;
     route?: string;
     children?: SidenavItem[];
-    roles: Role[];
+    badge?: number;
 }
 
 export enum SidenavItemType {
     Link,
     Tree,
     Divider,
-}
-
-export interface Divider {
-    type: string;
 }

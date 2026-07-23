@@ -13,6 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { FormFieldComponent } from '@shared/components/form-field/form-field.component';
@@ -37,6 +38,7 @@ import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.componen
         MatMenuModule,
         MatCardModule,
         MatFormFieldModule,
+        MatChipsModule,
         MatSelectModule,
         MatTreeModule,
         MatSidenavModule,

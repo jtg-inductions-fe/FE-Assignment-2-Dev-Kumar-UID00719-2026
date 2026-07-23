@@ -1,7 +1,7 @@
 <mat-drawer-container class="sidenav-container" autosize>
     <mat-drawer
         #drawer
-        [mode]="isDesktop() ? 'side' : 'over'"
+        [mode]="isDesktop() ? sidebarMode.Side : sidebarMode.Over"
         [opened]="isExpanded()"
     >
         <div class="sidenav" *ngIf="isLoggedIn()">
@@ -16,12 +16,18 @@
                         [routerLink]="node.route"
                         routerLinkActive="sidenav__link--active"
                     >
-                        <mat-icon>
-                            {{ node.icon }}
-                        </mat-icon>
-                        <span>
-                            {{ node.label }}
-                        </span>
+                        <div class="sidenav__item-left">
+                            <mat-icon>
+                                {{ node.icon }}
+                            </mat-icon>
+                            <span>
+                                {{ node.label }}
+                            </span>
+                        </div>
+
+                        <mat-chip *ngIf="node.badge" class="sidenav__chip">{{
+                            node.badge
+                        }}</mat-chip>
                     </a>
                 </mat-tree-node>
 
@@ -36,12 +42,14 @@
                         class="mat-tree-node sidenav__tree-item sidenav__tree-button"
                         matTreeNodeToggle
                     >
-                        <mat-icon>
-                            {{ node.icon }}
-                        </mat-icon>
-                        <span>
-                            {{ node.label }}
-                        </span>
+                        <div class="sidenav__item-left">
+                            <mat-icon>
+                                {{ node.icon }}
+                            </mat-icon>
+                            <span>
+                                {{ node.label }}
+                            </span>
+                        </div>
 
                         <mat-icon>
                             {{
@@ -65,6 +73,7 @@
 
             <div class="sidenav__bottom">
                 <button
+                    class="sidenav__bottom-button"
                     mat-icon-button
                     aria-label="Example icon button with a vertical three dot icon"
                 >
@@ -72,6 +81,7 @@
                 </button>
 
                 <button
+                    class="sidenav__bottom-button"
                     mat-icon-button
                     aria-label="Example icon button with a vertical three dot icon"
                 >
@@ -79,6 +89,7 @@
                 </button>
 
                 <button
+                    class="sidenav__bottom-button"
                     mat-icon-button
                     aria-label="Example icon button with a vertical three dot icon"
                 >

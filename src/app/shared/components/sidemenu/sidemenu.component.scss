@@ -7,20 +7,13 @@
     flex: 1;
 }
 
-.sidenav__tree,
-.sidenav__tree ul,
-.sidenav__tree li {
-    margin: 0;
-    padding: 0;
-}
-
 .sidenav {
     @include flex-layout(space-between, normal, column);
     min-width: pixelToRem(250);
     height: 100%;
 
     &__link {
-        @include flex-layout(flex-start, center, row, pixelToRem(16));
+        @include flex-layout(space-between, center, row, pixelToRem(16));
         width: 100%;
         color: $font-color-primary;
         font-weight: 500;
@@ -40,7 +33,8 @@
         @include flex-layout(center, center, row);
         align-self: flex-end;
         width: 100%;
-        border-top: 0.83px solid rgba(0, 0, 0, 0.12);
+        border-top: pixelToRem(0.83) solid rgba(0, 0, 0, 0.12);
+        padding: pixelToRem(8);
     }
 
     &__tree {
@@ -52,9 +46,18 @@
     }
 
     &__tree-item {
-        @include flex-layout(normal, center, row, pixelToRem(16));
+        @include flex-layout(space-between, center, row, pixelToRem(16));
         width: 100%;
         padding: pixelToRem(8) pixelToRem(16);
+    }
+
+    &__item-left {
+        @include flex-layout(space-between, center, row, pixelToRem(16));
+    }
+
+    &__chip {
+        background-color: rgba(232, 109, 109, 0.12) !important;
+        align-self: flex-end;
     }
 
     &__tree-button {

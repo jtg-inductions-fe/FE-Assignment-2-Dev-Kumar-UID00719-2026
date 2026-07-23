@@ -1,13 +1,13 @@
 <div class="header">
     <div class="header__logo" *ngIf="isDesktop || !isLoggedIn">
-        <img src="assets/images/icons/main-logo.svg" alt="" />
+        <img [src]="appLogo" alt="App logo" />
     </div>
 
     <app-button
         *ngIf="!isDesktop && isLoggedIn"
+        icon="menu"
         [variant]="buttonVariant.Icon"
         (click)="onMenuClick()"
-        icon="menu"
     >
     </app-button>
 
@@ -56,7 +56,9 @@
                     <span
                         class="profile-card__username mat-headline-6 profile-card__value"
                     >
-                        {{ currentUser?.role === 0 ? 'Admin' : 'Owner' }}
+                        {{
+                            currentUser?.role === role.Admin ? 'Admin' : 'Owner'
+                        }}
                     </span>
                 </p>
             </div>

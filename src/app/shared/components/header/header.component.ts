@@ -12,6 +12,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { AuthenticationService } from '@services/authentication.service';
 import { ButtonVariant } from '@shared/components/button/button.constant';
 import { AuthenticatedUser } from '@models/user';
+import { Role } from '@models/user';
 import { APP_LOGO } from '@constants/app.const';
 
 @Component({
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
     buttonVariant = ButtonVariant;
     appLogo = APP_LOGO;
     isDesktop = true;
+    role = Role;
 
     constructor(
         private authenticationService: AuthenticationService,
@@ -36,6 +38,7 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {
         this.breakPointObserver
             .observe('(min-width: 1024px)')
+            .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe((result) => {
                 this.isDesktop = result.matches;
             });
