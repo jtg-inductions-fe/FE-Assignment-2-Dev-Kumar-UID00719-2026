@@ -1,9 +1,5 @@
 @use 'abstracts' as *;
 
-:host {
-    margin: pixelToRem(8) pixelToRem(16);
-}
-
 .footer {
     @include flex-layout(space-between, center, column, pixelToRem(32));
     padding: pixelToRem(48) pixelToRem(32);

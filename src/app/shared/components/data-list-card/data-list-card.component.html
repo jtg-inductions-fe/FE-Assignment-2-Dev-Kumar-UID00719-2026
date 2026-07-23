@@ -3,7 +3,10 @@
         {{ data.heading }}
     </h2>
 
-    <div class="stats-list-card__item" *ngFor="let item of data.items">
+    <div
+        class="stats-list-card__item"
+        *ngFor="let item of data.items; trackBy: trackByTitle"
+    >
         <div *ngIf="item.image" class="stats-list-card__image-container">
             <img
                 *ngIf="item.image"

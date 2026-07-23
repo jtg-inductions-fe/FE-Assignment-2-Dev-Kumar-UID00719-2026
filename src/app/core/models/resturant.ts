@@ -19,10 +19,10 @@ export interface Customer {
 }
 
 export enum OrderStatus {
-    Pending = 'pending',
-    Preparing = 'preparing',
-    Completed = 'completed',
-    Rejected = 'rejected',
+    Pending = 'Pending',
+    Preparing = 'Preparing',
+    Completed = 'Completed',
+    Rejected = 'Rejected',
 }
 
 export interface OrderItem {

@@ -11,6 +11,7 @@
     @include flex-layout(space-between, normal, column);
     min-width: pixelToRem(250);
     height: 100%;
+    margin-bottom: PixelToRem(200);
 
     &__link {
         @include flex-layout(space-between, center, row, pixelToRem(16));
@@ -38,10 +39,13 @@
 
     &__bottom {
         @include flex-layout(center, center, row);
-        align-self: flex-end;
-        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: pixelToRem(250);
         padding: pixelToRem(8);
         border-top: $border-primary;
+        background-color: $color-light;
     }
 
     &__tree {

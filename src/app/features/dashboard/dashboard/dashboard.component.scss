@@ -23,6 +23,10 @@
         flex: 2;
     }
 
+    &__footer {
+        margin: pixelToRem(16);
+    }
+
     @include breakpoint($viewPort-tablet) {
         &__data-list-cards {
             @include flex-layout(space-between, normal, row);

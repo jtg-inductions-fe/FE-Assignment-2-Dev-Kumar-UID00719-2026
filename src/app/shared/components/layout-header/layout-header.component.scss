@@ -2,13 +2,9 @@
 @use '@angular/material' as mat;
 @use 'base' as *;
 
-:host {
-    width: 100%;
-}
-
 .layout-header {
-    width: 100%;
     @include flex-layout(space-between, center, column, pixelToRem(32));
+    width: 100%;
     padding: pixelToRem(16);
 
     &__heading {

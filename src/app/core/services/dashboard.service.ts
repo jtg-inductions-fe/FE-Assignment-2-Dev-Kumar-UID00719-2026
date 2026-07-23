@@ -8,6 +8,7 @@ import { Restaurant } from '@models/resturant';
 import CustomersData from '@data/customers.data.json';
 import OrdersData from '@data/orders.data.json';
 import RestaurantsData from '@data/restaurants.data.json';
+import { DashboardStats } from '@models/dashboard-stats';
 
 @Injectable({
     providedIn: 'root',
@@ -18,9 +19,11 @@ export class DashboardService {
     );
     currentRestaurant$ = this.currentRestaurantSubject.asObservable();
 
-    private restaurants: Restaurant[] = RestaurantsData.restaurants;
-    private customers: Customer[] = CustomersData.customers as Customer[];
-    private orders: Order[] = OrdersData.orders as Order[];
+    private readonly restaurants: Restaurant[] = RestaurantsData.restaurants;
+    private readonly customers: Customer[] =
+        CustomersData.customers as Customer[];
+    private readonly orders: Order[] = OrdersData.orders as Order[];
+    allRestaurantVariable = 'All Restaurants';
 
     setCurrentRestaurant(name: string): void {
         this.currentRestaurantSubject.next(name);
@@ -30,7 +33,7 @@ export class DashboardService {
         return this.restaurants.map((restaurant) => restaurant.name);
     }
 
-    getDashboardStats(restaurantName?: string) {
+    getDashboardStats(restaurantName?: string): DashboardStats {
         const orders = this.getOrders(restaurantName);
 
         return {
@@ -42,7 +45,7 @@ export class DashboardService {
     }
 
     private getOrders(restaurantName?: string): Order[] {
-        if (!restaurantName || restaurantName === 'All Restaurants') {
+        if (!restaurantName || restaurantName === this.allRestaurantVariable) {
             return this.orders;
         }
 
@@ -60,12 +63,7 @@ export class DashboardService {
     }
 
     getTotalRevenue(orders: Order[]): number {
-        const revenue = orders.reduce(
-            (sum, order) => sum + order.totalPrice,
-            0,
-        );
-
-        return revenue;
+        return orders.reduce((sum, order) => sum + order.totalPrice, 0);
     }
 
     getTotalOrders(orders: Order[]): number {
@@ -104,7 +102,11 @@ export class DashboardService {
 
             const customer = this.customers.find(
                 (customer) => customer.id === customerId,
-            )!;
+            );
+
+            if (!customer) {
+                throw new Error(`customer ${customerId} not found`);
+            }
 
             return {
                 title: customer.name,
@@ -132,7 +134,6 @@ export class DashboardService {
         const orders = this.getOrders(restaurantName).filter(
             (order) => order.status === OrderStatus.Completed,
         );
-
         const dishNames = [
             ...new Set(
                 orders.flatMap((order) =>
@@ -146,10 +147,21 @@ export class DashboardService {
                 order.items.some((item) => item.dishName === dishName),
             );
 
+            const firstOrder = completedOrders[0];
+            if (!firstOrder) {
+                throw new Error(
+                    `No completed orders found for dish ${dishName}`,
+                );
+            }
+
             const restaurant = this.restaurants.find(
                 (restaurant) =>
                     restaurant.id === completedOrders[0].restaurantId,
-            )!;
+            );
+
+            if (!restaurant) {
+                throw new Error(`customer ${restaurantName} not found`);
+            }
 
             return {
                 title: dishName,

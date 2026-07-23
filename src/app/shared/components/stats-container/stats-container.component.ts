@@ -3,6 +3,7 @@ import { DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { DashboardService } from '@services/dashboard.service';
+
 import { STATS } from './stats-container.const';
 
 @Component({
@@ -11,7 +12,7 @@ import { STATS } from './stats-container.const';
     styleUrls: ['./stats-container.component.scss'],
 })
 export class StatsContainerComponent implements OnInit {
-    stats = STATS;
+    stats = [...STATS];
 
     constructor(
         private dashboardService: DashboardService,
