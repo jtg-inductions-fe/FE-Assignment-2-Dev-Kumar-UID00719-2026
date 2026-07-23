@@ -7,7 +7,11 @@
             </p>
         </div>
 
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <form
+            class="login__form"
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmit()"
+        >
             <div class="login__input">
                 <app-form-field
                     label="Email Address"
