@@ -18,7 +18,7 @@ import { ButtonComponent } from '@shared/components/button/button.component';
 import { FormFieldComponent } from '@shared/components/form-field/form-field.component';
 import { ErrorTemplateComponent } from '@shared/components/error-template/error-template.component';
 import { HeaderComponent } from '@shared/components/header/header.component';
-import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
+import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.component';
 @NgModule({
     declarations: [
         ButtonComponent,

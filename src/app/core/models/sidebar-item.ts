@@ -11,9 +11,9 @@ export interface SidenavItem {
 }
 
 export enum SidenavItemType {
-    Link = 'link',
-    Tree = 'tree',
-    Divider = 'divider',
+    Link,
+    Tree,
+    Divider,
 }
 
 export interface Divider {

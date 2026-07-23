@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+
 import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.component';
 
 @Component({

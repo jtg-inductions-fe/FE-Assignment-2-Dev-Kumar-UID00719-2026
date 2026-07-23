@@ -56,7 +56,7 @@
                     <span
                         class="profile-card__username mat-headline-6 profile-card__value"
                     >
-                        {{ currentUser?.role }}
+                        {{ currentUser?.role === 0 ? 'Admin' : 'Owner' }}
                     </span>
                 </p>
             </div>

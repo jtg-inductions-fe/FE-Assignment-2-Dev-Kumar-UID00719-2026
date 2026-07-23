@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
-// import { USERS } from '@data/user.data';
-import { STORAGE_KEYS } from '@constants/storage-keys';
-import { User, AuthenticatedUser } from '@models/user';
 import { Observable } from 'rxjs';
+
+import { User, AuthenticatedUser } from '@models/user';
+import { STORAGE_KEYS } from '@constants/storage-keys';
 import userData from '@data/user.data.json';
 
 @Injectable({

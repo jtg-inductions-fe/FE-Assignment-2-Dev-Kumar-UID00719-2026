@@ -6,15 +6,16 @@ import {
     computed,
     signal,
 } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { NestedTreeControl } from '@angular/cdk/tree';
+
+import { MatDrawer } from '@angular/material/sidenav';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
 import { AuthenticationService } from '@services/authentication.service';
 import { SidenavItem } from '@models/sidebar-item';
 import { SidenavItemType } from '@models/sidebar-item';
-import { SIDENAV_ITEMS } from '@data/sidebar-item.data';
+import SidenavData from '@data/sidenav.data.json';
 
 @Component({
     selector: 'app-sidemenu',
@@ -30,6 +31,8 @@ export class SidemenuComponent implements OnInit {
 
     treeControl = new NestedTreeControl<SidenavItem>((node) => node.children);
     dataSource = new MatTreeNestedDataSource<SidenavItem>();
+    private sidenavItems: SidenavItem[] =
+        SidenavData.SidenavItems as SidenavItem[];
 
     constructor(
         private breakpointObserver: BreakpointObserver,
@@ -43,8 +46,8 @@ export class SidemenuComponent implements OnInit {
                 return;
             }
 
-            this.dataSource.data = SIDENAV_ITEMS.filter((item) =>
-                item.roles.includes(currentUser!.role),
+            this.dataSource.data = this.sidenavItems.filter((item) =>
+                item.roles.includes(currentUser.role),
             );
         });
 

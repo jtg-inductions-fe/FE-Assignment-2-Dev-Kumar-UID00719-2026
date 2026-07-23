@@ -10,8 +10,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 import { AuthenticationService } from '@services/authentication.service';
-import { AuthenticatedUser } from '@models/user';
 import { ButtonVariant } from '@shared/components/button/button.constant';
+import { AuthenticatedUser } from '@models/user';
 import { APP_LOGO } from '@constants/app.const';
 
 @Component({
