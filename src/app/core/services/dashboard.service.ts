@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { RESTAURANTS } from '@data/restaurants';
-import { CUSTOMERS } from '@data/customers';
-import { ORDERS } from '@data/orders';
 import { Order, OrderStatus } from '@models/resturant';
 import { CardListData } from '@models/stats-card-data';
+import { Customer } from '@models/resturant';
+import { Restaurant } from '@models/resturant';
+import CustomersData from '@data/customers.data.json';
+import OrdersData from '@data/orders.data.json';
+import RestaurantsData from '@data/restaurants.data.json';
 
 @Injectable({
     providedIn: 'root',
@@ -16,12 +18,16 @@ export class DashboardService {
     );
     currentRestaurant$ = this.currentRestaurantSubject.asObservable();
 
+    private restaurants: Restaurant[] = RestaurantsData.restaurants;
+    private customers: Customer[] = CustomersData.customers as Customer[];
+    private orders: Order[] = OrdersData.orders as Order[];
+
     setCurrentRestaurant(name: string): void {
         this.currentRestaurantSubject.next(name);
     }
 
     getRestaurantNames(): string[] {
-        return RESTAURANTS.map((restaurant) => restaurant.name);
+        return this.restaurants.map((restaurant) => restaurant.name);
     }
 
     getDashboardStats(restaurantName?: string) {
@@ -37,10 +43,10 @@ export class DashboardService {
 
     private getOrders(restaurantName?: string): Order[] {
         if (!restaurantName || restaurantName === 'All Restaurants') {
-            return ORDERS;
+            return this.orders;
         }
 
-        const restaurant = RESTAURANTS.find(
+        const restaurant = this.restaurants.find(
             (restaurant) => restaurant.name === restaurantName,
         );
 
@@ -48,7 +54,9 @@ export class DashboardService {
             return [];
         }
 
-        return ORDERS.filter((order) => order.restaurantId === restaurant.id);
+        return this.orders.filter(
+            (order) => order.restaurantId === restaurant.id,
+        );
     }
 
     getTotalRevenue(orders: Order[]): number {
@@ -94,7 +102,7 @@ export class DashboardService {
                 0,
             );
 
-            const customer = CUSTOMERS.find(
+            const customer = this.customers.find(
                 (customer) => customer.id === customerId,
             )!;
 
@@ -138,7 +146,7 @@ export class DashboardService {
                 order.items.some((item) => item.dishName === dishName),
             );
 
-            const restaurant = RESTAURANTS.find(
+            const restaurant = this.restaurants.find(
                 (restaurant) =>
                     restaurant.id === completedOrders[0].restaurantId,
             )!;

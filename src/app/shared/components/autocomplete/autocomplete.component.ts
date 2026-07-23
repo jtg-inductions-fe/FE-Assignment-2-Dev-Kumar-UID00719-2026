@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { DestroyRef } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FormControl } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-
-import { FormControl } from '@angular/forms';
 
 import { DashboardService } from '@services/dashboard.service';
 
@@ -17,7 +18,10 @@ export class AutocompleteComponent implements OnInit {
     options: string[] = [];
     filteredOptions!: Observable<string[]>;
 
-    constructor(private dashboardService: DashboardService) {}
+    constructor(
+        private dashboardService: DashboardService,
+        private destroyRef: DestroyRef,
+    ) {}
 
     ngOnInit() {
         this.options = [
@@ -30,10 +34,11 @@ export class AutocompleteComponent implements OnInit {
             map((value) => this._filter(value || '')),
         );
 
-        this.myControl.valueChanges.subscribe((value) => {
-            this.dashboardService.setCurrentRestaurant(value);
-            console.log(this.dashboardService.currentRestaurant$);
-        });
+        this.myControl.valueChanges
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe((value) => {
+                this.dashboardService.setCurrentRestaurant(value);
+            });
     }
 
     private _filter(value: string): string[] {
