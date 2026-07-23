@@ -79,4 +79,8 @@ export class RestaurantFormComponent implements OnInit {
         this.restaurantService.addRestaurant(restaurant);
         this.router.navigate(['/restaurants']);
     }
+
+    goBack() {
+        this.router.navigate(['/restaurants']);
+    }
 }

@@ -8,6 +8,7 @@ import { RestaurantsComponent } from '@features/restaurant/restaurants/restauran
 import { RestaurantFormComponent } from '@features/restaurant/restaurant-form/restaurant-form.component';
 
 import { authGuard } from '@guards/auth.guard';
+import { roleGuard } from '@guards/role.guard';
 import { loginGuard } from '@guards/login.guard';
 import { PAGE_STATES } from '@constants/page-state';
 
@@ -22,17 +23,17 @@ const routes: Routes = [
     {
         path: 'restaurants',
         component: RestaurantsComponent,
-        canActivate: [authGuard],
+        canActivate: [authGuard, roleGuard],
     },
     {
         path: 'restaurants/add',
         component: RestaurantFormComponent,
-        canActivate: [authGuard],
+        canActivate: [authGuard, roleGuard],
     },
     {
         path: 'restaurants/edit',
         component: RestaurantFormComponent,
-        canActivate: [authGuard],
+        canActivate: [authGuard, roleGuard],
     },
     {
         path: 'error',

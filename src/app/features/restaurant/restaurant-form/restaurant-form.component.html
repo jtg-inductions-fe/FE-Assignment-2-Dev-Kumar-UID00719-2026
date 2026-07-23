@@ -5,6 +5,7 @@
             label="BACK"
             icon="keyboard_backspace"
             buttonClass="restaurant-form__back-button"
+            (clicked)="goBack()"
         ></app-button>
     </div>
 
@@ -50,6 +51,7 @@
                     [type]="buttonType.Submit"
                     label="CREATE RESTAURANT"
                     icon="save"
+                    (clicked)="goBack()"
                 ></app-button>
             </div>
         </form>
