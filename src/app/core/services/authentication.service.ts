@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
-// import { USERS } from '@data/user.data';
-import { STORAGE_KEYS } from '@constants/storage-keys';
-import { User, AuthenticatedUser } from '@models/user';
 import { Observable } from 'rxjs';
+
+import { User, AuthenticatedUser } from '@models/user';
+import { STORAGE_KEYS } from '@constants/storage-keys';
 import userData from '@data/user.data.json';
 
 @Injectable({
@@ -22,7 +21,6 @@ export class AuthenticationService {
 
     constructor() {
         const storedUser = localStorage.getItem(STORAGE_KEYS.CURRENT_USER);
-
         if (storedUser) {
             const user: AuthenticatedUser = JSON.parse(storedUser);
 

@@ -4,9 +4,11 @@ import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 
 import { AuthenticationService } from '@services/authentication.service';
+import { NotificationService } from '@services/notification.service';
+
 import { ButtonType } from '@shared/components/button/button.constant';
 import { InputType } from '@shared/components/form-field/formField.const';
-import { NotificationService } from '@services/notification.service';
+
 import { LoginFormFields } from './login.const';
 
 @Component({

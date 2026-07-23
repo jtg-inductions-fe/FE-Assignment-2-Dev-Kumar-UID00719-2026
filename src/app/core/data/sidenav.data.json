@@ -1,0 +1,151 @@
+{
+    "SidenavItems": [
+        {
+            "id": "overview",
+            "type": 0,
+            "label": "Overview",
+            "icon": "pie_chart",
+            "route": "/dashboard",
+            "roles": [0, 1]
+        },
+
+        {
+            "id": "menu",
+            "type": 0,
+            "label": "Menu",
+            "icon": "restaurant_menu",
+            "route": "/menu",
+            "roles": [1]
+        },
+
+        {
+            "id": "restaurants",
+            "type": 0,
+            "label": "Restaurants",
+            "icon": "restaurant",
+            "route": "/restaurants",
+            "roles": [0]
+        },
+
+        {
+            "id": "billing-history",
+            "type": 1,
+            "label": "Billing History",
+            "icon": "receipt_long",
+            "roles": [1],
+            "children": [
+                {
+                    "id": "invoices",
+                    "type": 0,
+                    "label": "Invoices",
+                    "icon": "receipt",
+                    "route": "/billing/invoices",
+                    "roles": [0, 1]
+                },
+                {
+                    "id": "transactions",
+                    "type": 0,
+                    "label": "Transactions",
+                    "icon": "payments",
+                    "route": "/billing/transactions",
+                    "roles": [0, 1]
+                }
+            ]
+        },
+
+        {
+            "id": "inventory",
+            "type": 1,
+            "label": "Inventory",
+            "icon": "inventory_2",
+            "roles": [1],
+            "children": [
+                {
+                    "id": "stock",
+                    "type": 0,
+                    "label": "Stock",
+                    "icon": "inventory",
+                    "route": "/inventory/stock",
+                    "roles": [1]
+                },
+                {
+                    "id": "suppliers",
+                    "type": 0,
+                    "label": "Suppliers",
+                    "icon": "local_shipping",
+                    "route": "/inventory/suppliers",
+                    "roles": [1]
+                }
+            ]
+        },
+
+        {
+            "id": "messages",
+            "type": 0,
+            "label": "Messages",
+            "icon": "message",
+            "route": "/messages",
+            "roles": [0, 1],
+            "badge": 1
+        },
+
+        {
+            "id": "access",
+            "type": 1,
+            "label": "Access",
+            "icon": "lock",
+            "roles": [0, 1],
+            "children": [
+                {
+                    "id": "users",
+                    "type": 0,
+                    "label": "Users",
+                    "icon": "person",
+                    "route": "/access/users",
+                    "roles": [0, 1]
+                },
+                {
+                    "id": "roles",
+                    "type": 0,
+                    "label": "Roles",
+                    "icon": "admin_panel_settings",
+                    "route": "/access/roles",
+                    "roles": [0]
+                }
+            ]
+        },
+
+        {
+            "id": "divider-1",
+            "type": 2,
+            "roles": [0, 1]
+        },
+
+        {
+            "id": "my-profile",
+            "type": 0,
+            "label": "My Profile",
+            "icon": "assignment_ind",
+            "route": "/profile",
+            "roles": [0, 1]
+        },
+
+        {
+            "id": "gallery",
+            "type": 0,
+            "label": "Gallery",
+            "icon": "collections",
+            "route": "/gallery",
+            "roles": [0, 1]
+        },
+
+        {
+            "id": "help",
+            "type": 0,
+            "label": "Help",
+            "icon": "help",
+            "route": "/help",
+            "roles": [0, 1]
+        }
+    ]
+}
