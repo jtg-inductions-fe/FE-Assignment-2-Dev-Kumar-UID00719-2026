@@ -1,14 +1,10 @@
-import { Component, OnInit,} from '@angular/core';
-import {
-    FormBuilder,
-    FormGroup,
-    Validators,
-} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 
 import { AuthenticationService } from '@services/authentication.service';
-import { ButtonType } from '@constants/buttonComponent';
+import { ButtonType } from '@shared/components/button/button.constant';
 import { InputType } from '@shared/components/form-field/formField.const';
 import { NotificationService } from '@services/notification.service';
 import { LoginFormFields } from './login.const';
@@ -18,7 +14,7 @@ import { LoginFormFields } from './login.const';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
     loginForm!: FormGroup;
     hide = true;
     buttonType = ButtonType;

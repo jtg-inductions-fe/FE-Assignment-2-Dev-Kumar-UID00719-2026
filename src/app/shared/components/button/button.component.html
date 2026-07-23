@@ -13,7 +13,7 @@
     </button>
 
     <button
-        *ngSwitchCase="'stroked'"
+        *ngSwitchCase="buttonVariant.Stroked"
         mat-stroked-button
         [disabled]="disabled"
         [type]="type"
@@ -26,7 +26,7 @@
     </button>
 
     <button
-        *ngSwitchCase="'flat'"
+        *ngSwitchCase="buttonVariant.Flat"
         mat-flat-button
         [disabled]="disabled"
         [type]="type"
@@ -39,13 +39,13 @@
     </button>
 
     <button
-        *ngSwitchCase="'icon'"
+        *ngSwitchCase="buttonVariant.Icon"
         mat-icon-button
+        [ngClass]="buttonClass"
         [disabled]="disabled"
         [type]="type"
-        (click)="onClick()"
-        [ngClass]="buttonClass"
         [matMenuTriggerFor]="menu"
+        (click)="onClick()"
     >
         <ng-content></ng-content>
         <mat-icon *ngIf="icon">{{ icon }}</mat-icon>

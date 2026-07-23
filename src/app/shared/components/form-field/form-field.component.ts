@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { ButtonVariant } from '@constants/buttonComponent';
-import { ButtonType } from '@constants/buttonComponent';
+import { ButtonVariant } from '@shared/components/button/button.constant';
+import { ButtonType } from '@shared/components/button/button.constant';
 import { InputType } from './formField.const';
 import { FormFieldAppearance } from './formField.const';
 

@@ -5,14 +5,16 @@
             "name": "Admin",
             "email": "admin@test.com",
             "password": "admin123",
-            "role": "admin"
+            "role": "admin",
+            "profileImageUrl": "assets/images/profile-image-3.webp"
         },
         {
             "id": 2,
             "name": "Restaurant Owner",
             "email": "owner@test.com",
             "password": "owner123",
-            "role": "owner"
+            "role": "owner",
+            "profileImageUrl": "assets/images/profile-image-2.webp"
         }
     ]
 }

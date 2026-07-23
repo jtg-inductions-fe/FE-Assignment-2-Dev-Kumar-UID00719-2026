@@ -1,13 +1,13 @@
 <div class="header">
     <div class="header__logo">
-        <img src="assets/images/icons/main-logo.svg" alt="" />
+        <img [src]="appLogo" alt="" />
     </div>
 
     <app-button
         *ngIf="isLoggedIn"
+        buttonClass="profile-button"
         [variant]="buttonVariant.Icon"
         [menu]="menu"
-        buttonClass="profile-button"
     >
         <img
             class="header__profile-button-image"

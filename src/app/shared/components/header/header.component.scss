@@ -1,10 +1,6 @@
 @use 'abstracts' as *;
 @use 'base' as *;
 
-:host {
-    width: 100vw;
-}
-
 .header {
     @include flex-layout(space-between, center, row);
     width: 100%;
@@ -38,9 +34,9 @@
     }
 
     &__data {
+        @include text-ellipsis(1);
         display: inline-block;
         width: 100%;
-        @include text-ellipsis(1);
     }
 
     &__image-container {

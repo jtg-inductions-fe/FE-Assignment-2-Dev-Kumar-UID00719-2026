@@ -4,7 +4,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { AuthenticationService } from '@services/authentication.service';
 import { AuthenticatedUser } from '@models/user';
-import { ButtonVariant } from '@constants/buttonComponent';
+import { ButtonVariant } from '@shared/components/button/button.constant';
+import { APP_LOGO } from '@constants/app.const';
 
 @Component({
     selector: 'app-header',
@@ -15,6 +16,7 @@ export class HeaderComponent implements OnInit {
     currentUser: AuthenticatedUser | null = null;
     isLoggedIn = false;
     buttonVariant = ButtonVariant;
+    appLogo = APP_LOGO;
 
     constructor(
         private authenticationService: AuthenticationService,
@@ -32,7 +34,6 @@ export class HeaderComponent implements OnInit {
             .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe((value) => {
                 this.isLoggedIn = value;
-                console.log('isLoggedIn', this.isLoggedIn);
             });
     }
 
