@@ -5,7 +5,7 @@
     @include flex-layout(space-between, center, row);
     width: 100%;
     padding: pixelToRem(16);
-    border-bottom: 0.83px solid rgba(0, 0, 0, 0.12);
+    border-bottom: $border-primary;
 
     &__profile-button {
         width: pixelToRem(40);

@@ -12,3 +12,5 @@ export const PAGE_STATES = {
             'Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us.',
     },
 };
+
+export type PageState = (typeof PAGE_STATES)[keyof typeof PAGE_STATES];

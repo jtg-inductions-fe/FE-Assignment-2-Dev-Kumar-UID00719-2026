@@ -1,0 +1,47 @@
+@use '@angular/material' as mat;
+@use 'abstracts' as *;
+@use 'base' as *;
+
+.stats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: pixelToRem(16);
+    width: 100%;
+    padding: 0 pixelToRem(16);
+
+    @include breakpoint($viewPort-phone) {
+        @include flex-layout(space-between, center, row, pixelToRem(16));
+    }
+}
+
+.stats-card {
+    @include flex-layout(space-between, center, row);
+    flex-grow: 1;
+    max-width: pixelToRem(400);
+    padding: pixelToRem(10);
+    border: $border-primary;
+    border-radius: pixelToRem(12);
+
+    &__icon {
+        width: pixelToRem(44);
+        height: pixelToRem(44);
+        text-align: center;
+        padding: pixelToRem(8);
+        border-radius: pixelToRem(8);
+
+        &--blue {
+            color: $color-blue;
+            background-color: $color-blue-light;
+        }
+
+        &--orange {
+            color: $color-orange;
+            background-color: $color-orange-light;
+        }
+
+        &--green {
+            color: $color-green;
+            background-color: $color-green-light;
+        }
+    }
+}

@@ -1,3 +1,4 @@
+@use 'abstracts/colors' as *;
 // variables for font
 $weight-medium: 500;
 $weight-semiBold: 600;
@@ -9,7 +10,9 @@ $font-primary: Inter;
 
 $font-path: '/assets/fonts/';
 
-$viewPort-phone: 430px;
+$border-primary: 0.83px solid $border-color-primary;
+
+$viewPort-phone: 530px;
 $viewPort-tablet: 1024px;
 $viewPort-desktop: 1600px;
 $viewPort-large-desktop: 2550px;

@@ -1,16 +1,21 @@
 import { Injectable, signal } from '@angular/core';
-
+import { PAGE_STATES } from '@constants/page-state';
+import { PageState } from '@constants/page-state';
 @Injectable({
     providedIn: 'root',
 })
 export class ErrorStateService {
-    hasError = signal(false);
+    private state: PageState = PAGE_STATES.NOT_FOUND;
 
-    showError(): void {
-        this.hasError.set(true);
+    setState(state: PageState): void {
+        this.state = state;
     }
 
-    clearError(): void {
-        this.hasError.set(false);
+    getState(): PageState {
+        return this.state;
+    }
+
+    clearState(): void {
+        this.state = PAGE_STATES.NOT_FOUND;
     }
 }

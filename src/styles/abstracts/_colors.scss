@@ -2,8 +2,21 @@ $font-color-primary: rgba(0, 0, 0, 0.87);
 $font-color-secondary: rgba(0, 0, 0, 0.6);
 $font-color-light: rgba(255, 255, 255, 1);
 
+$color-light: white;
+
 $color-accent-primary: rgba(14, 159, 110, 1);
 $color-light: $font-color-light;
+
+$color-green: rgba(46, 125, 50, 1);
+$color-green-light: rgba(76, 175, 80, 0.08);
+
+$color-blue: rgba(2, 136, 209, 1);
+$color-blue-light: rgba(3, 169, 244, 0.08);
+
+$color-orange: rgba(237, 108, 2, 1);
+$color-orange-light: rgba(255, 152, 0, 0.08);
+
+$border-color-primary: rgba(0, 0, 0, 0.12);
 
 $green-palette: (
     50: #e7f7f1,

@@ -1,0 +1,11 @@
+<div class="stats-container">
+    <div *ngFor="let stat of stats" class="stats-card">
+        <div class="stat-card__text-box">
+            <span class="mat-subtitle-2">{{ stat.title }}</span>
+            <h4 class="stats-card__heading mat-headline-4">{{ stat.value }}</h4>
+        </div>
+        <mat-icon class="stats-card__icon" [ngClass]="stat.colorClass">
+            {{ stat.icon }}</mat-icon
+        >
+    </div>
+</div>

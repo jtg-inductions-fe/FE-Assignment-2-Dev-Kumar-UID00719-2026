@@ -1,0 +1,46 @@
+{
+    "customers": [
+        {
+            "id": 1,
+            "name": "Albert Wright",
+            "email": "albert.wright@test.com",
+            "profileImageUrl": "assets/images/profile-image-1.webp"
+        },
+        {
+            "id": 2,
+            "name": "Karen Nelson",
+            "email": "karen.nelson@test.com",
+            "profileImageUrl": "assets/images/profile-image-2.webp"
+        },
+        {
+            "id": 3,
+            "name": "Dave Miller",
+            "email": "dave.miller@test.com",
+            "profileImageUrl": "assets/images/profile-image-3.webp"
+        },
+        {
+            "id": 4,
+            "name": "Lana Byrd",
+            "email": "lana.byrd@test.com",
+            "profileImageUrl": "assets/images/profile-image-4.webp"
+        },
+        {
+            "id": 5,
+            "name": "Neil Sims",
+            "email": "neil.sims@test.com",
+            "profileImageUrl": "assets/images/profile-image-5.webp"
+        },
+        {
+            "id": 6,
+            "name": "Bonnie Green",
+            "email": "bonnie.green@test.com",
+            "profileImageUrl": "assets/images/profile-image-6.webp"
+        },
+        {
+            "id": 7,
+            "name": "Alice Johnson",
+            "email": "alice.johnson@test.com",
+            "profileImageUrl": "assets/images/profile-image-3.webp"
+        }
+    ]
+}

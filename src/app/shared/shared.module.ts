@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,12 +15,20 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
+import { LayoutHeaderComponent } from '@shared/components/layout-header/layout-header.component';
+import { AutocompleteComponent } from '@shared/components/autocomplete/autocomplete.component';
+import { StatsContainerComponent } from '@shared/components/stats-container/stats-container.component';
+import { ReportGeneratorComponent } from '@shared/components/report-generator/report-generator.component';
+import { DataListCardComponent } from '@shared/components/data-list-card/data-list-card.component';
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { FormFieldComponent } from '@shared/components/form-field/form-field.component';
 import { ErrorTemplateComponent } from '@shared/components/error-template/error-template.component';
 import { HeaderComponent } from '@shared/components/header/header.component';
 import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.component';
+import { DashboardFooterComponent } from '@shared/components/dashboard-footer/dashboard-footer.component';
 @NgModule({
     declarations: [
         ButtonComponent,
@@ -27,6 +36,12 @@ import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.componen
         ErrorTemplateComponent,
         HeaderComponent,
         SidemenuComponent,
+        LayoutHeaderComponent,
+        AutocompleteComponent,
+        StatsContainerComponent,
+        ReportGeneratorComponent,
+        DataListCardComponent,
+        DashboardFooterComponent,
     ],
     imports: [
         RouterModule,
@@ -43,6 +58,10 @@ import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.componen
         MatTreeModule,
         MatSidenavModule,
         MatDividerModule,
+        MatListModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule,
+        NgIf,
     ],
     exports: [
         ButtonComponent,
@@ -50,6 +69,12 @@ import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.componen
         ErrorTemplateComponent,
         HeaderComponent,
         SidemenuComponent,
+        AutocompleteComponent,
+        LayoutHeaderComponent,
+        StatsContainerComponent,
+        ReportGeneratorComponent,
+        DataListCardComponent,
+        DashboardFooterComponent,
     ],
 })
 export class SharedModule {}

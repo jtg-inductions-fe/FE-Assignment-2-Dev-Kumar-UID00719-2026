@@ -1,0 +1,14 @@
+<mat-card class="footer">
+    <p class="footer__text mat-body-2">
+        © 2021 Themesberg, LLC. All rights reserved.
+    </p>
+    <div class="footer__logo-container">
+        <a
+            *ngFor="let social of footerSocials"
+            class="footer__logo-link"
+            [href]="social.link"
+        >
+            <img class="footer__logo" [src]="social.icon" [alt]="social.alt" />
+        </a>
+    </div>
+</mat-card>

@@ -38,28 +38,29 @@
                 <mat-nested-tree-node
                     *matTreeNodeDef="let node; when: hasChild"
                 >
-                    <button
-                        class="mat-tree-node sidenav__tree-item sidenav__tree-button"
-                        matTreeNodeToggle
-                    >
-                        <div class="sidenav__item-left">
+                    <div>
+                        <button
+                            class="mat-tree-node sidenav__tree-item sidenav__tree-button"
+                            matTreeNodeToggle
+                        >
+                            <div class="sidenav__item-left">
+                                <mat-icon>
+                                    {{ node.icon }}
+                                </mat-icon>
+                                <span>
+                                    {{ node.label }}
+                                </span>
+                            </div>
+
                             <mat-icon>
-                                {{ node.icon }}
+                                {{
+                                    treeControl.isExpanded(node)
+                                        ? 'keyboard_arrow_up'
+                                        : 'keyboard_arrow_down'
+                                }}
                             </mat-icon>
-                            <span>
-                                {{ node.label }}
-                            </span>
-                        </div>
-
-                        <mat-icon>
-                            {{
-                                treeControl.isExpanded(node)
-                                    ? 'keyboard_arrow_up'
-                                    : 'keyboard_arrow_down'
-                            }}
-                        </mat-icon>
-                    </button>
-
+                        </button>
+                    </div>
                     <div
                         role="group"
                         [class.sidenav__tree-hidden]="

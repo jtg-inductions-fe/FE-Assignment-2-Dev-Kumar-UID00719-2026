@@ -1,0 +1,39 @@
+<mat-card class="stats-list-card">
+    <h2 class="stats-list-card__heading mat-headline-3">
+        {{ data.heading }}
+    </h2>
+
+    <div
+        class="stats-list-card__item"
+        *ngFor="let item of data.items; trackBy: trackByTitle"
+    >
+        <div *ngIf="item.image" class="stats-list-card__image-container">
+            <img
+                *ngIf="item.image"
+                [src]="item.image"
+                [alt]="item.title"
+                class="stats-list-card__image"
+            />
+        </div>
+
+        <div class="stats-list-card__content">
+            <p class="stats-list-card__title mat-headline-6">
+                {{ item.title }}
+            </p>
+
+            <p
+                *ngIf="item.subtitle"
+                class="stats-list-card__subtitle mat-subtitle-2"
+            >
+                {{ item.subtitle }}
+            </p>
+        </div>
+
+        <span
+            *ngIf="item.trailingText"
+            class="stats-list-card__trailing mat-headline-5"
+        >
+            {{ item.trailingText }}
+        </span>
+    </div>
+</mat-card>
