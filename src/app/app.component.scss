@@ -1,0 +1,18 @@
+@use 'abstracts' as *;
+@use 'base' as *;
+
+:host {
+    @include flex-layout(center, center, column);
+    height: 100vh;
+}
+
+.app-layout {
+    @include flex-layout(center, center, row);
+    flex: 1;
+    overflow: hidden;
+
+    &__content {
+        @include flex-layout(center, center, row);
+        flex: 1;
+    }
+}

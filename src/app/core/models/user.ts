@@ -10,3 +10,5 @@ export interface User {
     password: string;
     role: Role;
 }
+
+export type AuthenticatedUser = Omit<User, 'password'>;

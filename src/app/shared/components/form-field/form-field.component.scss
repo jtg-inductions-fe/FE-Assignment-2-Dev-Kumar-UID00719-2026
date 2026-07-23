@@ -1,0 +1,13 @@
+@use '@angular/material' as mat;
+@use 'abstracts' as *;
+@use 'base' as *;
+
+.input {
+    &__container {
+        width: 100%;
+    }
+
+    &__error {
+        height: pixelToRem(32);
+    }
+}
