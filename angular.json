@@ -24,7 +24,10 @@
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["src/styles/main.scss"],
+                        "styles": [
+                            "src/styles/main.scss",
+                            "node_modules/@material-design-icons/font/index.css"
+                        ],
                         "stylePreprocessorOptions": {
                             "includePaths": ["src/styles"]
                         },
