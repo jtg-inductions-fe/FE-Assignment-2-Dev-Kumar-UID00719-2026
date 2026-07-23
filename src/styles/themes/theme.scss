@@ -16,3 +16,4 @@ $app-theme: mat.define-light-theme(
 
 @include mat.core();
 @include mat.all-component-themes($app-theme);
+@include mat.all-component-typographies($app-typography);
