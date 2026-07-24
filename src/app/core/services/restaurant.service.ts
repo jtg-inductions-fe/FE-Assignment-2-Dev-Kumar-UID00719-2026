@@ -17,6 +17,7 @@ export class RestaurantService {
     }
 
     addRestaurant(restaurant: RestaurantTableData): void {
+        console.log(restaurant);
         RESTAURANT_TABLE_DATA.push(restaurant);
     }
 }

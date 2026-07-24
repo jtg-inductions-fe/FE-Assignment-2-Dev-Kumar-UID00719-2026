@@ -46,12 +46,12 @@
                     [type]="buttonType.Button"
                     [variant]="buttonVariant.Stroked"
                     label="CANCEL"
+                    (clicked)="goBack()"
                 ></app-button>
                 <app-button
                     [type]="buttonType.Submit"
                     label="CREATE RESTAURANT"
                     icon="save"
-                    (clicked)="goBack()"
                 ></app-button>
             </div>
         </form>
