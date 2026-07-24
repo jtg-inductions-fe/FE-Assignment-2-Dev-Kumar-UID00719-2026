@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { TableColumn } from '@data/table-data';
 import { TableColumnType } from '@data/table-data';
 

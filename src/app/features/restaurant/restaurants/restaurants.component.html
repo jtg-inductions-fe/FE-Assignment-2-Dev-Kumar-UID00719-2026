@@ -1,0 +1,33 @@
+<ng-template #ownerTemplate let-row>
+    <mat-chip *ngFor="let owner of row.owners">
+        {{ owner }}
+    </mat-chip>
+</ng-template>
+
+<ng-template #actionTemplate let-row>
+    <app-button
+        [variant]="buttonVariant.Stroked"
+        label="Edit"
+        icon="edit"
+        (clicked)="editRestaurant(row)"
+    >
+    </app-button>
+</ng-template>
+
+<div class="restaurant">
+    <app-layout-header [data]="headerData.RESTAURANTS">
+        <app-button
+            [variant]="buttonVariant.Raised"
+            label="ADD RESTAURANT"
+            icon="add"
+        >
+        </app-button>
+    </app-layout-header>
+
+    <app-table
+        class="restaurant__table"
+        [columns]="columns"
+        [dataSource]="restaurantData"
+    >
+    </app-table>
+</div>

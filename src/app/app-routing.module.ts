@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from '@features/error/error.component';
 import { LoginComponent } from '@features/authentication/login/login.component';
 import { DashboardComponent } from '@features/dashboard/dashboard/dashboard.component';
+import { RestaurantsComponent } from '@features/restaurant/restaurants/restaurants.component';
 
 import { authGuard } from '@guards/auth.guard';
 import { loginGuard } from '@guards/login.guard';
@@ -15,6 +16,11 @@ const routes: Routes = [
     {
         path: 'dashboard',
         component: DashboardComponent,
+        canActivate: [authGuard],
+    },
+    {
+        path: 'restaurants',
+        component: RestaurantsComponent,
         canActivate: [authGuard],
     },
     {

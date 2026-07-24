@@ -1,10 +1,13 @@
 @use 'abstracts' as *;
 @use 'base' as *;
 
-.table-container {
-    // @include flex-layout(space-between, center, row);
-    margin: pixelToRem(16);
+:host {
+    width: 100%;
+}
+.table {
     padding: pixelToRem(16);
+    border-radius: pixelToRem(16);
+    width: 100%;
 
     &__row {
         border-bottom: $border-primary;
