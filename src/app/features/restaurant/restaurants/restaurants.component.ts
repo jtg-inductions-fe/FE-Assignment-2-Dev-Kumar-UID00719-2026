@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { TemplateRef } from '@angular/core';
 
-import { ButtonVariant } from '@constants/buttonComponent';
+import { ButtonVariant } from '@shared/components/button/button.constant';
 import { RestaurantService } from '@services/restaurant.service';
 import { RestaurantTableData } from '@models/resturant';
 import { TableColumn } from '@data/table-data';

@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 
 import { RestaurantTableData } from '@models/resturant';
-import { RESTAURANTS } from '@data/restaurants';
+import { Restaurant } from '@models/resturant';
+import restaurantData from '@data/restaurants.data.json';
 
 @Injectable({
     providedIn: 'root',
 })
 export class RestaurantService {
+    private restaurants: Restaurant[] =
+        restaurantData.restaurants as Restaurant[];
+
     getRestaurants(): RestaurantTableData[] {
-        return RESTAURANTS.map((restaurant) => ({
+        return this.restaurants.map((restaurant) => ({
             id: restaurant.id,
             restaurant: restaurant.name,
             address: restaurant.address,

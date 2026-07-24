@@ -5,15 +5,11 @@ import { CardListData } from '@models/stats-card-data';
 import { AuthenticationService } from '@services/authentication.service';
 import { DashboardService } from '@services/dashboard.service';
 import { Role } from '@models/user';
-<<<<<<< HEAD
 import RestaurantsData from '@data/restaurants.data.json';
 import { Restaurant } from '@models/resturant';
-=======
-import { RESTAURANTS } from '@data/restaurants';
 import { OrderTableData } from '@models/resturant';
 import { TableColumnType } from '@data/table-data';
 import { HEADER_DATA } from '@constants/layoutHeaderData';
->>>>>>> 8e44592 ([DS_A2_07]: completed restaurants page)
 
 @Component({
     selector: 'app-dashboard',
@@ -27,6 +23,7 @@ export class DashboardComponent implements OnInit {
     topCustomers!: CardListData;
     topDishes!: CardListData;
     isAdmin = false;
+    headerData = HEADER_DATA;
 
     /**
     orders: OrderTableData[] = [];
