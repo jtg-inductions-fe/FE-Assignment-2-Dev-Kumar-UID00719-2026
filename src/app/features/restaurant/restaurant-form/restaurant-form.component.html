@@ -5,6 +5,7 @@
             label="BACK"
             icon="keyboard_backspace"
             buttonClass="restaurant-form__back-button"
+            [type]="buttonType.Button"
             (clicked)="goBack()"
         ></app-button>
     </div>
@@ -12,7 +13,7 @@
     <app-layout-header [data]="header"> </app-layout-header>
 
     <mat-card class="form-card">
-        <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit($event)">
             <app-form-field
                 label="Restaurant Name"
                 placeholder="e.g., Pizza Palace"
@@ -50,7 +51,11 @@
                 ></app-button>
                 <app-button
                     [type]="buttonType.Submit"
-                    label="CREATE RESTAURANT"
+                    [label]="
+                        mode === restaurantFormMode.Add
+                            ? 'CREATE RESTAURANT'
+                            : 'SAVE CHANGES'
+                    "
                     icon="save"
                 ></app-button>
             </div>

@@ -23,7 +23,7 @@ export class RestaurantService {
 
     updateRestaurant(restaurant: RestaurantTableData): void {
         const index = RESTAURANT_TABLE_DATA.findIndex((item) => {
-            item.id === restaurant.id;
+            return item.id === restaurant.id;
         });
         RESTAURANT_TABLE_DATA[index] = restaurant;
     }

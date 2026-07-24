@@ -31,6 +31,7 @@ export class RestaurantFormComponent implements OnInit {
     inputType = InputType;
     mode: RestaurantFormMode = RestaurantFormMode.Add;
     currentRestaurant!: RestaurantTableData;
+    restaurantFormMode = RestaurantFormMode;
 
     constructor(
         private fb: FormBuilder,
@@ -43,10 +44,14 @@ export class RestaurantFormComponent implements OnInit {
         this.restaurantForm = this.initializeFormGroup();
         this.header = history.state.headerData;
         this.mode = history.state.mode;
+        console.log(this.mode);
+
+        this.initializeFormGroup();
     }
 
     private initializeFormGroup(): FormGroup {
         this.currentRestaurant = history.state.restaurant;
+        console.log('form initialisation', this.currentRestaurant);
         return this.fb.group({
             name: [
                 this.currentRestaurant?.restaurant || '',
@@ -74,19 +79,28 @@ export class RestaurantFormComponent implements OnInit {
         return this.restaurantForm.get('owners') as FormControl;
     }
 
-    onSubmit(): void {
+    onSubmit(event: Event): void {
+        event.preventDefault();
         if (this.restaurantForm.invalid) {
             return;
         }
 
-        const restaurant: RestaurantTableData = {
-            id: RESTAURANT_TABLE_DATA.length + 1,
-            restaurant: this.name.value,
-            address: this.address.value,
-            owners: this.owners.value,
-        };
+        if (this.mode === RestaurantFormMode.Add) {
+            const restaurant: RestaurantTableData = {
+                id: RESTAURANT_TABLE_DATA.length + 1,
+                restaurant: this.name.value,
+                address: this.address.value,
+                owners: this.owners.value,
+            };
 
-        this.restaurantService.addRestaurant(restaurant);
+            this.restaurantService.addRestaurant(restaurant);
+        } else {
+            this.currentRestaurant.restaurant = this.name.value;
+            this.currentRestaurant.address = this.address.value;
+            this.currentRestaurant.owners = this.owners.value;
+            this.restaurantService.updateRestaurant(this.currentRestaurant);
+        }
+
         this.router.navigate(['/restaurants']);
     }
 
@@ -94,7 +108,7 @@ export class RestaurantFormComponent implements OnInit {
         this.router.navigate(['/restaurants']);
     }
 
-    // saveChanges(){
+    // saveChanges(restaurant: RestaurantTableData){
     //     this.restaurantService.updateRestaurant(restaurant)
     // }
 }
