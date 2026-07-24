@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ButtonVariant } from '@shared/components/button/button.constant';
 import { RestaurantService } from '@services/restaurant.service';
 import { RestaurantTableData } from '@models/resturant';
 import { TableColumn } from '@data/table-data';
 import { HEADER_DATA } from '@constants/layoutHeaderData';
+import { RestaurantFormMode } from '@constants/restaurant-form';
 
 @Component({
     selector: 'app-restaurants',
@@ -25,7 +27,10 @@ export class RestaurantsComponent implements OnInit {
     @ViewChild('actionTemplate', { static: true })
     actionTemplate!: TemplateRef<unknown>;
 
-    constructor(private restaurantService: RestaurantService) {}
+    constructor(
+        private restaurantService: RestaurantService,
+        private router: Router,
+    ) {}
 
     ngOnInit(): void {
         this.restaurantData = this.restaurantService.getRestaurants();
@@ -55,6 +60,21 @@ export class RestaurantsComponent implements OnInit {
     }
 
     editRestaurant(restaurant: RestaurantTableData): void {
+        this.router.navigate(['/restaurants/edit'], {
+            state: {
+                mode: RestaurantFormMode.Edit,
+                headerData: HEADER_DATA.EDIT_RESTAURANTS,
+            },
+        });
         console.log(restaurant);
+    }
+
+    navigateToAddRestaurant() {
+        this.router.navigate(['/restaurants/add'], {
+            state: {
+                mode: RestaurantFormMode.Add,
+                headerData: HEADER_DATA.ADD_RESTAURANTS,
+            },
+        });
     }
 }

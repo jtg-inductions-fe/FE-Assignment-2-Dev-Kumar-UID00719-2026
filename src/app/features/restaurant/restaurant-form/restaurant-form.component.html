@@ -1,0 +1,59 @@
+<div class="restaurant-form">
+    <div class="restaurant-form__button-container">
+        <app-button
+            [variant]="buttonVariant.Stroked"
+            label="BACK"
+            icon="keyboard_backspace"
+            buttonClass="restaurant-form__back-button"
+            (clicked)="goBack()"
+        ></app-button>
+    </div>
+
+    <app-layout-header [data]="header"> </app-layout-header>
+
+    <mat-card class="form-card">
+        <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
+            <app-form-field
+                label="Restaurant Name"
+                placeholder="e.g., Pizza Palace"
+                [variant]="inputType.Text"
+                [control]="name"
+                class="login__input"
+            >
+            </app-form-field>
+
+            <app-form-field
+                label="Address"
+                placeholder="e.g., 123 Pepperoni Rd, Naples"
+                [variant]="inputType.Text"
+                [control]="address"
+                class="login__input"
+            >
+            </app-form-field>
+
+            <app-input-chip
+                [control]="owners"
+                label="Owners (emails)"
+                placeholder="Type owners email and press Enter"
+            ></app-input-chip>
+
+            <p class="mat-subtitle-2 form-card__subtitle">
+                Add emails of users who own/manage this restaurant.
+            </p>
+
+            <div class="form-card__button-container">
+                <app-button
+                    [type]="buttonType.Button"
+                    [variant]="buttonVariant.Stroked"
+                    label="CANCEL"
+                    (clicked)="goBack()"
+                ></app-button>
+                <app-button
+                    [type]="buttonType.Submit"
+                    label="CREATE RESTAURANT"
+                    icon="save"
+                ></app-button>
+            </div>
+        </form>
+    </mat-card>
+</div>
