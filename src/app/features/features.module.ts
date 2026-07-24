@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -13,18 +12,17 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SharedModule } from '@shared/shared.module';
 import { DashboardModule } from '@features/dashboard/dashboard.module';
-import { LoginComponent } from '@features/authentication/login/login.component';
 import { ErrorComponent } from '@features/error/error.component';
-import { MainLayoutComponent } from '@features/layouts/main-layout/main-layout.component';
 import { RestaurantModule } from './restaurant/restaurant.module';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { LayoutsModule } from './layouts/layouts.module';
 @NgModule({
-    declarations: [LoginComponent, ErrorComponent, MainLayoutComponent],
+    declarations: [ErrorComponent],
     imports: [
         CommonModule,
         ReactiveFormsModule,
         MatMenuModule,
         MatButtonModule,
-        MatCardModule,
         MatFormFieldModule,
         MatInputModule,
         MatSelectModule,
@@ -33,12 +31,9 @@ import { RestaurantModule } from './restaurant/restaurant.module';
         SharedModule,
         DashboardModule,
         RestaurantModule,
+        AuthenticationModule,
+        LayoutsModule,
     ],
-    exports: [
-        ErrorComponent,
-        LoginComponent,
-        MainLayoutComponent,
-        RestaurantModule,
-    ],
+    exports: [ErrorComponent, RestaurantModule, AuthenticationModule],
 })
 export class FeaturesModule {}

@@ -2,24 +2,29 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { Order, OrderStatus } from '@models/resturant';
-import { CardListData } from '@models/stats-card-data';
-import { OrderTableData } from '@models/resturant';
-import { Customer } from '@models/resturant';
-import { Restaurant } from '@models/resturant';
+import {
+    Order,
+    OrderStatus,
+    Customer,
+    OrderTableData,
+    Restaurant,
+} from '@models/resturant';
+import { DashboardStats } from '@models/dashboard-stats';
+import { CardListData } from '@shared/components/data-list-card/data-list-card.types';
+import { DATA_LIST_CARD_TITLES } from '@shared/components/data-list-card/data-list-card.const';
+import { RESTAURANT_NAMES } from '@constants/app.const';
 import CustomersData from '@data/customers.data.json';
 import OrdersData from '@data/orders.data.json';
 import RestaurantsData from '@data/restaurants.data.json';
-import { DashboardStats } from '@models/dashboard-stats';
 
 @Injectable({
     providedIn: 'root',
 })
 export class DashboardService {
     private currentRestaurantSubject = new BehaviorSubject<string>(
-        'All Restaurants',
+        RESTAURANT_NAMES.ALL_RESTAURANTS,
     );
-    currentRestaurant$ = this.currentRestaurantSubject.asObservable();
+    readonly currentRestaurant$ = this.currentRestaurantSubject.asObservable();
 
     private readonly restaurants: Restaurant[] =
         RestaurantsData.restaurants as Restaurant[];
@@ -123,7 +128,7 @@ export class DashboardService {
         topCustomers.sort((a, b) => b.totalSpent - a.totalSpent);
 
         return {
-            heading: 'Top Customers',
+            heading: DATA_LIST_CARD_TITLES.TOP_CUSTOMERS,
             items: topCustomers.slice(0, 5).map((customer) => ({
                 title: customer.title,
                 subtitle: customer.subtitle,
@@ -163,7 +168,7 @@ export class DashboardService {
             );
 
             if (!restaurant) {
-                throw new Error(`customer ${restaurantName} not found`);
+                throw new Error(`Restaurant ${restaurantName} not found`);
             }
 
             return {
@@ -177,7 +182,7 @@ export class DashboardService {
         topDishes.sort((a, b) => b.totalOrders - a.totalOrders);
 
         return {
-            heading: 'Top Dishes',
+            heading: DATA_LIST_CARD_TITLES.TOP_DISHES,
             items: topDishes.slice(0, 5).map((dish) => ({
                 title: dish.title,
                 subtitle: dish.subtitle,

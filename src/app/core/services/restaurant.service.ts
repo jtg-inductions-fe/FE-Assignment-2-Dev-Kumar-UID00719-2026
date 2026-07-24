@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { RestaurantTableData } from '@models/resturant';
-import { Restaurant } from '@models/resturant';
+import { RestaurantTableData, Restaurant } from '@models/resturant';
 import restaurantData from '@data/restaurants.data.json';
-import { RESTAURANT_TABLE_DATA } from '@data/restaurantTableData';
+import restaurantTableData from '@data/restaurantTableData.json';
 
 @Injectable({
     providedIn: 'root',
@@ -11,20 +10,21 @@ import { RESTAURANT_TABLE_DATA } from '@data/restaurantTableData';
 export class RestaurantService {
     private restaurants: Restaurant[] =
         restaurantData.restaurants as Restaurant[];
+    private restaurantTableData: RestaurantTableData[] =
+        restaurantTableData.RESTAURANT_TABLE_DATA as RestaurantTableData[];
 
     getRestaurants(): RestaurantTableData[] {
-        return RESTAURANT_TABLE_DATA;
+        return this.restaurantTableData;
     }
 
     addRestaurant(restaurant: RestaurantTableData): void {
-        console.log(restaurant);
-        RESTAURANT_TABLE_DATA.push(restaurant);
+        this.restaurantTableData.push(restaurant);
     }
 
     updateRestaurant(restaurant: RestaurantTableData): void {
-        const index = RESTAURANT_TABLE_DATA.findIndex((item) => {
+        const index = this.restaurantTableData.findIndex((item) => {
             return item.id === restaurant.id;
         });
-        RESTAURANT_TABLE_DATA[index] = restaurant;
+        this.restaurantTableData[index] = restaurant;
     }
 }

@@ -1,11 +1,12 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { CoreModule } from '@core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { GlobalErrorHandlerService } from '@services/global-error-handler.service';
-import { CoreModule } from '@core/core.module';
 import { FeaturesModule } from '@features/features.module';
 import { SharedModule } from '@shared/shared.module';
+import { LayoutsModule } from '@features/layouts/layouts.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +20,7 @@ import { AppComponent } from './app.component';
         CoreModule,
         SharedModule,
         FeaturesModule,
-        SharedModule,
+        LayoutsModule,
     ],
     providers: [
         {

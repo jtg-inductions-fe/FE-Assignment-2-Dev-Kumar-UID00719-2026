@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ViewChild } from '@angular/core';
-import { TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ButtonVariant } from '@shared/components/button/button.constant';
 import { RestaurantService } from '@services/restaurant.service';
 import { RestaurantTableData } from '@models/resturant';
-import { TableColumn } from '@data/table-data';
-import { HEADER_DATA } from '@constants/layoutHeaderData';
+import { TableColumn } from '@models/table-data';
+import { HEADER_DATA } from '@shared/components/layout-header/layout-header.const';
+import { ButtonVariant } from '@shared/components/button/button.constant';
 import { RestaurantFormMode } from '@constants/restaurant-form';
+import { ROUTE_PATH } from '@constants/app.const';
 
 @Component({
     selector: 'app-restaurants',
@@ -17,7 +16,7 @@ import { RestaurantFormMode } from '@constants/restaurant-form';
 })
 export class RestaurantsComponent implements OnInit {
     headerData = HEADER_DATA;
-    buttonVariant = ButtonVariant;
+    ButtonVariant = ButtonVariant;
 
     restaurantData: RestaurantTableData[] = [];
     columns: TableColumn[] = [];
@@ -34,8 +33,11 @@ export class RestaurantsComponent implements OnInit {
 
     ngOnInit(): void {
         this.restaurantData = this.restaurantService.getRestaurants();
+        this.columns = this.getColumns();
+    }
 
-        this.columns = [
+    getColumns(): TableColumn[] {
+        return [
             {
                 key: 'restaurant',
                 label: 'RESTAURANT NAME',
@@ -60,19 +62,17 @@ export class RestaurantsComponent implements OnInit {
     }
 
     editRestaurant(restaurant: RestaurantTableData): void {
-        // const id = restaurant.id;
-        this.router.navigate([`/restaurants/edit`], {
+        this.router.navigate([`/${ROUTE_PATH.EDIT_RESTAURANTS}`], {
             state: {
                 mode: RestaurantFormMode.Edit,
                 headerData: HEADER_DATA.EDIT_RESTAURANTS,
                 restaurant: restaurant,
             },
         });
-        console.log(restaurant);
     }
 
     navigateToAddRestaurant() {
-        this.router.navigate(['/restaurants/add'], {
+        this.router.navigate([`/${ROUTE_PATH.ADD_RESTAURANTS}`], {
             state: {
                 mode: RestaurantFormMode.Add,
                 headerData: HEADER_DATA.ADD_RESTAURANTS,

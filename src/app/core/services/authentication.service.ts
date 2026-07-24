@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject } from 'rxjs';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 
-import { User, AuthenticatedUser } from '@models/user';
+import { User, AuthenticatedUser, Role } from '@models/user';
 import { STORAGE_KEYS } from '@constants/storage-keys';
-import { Role } from '@models/user';
-
 import userData from '@data/user.data.json';
 
 @Injectable({
@@ -17,52 +14,42 @@ export class AuthenticationService {
     private currentUserSubject = new BehaviorSubject<AuthenticatedUser | null>(
         null,
     );
-    private isLoggedInSubject = new BehaviorSubject<boolean>(false);
 
     currentUser$ = this.currentUserSubject.asObservable();
-    isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
     constructor() {
-        const storedUser = localStorage.getItem(STORAGE_KEYS.CURRENT_USER);
+        const storedUser = this.getFromLocalStorage(STORAGE_KEYS.CURRENT_USER);
         if (storedUser) {
             const user: AuthenticatedUser = JSON.parse(storedUser);
 
             this.currentUserSubject.next(user);
-            this.isLoggedInSubject.next(true);
         }
     }
 
     login(email: string, password: string): Observable<AuthenticatedUser> {
-        return new Observable((observer) => {
-            const user = this.users.find(
-                (user) => user.email === email && user.password === password,
-            );
+        const user = this.users.find(
+            (user) => user.email === email && user.password === password,
+        );
 
-            if (!user) {
-                observer.error(new Error('Validation failed!'));
-                return;
-            }
+        if (!user) {
+            return throwError(() => new Error('Validation failed!'));
+        }
 
-            const { password: passwordToRemove, ...authenticatedUser } = user;
+        const { password: _password, ...authenticatedUser } = user;
 
-            localStorage.setItem(
-                STORAGE_KEYS.CURRENT_USER,
-                JSON.stringify(authenticatedUser),
-            );
+        console.log('CHecking aurt', authenticatedUser);
 
-            this.currentUserSubject.next(authenticatedUser);
-            this.isLoggedInSubject.next(true);
+        this.setInLocalStorage(STORAGE_KEYS.CURRENT_USER, authenticatedUser);
 
-            observer.next(authenticatedUser);
-            observer.complete();
-        });
+        this.currentUserSubject.next(authenticatedUser);
+
+        return of(authenticatedUser);
     }
 
-    logout(): void {
-        localStorage.removeItem(STORAGE_KEYS.CURRENT_USER);
-
+    logout(): Observable<void> {
+        this.removeFromLocalStorage(STORAGE_KEYS.CURRENT_USER);
         this.currentUserSubject.next(null);
-        this.isLoggedInSubject.next(false);
+        return of(void 0);
     }
 
     getCurrentUser(): AuthenticatedUser | null {
@@ -70,11 +57,23 @@ export class AuthenticationService {
     }
 
     isLoggedIn(): boolean {
-        return this.isLoggedInSubject.value;
+        return this.currentUserSubject.value !== null;
     }
 
-    getRole(): boolean {
+    isAdmin(): boolean {
         const user = this.getCurrentUser();
         return user?.role === Role.Admin;
+    }
+
+    setInLocalStorage(key: string, data: object) {
+        localStorage.setItem(key, JSON.stringify(data));
+    }
+
+    getFromLocalStorage(key: string) {
+        return localStorage.getItem(key);
+    }
+
+    removeFromLocalStorage(key: string) {
+        localStorage.removeItem(key);
     }
 }

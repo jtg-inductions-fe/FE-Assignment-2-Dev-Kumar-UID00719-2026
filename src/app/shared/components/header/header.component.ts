@@ -14,6 +14,7 @@ import { ButtonVariant } from '@shared/components/button/button.constant';
 import { AuthenticatedUser } from '@models/user';
 import { Role } from '@models/user';
 import { APP_LOGO } from '@constants/app.const';
+import { ROUTE_PATH } from '@constants/app.const';
 
 @Component({
     selector: 'app-header',
@@ -47,19 +48,18 @@ export class HeaderComponent implements OnInit {
             .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe((user) => {
                 this.currentUser = user;
-            });
-        this.authenticationService.isLoggedIn$
-            .pipe(takeUntilDestroyed(this.destroyRef))
-            .subscribe((value) => {
-                this.isLoggedIn = value;
+                this.isLoggedIn = user !== null;
             });
     }
 
     @Output() menuButtonClicked = new EventEmitter<void>();
 
     logout() {
-        this.authenticationService.logout();
-        this.router.navigate(['/login']);
+        this.authenticationService
+            .logout()
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe();
+        this.router.navigate([`/${ROUTE_PATH.LOGIN}`]);
     }
 
     onMenuClick() {

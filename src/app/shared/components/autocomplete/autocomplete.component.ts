@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { DestroyRef } from '@angular/core';
+import { Component, OnInit, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl } from '@angular/forms';
 
@@ -8,10 +7,12 @@ import { map, startWith } from 'rxjs/operators';
 
 import { DashboardService } from '@services/dashboard.service';
 
+import { RESTAURANT_NAMES } from '@constants/app.const';
+
 @Component({
     selector: 'app-autocomplete',
     templateUrl: './autocomplete.component.html',
-    styleUrls: ['./autocomplete.component.scss'],
+    styleUrls: [],
 })
 export class AutocompleteComponent implements OnInit {
     myControl = new FormControl<string>('', { nonNullable: true });
@@ -25,7 +26,7 @@ export class AutocompleteComponent implements OnInit {
 
     ngOnInit() {
         this.options = [
-            'All Restaurants',
+            RESTAURANT_NAMES.ALL_RESTAURANTS,
             ...this.dashboardService.getRestaurantNames(),
         ];
 

@@ -4,7 +4,6 @@
 .stats-list-card {
     @include flex-layout(space-between, center, column);
     padding: pixelToRem(24);
-    margin: pixelToRem(16);
     border-radius: pixelToRem(16);
 
     &__heading {

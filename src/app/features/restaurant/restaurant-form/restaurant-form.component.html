@@ -6,7 +6,7 @@
             icon="keyboard_backspace"
             buttonClass="restaurant-form__back-button"
             [type]="buttonType.Button"
-            (clicked)="goBack()"
+            (clicked)="goToRestaurantPage()"
         ></app-button>
     </div>
 
@@ -17,7 +17,7 @@
             <app-form-field
                 label="Restaurant Name"
                 placeholder="e.g., Pizza Palace"
-                [variant]="inputType.Text"
+                [variant]="InputType.Text"
                 [control]="name"
                 class="login__input"
             >
@@ -26,13 +26,14 @@
             <app-form-field
                 label="Address"
                 placeholder="e.g., 123 Pepperoni Rd, Naples"
-                [variant]="inputType.Text"
+                [variant]="InputType.Text"
                 [control]="address"
                 class="login__input"
             >
             </app-form-field>
 
             <app-input-chip
+                class="restaurant-form__chip-input"
                 [control]="owners"
                 label="Owners (emails)"
                 placeholder="Type owners email and press Enter"
@@ -47,7 +48,7 @@
                     [type]="buttonType.Button"
                     [variant]="buttonVariant.Stroked"
                     label="CANCEL"
-                    (clicked)="goBack()"
+                    (clicked)="goToRestaurantPage()"
                 ></app-button>
                 <app-button
                     [type]="buttonType.Submit"

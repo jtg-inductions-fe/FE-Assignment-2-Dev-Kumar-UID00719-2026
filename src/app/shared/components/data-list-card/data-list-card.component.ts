@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { CardListItem, CardListData } from '@models/stats-card-data';
+import { CardListItem, CardListData } from './data-list-card.types';
 
 @Component({
     selector: 'app-data-list-card',

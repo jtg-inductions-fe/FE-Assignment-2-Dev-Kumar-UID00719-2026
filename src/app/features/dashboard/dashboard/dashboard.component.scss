@@ -1,18 +1,19 @@
 @use 'abstracts' as *;
 
 .dashboard {
+    @include flex-layout(normal, normal, column);
     width: 100%;
     height: 100%;
-    @include flex-layout(normal, normal, column);
 
     &__header {
         @include flex-layout(space-between, center, row);
         width: 100%;
-        padding-inline: 4px 16px;
+        padding-inline: pixelToRem(4) pixelToRem(16);
     }
 
     &__data-list-cards {
-        @include flex-layout(space-between, normal, column);
+        @include flex-layout(space-between, normal, column, pixelToRem(16));
+        margin: 0 pixelToRem(16);
     }
 
     &__top-customers {
@@ -29,15 +30,11 @@
 
     @include breakpoint($viewPort-tablet) {
         &__data-list-cards {
-            @include flex-layout(space-between, normal, row);
-        }
-
-        &__top-customers {
-            flex: 1;
+            flex-direction: row;
         }
 
         &__top-dishes {
-            flex: 1;
+            flex: 2;
         }
     }
 }

@@ -8,5 +8,5 @@ import { ButtonVariant } from '@shared/components/button/button.constant';
     styleUrls: ['./report-generator.component.scss'],
 })
 export class ReportGeneratorComponent {
-    buttonVariant = ButtonVariant;
+    readonly ButtonVariant = ButtonVariant;
 }

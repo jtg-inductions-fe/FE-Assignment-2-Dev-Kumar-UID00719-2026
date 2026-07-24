@@ -1,6 +1,7 @@
 <ng-container [ngSwitch]="variant">
     <button
         *ngSwitchDefault
+        class="button"
         mat-raised-button
         [disabled]="disabled"
         [type]="type"
@@ -14,6 +15,7 @@
 
     <button
         *ngSwitchCase="buttonVariant.Stroked"
+        class="button"
         mat-stroked-button
         [disabled]="disabled"
         [type]="type"
@@ -27,6 +29,7 @@
 
     <button
         *ngSwitchCase="buttonVariant.Flat"
+        class="button"
         mat-flat-button
         [disabled]="disabled"
         [type]="type"
@@ -40,6 +43,7 @@
 
     <button
         *ngSwitchCase="buttonVariant.Icon"
+        class="button"
         mat-icon-button
         [ngClass]="buttonClass"
         [disabled]="disabled"

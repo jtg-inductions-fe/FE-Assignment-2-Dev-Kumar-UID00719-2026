@@ -10,38 +10,43 @@ import { RestaurantFormComponent } from '@features/restaurant/restaurant-form/re
 import { authGuard } from '@guards/auth.guard';
 import { roleGuard } from '@guards/role.guard';
 import { loginGuard } from '@guards/login.guard';
-import { PAGE_STATES } from '@constants/page-state';
+import { PAGE_STATES } from '@features/error/error.const';
+import { ROUTE_PATH } from '@constants/app.const';
 
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: 'login', component: LoginComponent, canActivate: [loginGuard] },
     {
-        path: 'dashboard',
+        path: ROUTE_PATH.LOGIN,
+        component: LoginComponent,
+        canActivate: [loginGuard],
+    },
+    {
+        path: ROUTE_PATH.DASHBOARD,
         component: DashboardComponent,
         canActivate: [authGuard],
     },
     {
-        path: 'restaurants',
+        path: ROUTE_PATH.RESTAURANTS,
         component: RestaurantsComponent,
         canActivate: [authGuard, roleGuard],
     },
     {
-        path: 'restaurants/add',
+        path: ROUTE_PATH.ADD_RESTAURANTS,
         component: RestaurantFormComponent,
         canActivate: [authGuard, roleGuard],
     },
     {
-        path: 'restaurants/edit',
+        path: ROUTE_PATH.EDIT_RESTAURANTS,
         component: RestaurantFormComponent,
         canActivate: [authGuard, roleGuard],
     },
     {
-        path: 'error',
+        path: ROUTE_PATH.ERROR,
         component: ErrorComponent,
         data: { state: PAGE_STATES.ERROR },
     },
     {
-        path: '**',
+        path: ROUTE_PATH.UNKNOWN,
         component: ErrorComponent,
         canActivate: [authGuard],
         data: { state: PAGE_STATES.NOT_FOUND },

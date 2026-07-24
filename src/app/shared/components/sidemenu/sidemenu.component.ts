@@ -15,8 +15,8 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
 import { AuthenticationService } from '@services/authentication.service';
-import { SidenavItem } from '@models/sidebar-item';
-import { SidenavItemType } from '@models/sidebar-item';
+import { SidenavItem } from './sidebar.types';
+import { SidenavItemType } from './sidebar.types';
 import { SidebarMode } from './sidemenu.const';
 import SidenavData from '@data/sidenav.data.json';
 
@@ -48,6 +48,7 @@ export class SidemenuComponent implements OnInit {
         this.authenticationService.currentUser$
             .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe((currentUser) => {
+                this.isLoggedIn.set(currentUser !== null);
                 if (!currentUser) {
                     this.dataSource.data = [];
                     return;
@@ -63,12 +64,6 @@ export class SidemenuComponent implements OnInit {
             .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe((result) => {
                 this.isDesktop.set(result.matches);
-            });
-
-        this.authenticationService.isLoggedIn$
-            .pipe(takeUntilDestroyed(this.destroyRef))
-            .subscribe((value) => {
-                this.isLoggedIn.set(value);
             });
     }
 
