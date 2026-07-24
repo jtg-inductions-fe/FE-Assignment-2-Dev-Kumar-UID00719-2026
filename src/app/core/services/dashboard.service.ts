@@ -20,7 +20,8 @@ export class DashboardService {
     );
     currentRestaurant$ = this.currentRestaurantSubject.asObservable();
 
-    private readonly restaurants: Restaurant[] = RestaurantsData.restaurants as Restaurant[];
+    private readonly restaurants: Restaurant[] =
+        RestaurantsData.restaurants as Restaurant[];
     private readonly customers: Customer[] =
         CustomersData.customers as Customer[];
     private readonly orders: Order[] = OrdersData.orders as Order[];

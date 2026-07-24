@@ -14,7 +14,8 @@ import { Restaurant } from '@models/resturant';
     styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-    private readonly restaurants: Restaurant[] = RestaurantsData.restaurants as Restaurant[];
+    private readonly restaurants: Restaurant[] =
+        RestaurantsData.restaurants as Restaurant[];
 
     topCustomers!: CardListData;
     topDishes!: CardListData;
@@ -77,11 +78,13 @@ export class DashboardComponent implements OnInit {
         }
 
         this.dashboardService.currentRestaurant$
-        .pipe(takeUntilDestroyed(this.destroyRef))
-        .subscribe((restaurantName) => {
-            this.topCustomers =this.dashboardService.getTopCustomers(restaurantName);
-            this.topDishes = this.dashboardService.getTopDishes(restaurantName);
-            // this.orders = this.dashboardService.getActiveOrders(restaurantName);
-        });
+            .pipe(takeUntilDestroyed(this.destroyRef))
+            .subscribe((restaurantName) => {
+                this.topCustomers =
+                    this.dashboardService.getTopCustomers(restaurantName);
+                this.topDishes =
+                    this.dashboardService.getTopDishes(restaurantName);
+                // this.orders = this.dashboardService.getActiveOrders(restaurantName);
+            });
     }
 }

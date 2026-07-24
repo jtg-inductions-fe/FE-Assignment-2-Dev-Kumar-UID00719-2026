@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { AuthenticationService } from '@services/authentication.service';
 import { NotificationService } from '@services/notification.service';
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
         private authenticationService: AuthenticationService,
         private router: Router,
         private notificationService: NotificationService,
+        private destroyRef: DestroyRef,
     ) {}
 
     ngOnInit(): void {
@@ -52,21 +54,24 @@ export class LoginComponent implements OnInit {
         const { email, password } = this.loginForm.value;
 
         setTimeout(() => {
-            this.authenticationService.login(email, password).subscribe({
-                next: () => {
-                    this.router.navigate(['/dashboard']);
-                    this.notificationService.showSuccessSnackBar(
-                        'Login success!',
-                        'cancel',
-                    );
-                },
-                error: () => {
-                    this.notificationService.showErrorSnackBar(
-                        'Invalid credentials',
-                        'cancel',
-                    );
-                },
-            });
+            this.authenticationService
+                .login(email, password)
+                .pipe(takeUntilDestroyed(this.destroyRef))
+                .subscribe({
+                    next: () => {
+                        this.router.navigate(['/dashboard']);
+                        this.notificationService.showSuccessSnackBar(
+                            'Login success!',
+                            '',
+                        );
+                    },
+                    error: () => {
+                        this.notificationService.showErrorSnackBar(
+                            'Invalid credentials',
+                            'cancel',
+                        );
+                    },
+                });
         }, 1500);
     }
 
