@@ -14,9 +14,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatTableModule } from '@angular/material/table';
 
 import { LayoutHeaderComponent } from '@shared/components/layout-header/layout-header.component';
 import { AutocompleteComponent } from '@shared/components/autocomplete/autocomplete.component';
@@ -29,6 +30,7 @@ import { ErrorTemplateComponent } from '@shared/components/error-template/error-
 import { HeaderComponent } from '@shared/components/header/header.component';
 import { SidemenuComponent } from '@shared/components/sidemenu/sidemenu.component';
 import { DashboardFooterComponent } from '@shared/components/dashboard-footer/dashboard-footer.component';
+import { TableComponent } from './components/table/table.component';
 @NgModule({
     declarations: [
         ButtonComponent,
@@ -42,6 +44,7 @@ import { DashboardFooterComponent } from '@shared/components/dashboard-footer/da
         ReportGeneratorComponent,
         DataListCardComponent,
         DashboardFooterComponent,
+        TableComponent,
     ],
     imports: [
         RouterModule,
@@ -62,6 +65,8 @@ import { DashboardFooterComponent } from '@shared/components/dashboard-footer/da
         ReactiveFormsModule,
         MatAutocompleteModule,
         NgIf,
+        MatChipsModule,
+        MatTableModule,
     ],
     exports: [
         ButtonComponent,
@@ -75,6 +80,7 @@ import { DashboardFooterComponent } from '@shared/components/dashboard-footer/da
         ReportGeneratorComponent,
         DataListCardComponent,
         DashboardFooterComponent,
+        TableComponent,
     ],
 })
 export class SharedModule {}

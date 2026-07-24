@@ -45,3 +45,12 @@ export interface RestaurantOwner {
     email: string;
     phone: string;
 }
+
+export interface OrderTableData {
+    id: number;
+    restaurant: string;
+    customer: string;
+    items: string;
+    amount: string;
+    status: OrderStatus;
+}

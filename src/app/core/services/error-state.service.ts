@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { PAGE_STATES } from '@constants/page-state';
 import { PageState } from '@constants/page-state';
 @Injectable({

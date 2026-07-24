@@ -1,0 +1,12 @@
+@use 'abstracts' as *;
+@use 'base' as *;
+
+.table-container {
+    // @include flex-layout(space-between, center, row);
+    margin: pixelToRem(16);
+    padding: pixelToRem(16);
+
+    &__row {
+        border-bottom: $border-primary;
+    }
+}
