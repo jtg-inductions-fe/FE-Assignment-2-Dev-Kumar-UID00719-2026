@@ -60,10 +60,12 @@ export class RestaurantsComponent implements OnInit {
     }
 
     editRestaurant(restaurant: RestaurantTableData): void {
-        this.router.navigate(['/restaurants/edit'], {
+        // const id = restaurant.id;
+        this.router.navigate([`/restaurants/edit`], {
             state: {
                 mode: RestaurantFormMode.Edit,
                 headerData: HEADER_DATA.EDIT_RESTAURANTS,
+                restaurant: restaurant,
             },
         });
         console.log(restaurant);

@@ -20,4 +20,11 @@ export class RestaurantService {
         console.log(restaurant);
         RESTAURANT_TABLE_DATA.push(restaurant);
     }
+
+    updateRestaurant(restaurant: RestaurantTableData): void {
+        const index = RESTAURANT_TABLE_DATA.findIndex((item) => {
+            item.id === restaurant.id;
+        });
+        RESTAURANT_TABLE_DATA[index] = restaurant;
+    }
 }

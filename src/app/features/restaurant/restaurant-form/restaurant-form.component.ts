@@ -30,6 +30,7 @@ export class RestaurantFormComponent implements OnInit {
     header: HeaderData = HEADER_DATA.ADD_RESTAURANTS;
     inputType = InputType;
     mode: RestaurantFormMode = RestaurantFormMode.Add;
+    currentRestaurant!: RestaurantTableData;
 
     constructor(
         private fb: FormBuilder,
@@ -45,10 +46,19 @@ export class RestaurantFormComponent implements OnInit {
     }
 
     private initializeFormGroup(): FormGroup {
+        this.currentRestaurant = history.state.restaurant;
         return this.fb.group({
-            name: ['', Validators.required],
-            address: ['', Validators.required],
-            owners: this.fb.control<string[]>([]),
+            name: [
+                this.currentRestaurant?.restaurant || '',
+                Validators.required,
+            ],
+            address: [
+                this.currentRestaurant?.address || '',
+                Validators.required,
+            ],
+            owners: this.fb.control<string[]>(
+                this.currentRestaurant?.owners || [],
+            ),
         });
     }
 
@@ -83,4 +93,8 @@ export class RestaurantFormComponent implements OnInit {
     goBack() {
         this.router.navigate(['/restaurants']);
     }
+
+    // saveChanges(){
+    //     this.restaurantService.updateRestaurant(restaurant)
+    // }
 }
