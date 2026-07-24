@@ -1,0 +1,32 @@
+@use 'abstracts' as *;
+@use 'base' as *;
+
+.restaurant-form {
+    padding: pixelToRem(16) 0;
+
+    &__button-container {
+        width: 110px;
+        margin: 0 pixelToRem(16);
+    }
+}
+
+.form-card {
+    padding: pixelToRem(16);
+    border-radius: pixelToRem(16);
+    margin: 0 pixelToRem(16);
+
+    &__button-container {
+        @include flex-layout(center, center, column, pixelToRem(16));
+        padding-top: pixelToRem(16);
+    }
+
+    &__subtitle {
+        @include text-ellipsis(1);
+    }
+
+    @include breakpoint($viewPort-phone) {
+        &__button-container {
+            @include flex-layout(flex-end, center, row, pixelToRem(16));
+        }
+    }
+}

@@ -16,6 +16,7 @@ import { DashboardModule } from '@features/dashboard/dashboard.module';
 import { LoginComponent } from '@features/authentication/login/login.component';
 import { ErrorComponent } from '@features/error/error.component';
 import { MainLayoutComponent } from '@features/layouts/main-layout/main-layout.component';
+import { RestaurantModule } from './restaurant/restaurant.module';
 @NgModule({
     declarations: [LoginComponent, ErrorComponent, MainLayoutComponent],
     imports: [
@@ -31,7 +32,13 @@ import { MainLayoutComponent } from '@features/layouts/main-layout/main-layout.c
         MatSnackBarModule,
         SharedModule,
         DashboardModule,
+        RestaurantModule,
     ],
-    exports: [ErrorComponent, LoginComponent, MainLayoutComponent],
+    exports: [
+        ErrorComponent,
+        LoginComponent,
+        MainLayoutComponent,
+        RestaurantModule,
+    ],
 })
 export class FeaturesModule {}

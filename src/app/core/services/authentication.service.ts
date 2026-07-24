@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+
 import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
 
 import { User, AuthenticatedUser } from '@models/user';
 import { STORAGE_KEYS } from '@constants/storage-keys';
+import { Role } from '@models/user';
+
 import userData from '@data/user.data.json';
 
 @Injectable({
@@ -68,5 +71,10 @@ export class AuthenticationService {
 
     isLoggedIn(): boolean {
         return this.isLoggedInSubject.value;
+    }
+
+    getRole(): boolean {
+        const user = this.getCurrentUser();
+        return user?.role === Role.Admin;
     }
 }

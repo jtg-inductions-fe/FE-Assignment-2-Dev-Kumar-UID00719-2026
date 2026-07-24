@@ -1,12 +1,11 @@
 <div class="layout-header">
     <div class="layout-header__text-box">
         <h1 class="layout-header__heading mat-headline-1">
-            Overview Dashboard
+            {{ data.heading }}
         </h1>
         <p class="layout-header__subHeading mat-body-2">
-            System administrator overview panel. Impersonate owners or view
-            aggregate metrics.
+            {{ data.paragraph }}
         </p>
     </div>
-    <app-autocomplete *ngIf="isAdmin"></app-autocomplete>
+    <ng-content></ng-content>
 </div>

@@ -1,5 +1,7 @@
 <div class="dashboard">
-    <app-layout-header class="dashboard__header"></app-layout-header>
+    <app-layout-header [data]="headerData.DASHBOARD" class="dashboard__header">
+        <app-autocomplete *ngIf="isAdmin"></app-autocomplete>
+    </app-layout-header>
     <app-stats-container></app-stats-container>
     <app-report-generator></app-report-generator>
     <div class="dashboard__data-list-cards">

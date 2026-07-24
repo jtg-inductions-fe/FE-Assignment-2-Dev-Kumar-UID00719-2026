@@ -4,8 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from '@features/error/error.component';
 import { LoginComponent } from '@features/authentication/login/login.component';
 import { DashboardComponent } from '@features/dashboard/dashboard/dashboard.component';
+import { RestaurantsComponent } from '@features/restaurant/restaurants/restaurants.component';
+import { RestaurantFormComponent } from '@features/restaurant/restaurant-form/restaurant-form.component';
 
 import { authGuard } from '@guards/auth.guard';
+import { roleGuard } from '@guards/role.guard';
 import { loginGuard } from '@guards/login.guard';
 import { PAGE_STATES } from '@constants/page-state';
 
@@ -16,6 +19,21 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         canActivate: [authGuard],
+    },
+    {
+        path: 'restaurants',
+        component: RestaurantsComponent,
+        canActivate: [authGuard, roleGuard],
+    },
+    {
+        path: 'restaurants/add',
+        component: RestaurantFormComponent,
+        canActivate: [authGuard, roleGuard],
+    },
+    {
+        path: 'restaurants/edit',
+        component: RestaurantFormComponent,
+        canActivate: [authGuard, roleGuard],
     },
     {
         path: 'error',
