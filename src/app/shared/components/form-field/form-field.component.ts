@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { ButtonVariant } from '@shared/components/button/button.constant';
-import { ButtonType } from '@shared/components/button/button.constant';
-import { InputType } from './formField.const';
-import { FormFieldAppearance } from './formField.const';
+import {
+    ButtonVariant,
+    ButtonType,
+} from '@shared/components/button/button.constant';
+import { InputType, FormFieldAppearance } from './formField.const';
 
 @Component({
     selector: 'app-form-field',
@@ -19,10 +20,10 @@ export class FormFieldComponent {
     @Input() appearance: FormFieldAppearance = FormFieldAppearance.Outline;
 
     hide = true;
-    FormFieldAppearance = FormFieldAppearance;
-    ButtonVariant = ButtonVariant;
-    ButtonType = ButtonType;
-    InputType = InputType;
+    readonly FormFieldAppearance = FormFieldAppearance;
+    readonly ButtonVariant = ButtonVariant;
+    readonly ButtonType = ButtonType;
+    readonly InputType = InputType;
 
     get inputType(): string {
         if (this.variant === InputType.Password) {

@@ -14,11 +14,11 @@
         >
             <div class="login__input">
                 <app-form-field
+                    class="login__input"
                     label="Email Address"
                     placeholder="Email address"
                     [variant]="InputType.Email"
                     [control]="email"
-                    class="login__input"
                 >
                 </app-form-field>
             </div>
@@ -32,7 +32,7 @@
                 </app-form-field>
             </div>
 
-            <app-button [type]="buttonType.Submit" label="LOGIN"></app-button>
+            <app-button label="LOGIN" [type]="ButtonType.Submit"></app-button>
         </form>
     </mat-card>
 </div>

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { HeaderData } from '@constants/layoutHeaderData';
+import { HeaderData } from './layout-header.const';
 
 @Component({
     selector: 'app-layout-header',

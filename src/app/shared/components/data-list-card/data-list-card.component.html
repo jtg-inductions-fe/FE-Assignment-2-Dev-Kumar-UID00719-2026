@@ -4,15 +4,15 @@
     </h2>
 
     <div
-        class="stats-list-card__item"
         *ngFor="let item of data.items; trackBy: trackByTitle"
+        class="stats-list-card__item"
     >
         <div *ngIf="item.image" class="stats-list-card__image-container">
             <img
                 *ngIf="item.image"
+                class="stats-list-card__image"
                 [src]="item.image"
                 [alt]="item.title"
-                class="stats-list-card__image"
             />
         </div>
 

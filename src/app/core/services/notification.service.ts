@@ -22,7 +22,11 @@ export class NotificationService {
         this.openSnackBar(message, action, 'success-snackbar');
     }
 
-    private openSnackBar(message: string, action: string, panelClass: string) {
+    private openSnackBar(
+        message: string,
+        action: string,
+        panelClass: string,
+    ): void {
         this.snackBar.open(message, action, {
             ...this.snackBarConfig,
             panelClass: [panelClass],

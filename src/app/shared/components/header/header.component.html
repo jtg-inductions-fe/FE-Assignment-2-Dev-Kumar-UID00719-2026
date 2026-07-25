@@ -1,5 +1,5 @@
 <div class="header">
-    <div class="header__logo" *ngIf="isDesktop || !isLoggedIn">
+    <div *ngIf="isDesktop || !isLoggedIn" class="header__logo">
         <img [src]="appLogo" alt="App logo" />
     </div>
 
@@ -19,8 +19,8 @@
     >
         <img
             class="header__profile-button-image"
-            [src]="currentUser?.profileImageUrl"
             alt="User profile picture"
+            [src]="currentUser?.profileImageUrl"
         />
     </app-button>
 
@@ -29,8 +29,8 @@
             <div class="profile-card__image-container">
                 <img
                     class="profile-card__image"
-                    [src]="currentUser?.profileImageUrl"
                     alt="User profile picture"
+                    [src]="currentUser?.profileImageUrl"
                 />
             </div>
 

@@ -1,7 +1,11 @@
 import { Component, DestroyRef, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+    FormBuilder,
+    FormGroup,
+    Validators,
+    FormControl,
+} from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { AuthenticationService } from '@services/authentication.service';
@@ -9,8 +13,10 @@ import { NotificationService } from '@services/notification.service';
 
 import { ButtonType } from '@shared/components/button/button.constant';
 import { InputType } from '@shared/components/form-field/formField.const';
+import { ROUTE_PATH } from '@constants/app.const';
 
 import { LoginFormFields } from './login.const';
+import { LOGIN_MESSAGE } from './login.const';
 
 @Component({
     selector: 'app-login',
@@ -20,7 +26,7 @@ import { LoginFormFields } from './login.const';
 export class LoginComponent implements OnInit {
     loginForm!: FormGroup;
     hide = true;
-    buttonType = ButtonType;
+    ButtonType = ButtonType;
     InputType = InputType;
 
     constructor(
@@ -59,15 +65,15 @@ export class LoginComponent implements OnInit {
                 .pipe(takeUntilDestroyed(this.destroyRef))
                 .subscribe({
                     next: () => {
-                        this.router.navigate(['/dashboard']);
+                        this.router.navigate([`/${ROUTE_PATH.DASHBOARD}`]);
                         this.notificationService.showSuccessSnackBar(
-                            'Login success!',
+                            LOGIN_MESSAGE.SUCCESS,
                             '',
                         );
                     },
                     error: () => {
                         this.notificationService.showErrorSnackBar(
-                            'Invalid credentials',
+                            LOGIN_MESSAGE.FAILED,
                             'cancel',
                         );
                     },

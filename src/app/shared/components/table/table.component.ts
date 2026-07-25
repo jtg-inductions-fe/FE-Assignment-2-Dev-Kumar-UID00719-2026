@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { TableColumn } from '@data/table-data';
-import { TableColumnType } from '@data/table-data';
+import { TableColumn } from '@models/table-data';
+import { TableColumnType } from '@models/table-data';
 
 @Component({
     selector: 'app-table',

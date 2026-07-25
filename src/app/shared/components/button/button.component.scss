@@ -1,7 +1,7 @@
 @use 'abstracts' as *;
 @use 'base' as *;
 
-button {
+.button {
     border-radius: pixelToRem(4);
     width: 100%;
 
@@ -19,7 +19,7 @@ button {
 }
 
 .mat-mdc-outlined-button:not(:disabled) {
-    border: 1px solid $color-accent-primary;
-    border-radius: 4px;
+    border: pixelToRem(1) solid $color-accent-primary;
+    border-radius: pixelToRem(4);
     padding: 0 pixelToRem(16);
 }

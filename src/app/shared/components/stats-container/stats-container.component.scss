@@ -17,7 +17,6 @@
 .stats-card {
     @include flex-layout(space-between, center, row);
     flex-grow: 1;
-    max-width: pixelToRem(400);
     padding: pixelToRem(10);
     border: $border-primary;
     border-radius: pixelToRem(12);

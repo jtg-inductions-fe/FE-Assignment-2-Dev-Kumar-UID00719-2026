@@ -12,6 +12,7 @@
     min-width: pixelToRem(250);
     height: 100%;
     margin-bottom: PixelToRem(200);
+    position: relative;
 
     &__link {
         @include flex-layout(space-between, center, row, pixelToRem(16));
@@ -39,7 +40,7 @@
 
     &__bottom {
         @include flex-layout(center, center, row);
-        position: fixed;
+        position: absolute;
         bottom: 0;
         left: 0;
         width: pixelToRem(250);
@@ -50,6 +51,7 @@
 
     &__tree {
         padding: pixelToRem(30) 0;
+        overflow: auto;
     }
 
     &__tree-hidden {

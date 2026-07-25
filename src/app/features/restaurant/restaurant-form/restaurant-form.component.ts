@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
     FormBuilder,
     FormGroup,
@@ -6,17 +6,21 @@ import {
     Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { OnInit } from '@angular/core';
 
-import { ButtonVariant } from '@shared/components/button/button.constant';
-import { InputType } from '@shared/components/form-field/formField.const';
-import { HEADER_DATA } from '@constants/layoutHeaderData';
-import { HeaderData } from '@constants/layoutHeaderData';
-import { ButtonType } from '@shared/components/button/button.constant';
-import { RestaurantFormMode } from '@constants/restaurant-form';
 import { RestaurantService } from '@services/restaurant.service';
+import {
+    ButtonVariant,
+    ButtonType,
+} from '@shared/components/button/button.constant';
+import { InputType } from '@shared/components/form-field/formField.const';
+import {
+    HEADER_DATA,
+    HeaderData,
+} from '@shared/components/layout-header/layout-header.const';
+import { RestaurantFormMode } from '@constants/restaurant-form';
 import { RestaurantTableData } from '@models/resturant';
-import { RESTAURANT_TABLE_DATA } from '@data/restaurantTableData';
+import restaurantTableData from '@data/restaurantTableData.json';
+import { ROUTE_PATH } from '@constants/app.const';
 
 @Component({
     selector: 'app-restaurant-form',
@@ -24,11 +28,13 @@ import { RESTAURANT_TABLE_DATA } from '@data/restaurantTableData';
     styleUrls: ['./restaurant-form.component.scss'],
 })
 export class RestaurantFormComponent implements OnInit {
+    private restaurantTableData: RestaurantTableData[] =
+        restaurantTableData.RESTAURANT_TABLE_DATA as RestaurantTableData[];
     restaurantForm!: FormGroup;
     buttonType = ButtonType;
     buttonVariant = ButtonVariant;
     header: HeaderData = HEADER_DATA.ADD_RESTAURANTS;
-    inputType = InputType;
+    InputType = InputType;
     mode: RestaurantFormMode = RestaurantFormMode.Add;
     currentRestaurant!: RestaurantTableData;
     restaurantFormMode = RestaurantFormMode;
@@ -39,19 +45,16 @@ export class RestaurantFormComponent implements OnInit {
         private restaurantService: RestaurantService,
     ) {}
 
-    @Input()
     ngOnInit(): void {
         this.restaurantForm = this.initializeFormGroup();
         this.header = history.state.headerData;
         this.mode = history.state.mode;
-        console.log(this.mode);
 
         this.initializeFormGroup();
     }
 
     private initializeFormGroup(): FormGroup {
         this.currentRestaurant = history.state.restaurant;
-        console.log('form initialisation', this.currentRestaurant);
         return this.fb.group({
             name: [
                 this.currentRestaurant?.restaurant || '',
@@ -87,7 +90,7 @@ export class RestaurantFormComponent implements OnInit {
 
         if (this.mode === RestaurantFormMode.Add) {
             const restaurant: RestaurantTableData = {
-                id: RESTAURANT_TABLE_DATA.length + 1,
+                id: this.restaurantTableData.length + 1,
                 restaurant: this.name.value,
                 address: this.address.value,
                 owners: this.owners.value,
@@ -101,14 +104,10 @@ export class RestaurantFormComponent implements OnInit {
             this.restaurantService.updateRestaurant(this.currentRestaurant);
         }
 
-        this.router.navigate(['/restaurants']);
+        this.goToRestaurantPage();
     }
 
-    goBack() {
-        this.router.navigate(['/restaurants']);
+    goToRestaurantPage() {
+        this.router.navigate([`/${ROUTE_PATH.RESTAURANTS}`]);
     }
-
-    // saveChanges(restaurant: RestaurantTableData){
-    //     this.restaurantService.updateRestaurant(restaurant)
-    // }
 }
