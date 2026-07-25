@@ -1,0 +1,60 @@
+@use 'abstracts/variables' as *;
+
+/**
+ * Creates a flex container with configurable alignment, direction and spacing.
+ *
+ * @param {String} $justify - Defines the justify-content value.
+ * @param {String} $align - Defines the align-items value.
+ * @param {String} $direction - Defines the flex-direction.
+ * @param {Number} $gap - Defines the gap between flex items.
+ */
+@mixin flex-layout($justify: normal, $align: normal, $direction: row, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+/**
+ * Generates @font-face declarations for all variants of a font family.
+ *
+ * @param {String} $font-family - Key of the font family in the $fonts map.
+ */
+@mixin font-face($font-family) {
+    $styles: map-get($fonts, $font-family);
+
+    @each $style, $font in $styles {
+        @font-face {
+            font-family: '#{$font-family}';
+            src: url('#{$font-path}#{map-get($font,"file-name")}.woff2');
+            font-weight: map-get($font, 'font-weight');
+            font-style: normal;
+            font-display: swap;
+        }
+    }
+}
+
+/**
+ * Truncates text after the specified number of lines.
+ *
+ * @param {Number} $lines - Maximum number of visible lines.
+ */
+@mixin text-ellipsis($lines: 1) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/**
+ * Wraps content in a media query for the specified minimum viewport width.
+ *
+ * @param {Number} $min-viewPort-width - Minimum viewport width at which the styles are applied.
+ */
+@mixin breakpoint($min-viewPort-width: $viewPort-tablet) {
+    @media only screen and (min-width: $min-viewPort-width) {
+        @content;
+    }
+}

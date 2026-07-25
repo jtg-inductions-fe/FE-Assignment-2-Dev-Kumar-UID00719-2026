@@ -1,0 +1,47 @@
+@use 'abstracts' as *;
+
+.report-generator {
+    @include flex-layout(space-between, center, column);
+    padding: pixelToRem(16);
+    margin: pixelToRem(16);
+    border: $border-primary;
+    border-radius: pixelToRem(12);
+
+    &__text-box {
+        @include flex-layout(center, center, column);
+        max-width: pixelToRem(380);
+        padding: pixelToRem(16);
+    }
+
+    &__heading {
+        margin: 0;
+    }
+
+    &__caption {
+        color: $font-color-secondary;
+        @include text-ellipsis(2);
+        text-align: center;
+    }
+
+    &__button-container {
+        @include flex-layout(space-between, center, column, pixelToRem(8));
+    }
+
+    @include breakpoint($viewPort-phone) {
+        @include flex-layout(space-between, center, row);
+
+        &__text-box {
+            @include flex-layout(center, normal, column);
+        }
+
+        &__caption {
+            text-align: start;
+        }
+    }
+
+    @include breakpoint($viewPort-tablet) {
+        &__button-container {
+            @include flex-layout(space-between, center, row, pixelToRem(8));
+        }
+    }
+}

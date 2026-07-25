@@ -1,0 +1,44 @@
+$font-color-primary: rgba(0, 0, 0, 0.87);
+$font-color-secondary: rgba(0, 0, 0, 0.6);
+$font-color-light: rgba(255, 255, 255, 1);
+
+$color-light: white;
+
+$color-accent-primary: rgba(14, 159, 110, 1);
+$color-light: $font-color-light;
+
+$color-green: rgba(46, 125, 50, 1);
+$color-green-light: rgba(76, 175, 80, 0.08);
+
+$color-blue: rgba(2, 136, 209, 1);
+$color-blue-light: rgba(3, 169, 244, 0.08);
+
+$color-orange: rgba(237, 108, 2, 1);
+$color-orange-light: rgba(255, 152, 0, 0.08);
+
+$border-color-primary: rgba(0, 0, 0, 0.12);
+
+$green-palette: (
+    50: #e7f7f1,
+    100: #c3ecdc,
+    200: #9bdfc5,
+    300: #72d2ad,
+    400: #53c79a,
+    500: #0e9f6e,
+    600: #0c8f63,
+    700: #0a7d56,
+    800: #086b49,
+    900: #044a32,
+    contrast: (
+        50: rgba(0, 0, 0, 0.87),
+        100: rgba(0, 0, 0, 0.87),
+        200: rgba(0, 0, 0, 0.87),
+        300: rgba(255, 255, 255, 1),
+        400: rgba(255, 255, 255, 1),
+        500: rgba(255, 255, 255, 1),
+        600: rgba(255, 255, 255, 1),
+        700: rgba(255, 255, 255, 1),
+        800: rgba(255, 255, 255, 1),
+        900: rgba(255, 255, 255, 1),
+    ),
+);

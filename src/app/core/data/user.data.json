@@ -1,0 +1,20 @@
+{
+    "USERS": [
+        {
+            "id": 1,
+            "name": "Admin",
+            "email": "admin@test.com",
+            "password": "admin123",
+            "role": 0,
+            "profileImageUrl": "assets/images/profile-image-3.webp"
+        },
+        {
+            "id": 2,
+            "name": "Restaurant Owner",
+            "email": "owner@test.com",
+            "password": "owner123",
+            "role": 1,
+            "profileImageUrl": "assets/images/profile-image-2.webp"
+        }
+    ]
+}

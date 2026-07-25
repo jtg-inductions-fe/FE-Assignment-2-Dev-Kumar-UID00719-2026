@@ -1,0 +1,25 @@
+@use 'abstracts' as *;
+@use 'base' as *;
+
+.button {
+    border-radius: pixelToRem(4);
+    width: 100%;
+
+    :disabled {
+        cursor: not-allowed;
+    }
+}
+
+.profile-button {
+    width: pixelToRem(40);
+    height: pixelToRem(40);
+    overflow: hidden;
+    border-radius: pixelToRem(20);
+    padding: 0;
+}
+
+.mat-mdc-outlined-button:not(:disabled) {
+    border: pixelToRem(1) solid $color-accent-primary;
+    border-radius: pixelToRem(4);
+    padding: 0 pixelToRem(16);
+}

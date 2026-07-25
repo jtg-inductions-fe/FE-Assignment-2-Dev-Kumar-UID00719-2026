@@ -1,0 +1,57 @@
+<ng-container [ngSwitch]="variant">
+    <button
+        *ngSwitchDefault
+        class="button"
+        mat-raised-button
+        [disabled]="disabled"
+        [type]="type"
+        color="primary"
+        (click)="onClick()"
+        [ngClass]="buttonClass"
+    >
+        <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+        {{ label }}
+    </button>
+
+    <button
+        *ngSwitchCase="buttonVariant.Stroked"
+        class="button"
+        mat-stroked-button
+        [disabled]="disabled"
+        [type]="type"
+        color="primary"
+        (click)="onClick()"
+        [ngClass]="buttonClass"
+    >
+        <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+        {{ label }}
+    </button>
+
+    <button
+        *ngSwitchCase="buttonVariant.Flat"
+        class="button"
+        mat-flat-button
+        [disabled]="disabled"
+        [type]="type"
+        color="primary"
+        (click)="onClick()"
+        [ngClass]="buttonClass"
+    >
+        <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+        {{ label }}
+    </button>
+
+    <button
+        *ngSwitchCase="buttonVariant.Icon"
+        class="button"
+        mat-icon-button
+        [ngClass]="buttonClass"
+        [disabled]="disabled"
+        [type]="type"
+        [matMenuTriggerFor]="menu"
+        (click)="onClick()"
+    >
+        <ng-content></ng-content>
+        <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+    </button>
+</ng-container>

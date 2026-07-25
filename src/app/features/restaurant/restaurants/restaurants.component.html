@@ -1,0 +1,40 @@
+<div class="restaurant">
+    <app-layout-header [data]="headerData.RESTAURANTS">
+        <app-button
+            label="ADD RESTAURANT"
+            icon="add"
+            [variant]="ButtonVariant.Raised"
+            (clicked)="navigateToAddRestaurant()"
+        >
+        </app-button>
+    </app-layout-header>
+
+    <div class="restaurant__table-container">
+        <app-table
+            class="restaurant__table"
+            [columns]="columns"
+            [dataSource]="restaurantData"
+        >
+        </app-table>
+    </div>
+</div>
+
+<ng-template #ownerTemplate let-row>
+    <div class="restaurant__chip-container">
+        <mat-chip *ngFor="let owner of row.owners">
+            {{ owner }}
+        </mat-chip>
+    </div>
+</ng-template>
+
+<ng-template #actionTemplate let-row>
+    <div class="restaurant__button-container">
+        <app-button
+            label="Edit"
+            icon="edit"
+            [variant]="ButtonVariant.Stroked"
+            (clicked)="editRestaurant(row)"
+        >
+        </app-button>
+    </div>
+</ng-template>

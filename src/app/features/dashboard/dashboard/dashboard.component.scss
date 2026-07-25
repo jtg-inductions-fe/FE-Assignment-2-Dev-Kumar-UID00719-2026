@@ -1,0 +1,40 @@
+@use 'abstracts' as *;
+
+.dashboard {
+    @include flex-layout(normal, normal, column);
+    width: 100%;
+    height: 100%;
+
+    &__header {
+        @include flex-layout(space-between, center, row);
+        width: 100%;
+        padding-inline: pixelToRem(4) pixelToRem(16);
+    }
+
+    &__data-list-cards {
+        @include flex-layout(space-between, normal, column, pixelToRem(16));
+        margin: 0 pixelToRem(16);
+    }
+
+    &__top-customers {
+        flex: 1;
+    }
+
+    &__top-dishes {
+        flex: 2;
+    }
+
+    &__footer {
+        margin: pixelToRem(16);
+    }
+
+    @include breakpoint($viewPort-tablet) {
+        &__data-list-cards {
+            flex-direction: row;
+        }
+
+        &__top-dishes {
+            flex: 2;
+        }
+    }
+}

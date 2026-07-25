@@ -1,0 +1,17 @@
+// To remove extra spacing under material form fields
+.mat-mdc-form-field-subscript-wrapper {
+    display: none;
+}
+
+// To make the chip component contain the text inside it and not let it overflow
+.mat-mdc-standard-chip.mdc-evolution-chip--with-trailing-action
+    .mdc-evolution-chip__action--primary {
+    overflow-x: auto;
+}
+
+.sidenav__link {
+    .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled)
+        .mdc-evolution-chip__text-label {
+        color: red !important;
+    }
+}

@@ -1,0 +1,26 @@
+@use 'abstracts' as *;
+
+.footer {
+    @include flex-layout(space-between, center, column, pixelToRem(32));
+    padding: pixelToRem(48) pixelToRem(32);
+    border-radius: pixelToRem(16);
+
+    &__text {
+        color: $font-color-secondary;
+    }
+
+    &__logo-container {
+        @include flex-layout(space-between, center, row, pixelToRem(24));
+    }
+
+    &__logo-link {
+        @include flex-layout(center, center, row);
+        :hover {
+            transform: scale(1.1);
+        }
+    }
+
+    @include breakpoint($viewPort-phone) {
+        flex-direction: row;
+    }
+}

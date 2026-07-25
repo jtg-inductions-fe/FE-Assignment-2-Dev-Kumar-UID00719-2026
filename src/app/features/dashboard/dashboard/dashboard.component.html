@@ -1,0 +1,20 @@
+<div class="dashboard">
+    <app-layout-header [data]="headerData.DASHBOARD" class="dashboard__header">
+        <app-autocomplete *ngIf="isAdmin"></app-autocomplete>
+    </app-layout-header>
+    <app-stats-container></app-stats-container>
+    <app-report-generator></app-report-generator>
+    <div class="dashboard__data-list-cards">
+        <app-data-list-card
+            *ngIf="topCustomers"
+            [data]="topCustomers"
+            class="dashboard__top-customers"
+        ></app-data-list-card>
+        <app-data-list-card
+            *ngIf="topDishes"
+            [data]="topDishes"
+            class="dashboard__top-dishes"
+        ></app-data-list-card>
+    </div>
+    <app-dashboard-footer class="dashboard__footer"></app-dashboard-footer>
+</div>

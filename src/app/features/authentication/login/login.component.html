@@ -1,0 +1,38 @@
+<div class="login">
+    <mat-card class="login__container">
+        <div class="login__header">
+            <h1 class="mat-headline-4 login__heading">Restaurant Portal</h1>
+            <p class="mat-subtitle-2 login__description">
+                Log in to manage orders, menus, and stats.
+            </p>
+        </div>
+
+        <form
+            class="login__form"
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmit()"
+        >
+            <div class="login__input">
+                <app-form-field
+                    class="login__input"
+                    label="Email Address"
+                    placeholder="Email address"
+                    [variant]="InputType.Email"
+                    [control]="email"
+                >
+                </app-form-field>
+            </div>
+            <div class="login__input">
+                <app-form-field
+                    label="Password"
+                    placeholder="Password"
+                    [variant]="InputType.Password"
+                    [control]="password"
+                >
+                </app-form-field>
+            </div>
+
+            <app-button label="LOGIN" [type]="ButtonType.Submit"></app-button>
+        </form>
+    </mat-card>
+</div>

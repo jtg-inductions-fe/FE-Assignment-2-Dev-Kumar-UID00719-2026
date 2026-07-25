@@ -1,0 +1,19 @@
+@use '@angular/material' as mat;
+@use 'abstracts' as *;
+@use 'base' as *;
+
+$primary: mat.define-palette($green-palette, 500);
+
+$app-theme: mat.define-light-theme(
+    (
+        color: (
+            primary: $primary,
+            accent: $primary,
+        ),
+        typography: $app-typography,
+    )
+);
+
+@include mat.core();
+@include mat.all-component-themes($app-theme);
+@include mat.all-component-typographies($app-typography);

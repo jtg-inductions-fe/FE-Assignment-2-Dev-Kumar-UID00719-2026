@@ -1,0 +1,123 @@
+@use '@angular/material' as mat;
+@use 'abstracts' as *;
+
+@include font-face($font-primary);
+
+$headline-1: mat.define-typography-level(
+    //header heading
+    $font-family: 'Inter',
+    $font-size: pixelToRem(48),
+    $font-weight: $weight-bold,
+    $line-height: pixelToRem(62.5)
+);
+
+$headline-2: mat.define-typography-level(
+    //header heading phone
+    $font-family: 'Inter',
+    $font-size: pixelToRem(30),
+    $font-weight: $weight-bold,
+    $line-height: 1.2
+);
+
+$headline-3: mat.define-typography-level(
+    //stat value
+    $font-family: 'Inter',
+    $font-size: pixelToRem(20),
+    $font-weight: $weight-semiBold,
+    $line-height: pixelToRem(30)
+);
+
+$headline-4: mat.define-typography-level(
+    // card heading
+    $font-family: 'Inter',
+    $font-size: pixelToRem(20),
+    $font-weight: $weight-bold,
+    $line-height: pixelToRem(30)
+);
+
+$headline-5: mat.define-typography-level(
+    //customer spending
+    $font-family: 'Inter',
+    $font-size: pixelToRem(16),
+    $font-weight: $weight-semiBold,
+    $line-height: pixelToRem(24)
+);
+
+$headline-6: mat.define-typography-level(
+    //sidebar labels
+    $font-family: 'Inter',
+    $font-size: pixelToRem(16),
+    $font-weight: $weight-medium,
+    $line-height: pixelToRem(24)
+);
+
+$subtitle-1: mat.define-typography-level(
+    //amount
+    $font-family: 'Inter',
+    $font-size: pixelToRem(12),
+    $font-weight: $weight-bold,
+    $line-height: pixelToRem(18)
+);
+
+$subtitle-2: mat.define-typography-level(
+    //stat heading
+    $font-family: 'Inter',
+    $font-size: pixelToRem(12),
+    $font-weight: $weight-semiBold,
+    $line-height: pixelToRem(18)
+);
+
+$subtitle-3: mat.define-typography-level(
+    //customer and resturant name in active orders and report generator para
+    $font-family: 'Inter',
+    $font-size: pixelToRem(12),
+    $font-weight: $weight-medium,
+    $line-height: pixelToRem(18)
+);
+
+$body-1: mat.define-typography-level(
+    //report generator heading
+    $font-family: 'Inter',
+    $font-size: pixelToRem(16),
+    $font-weight: $weight-bold,
+    $line-height: pixelToRem(24)
+);
+
+$body-2: mat.define-typography-level(
+    //welcome para
+    $font-family: 'Inter',
+    $font-size: pixelToRem(14),
+    $font-weight: $weight-medium,
+    $line-height: pixelToRem(20)
+);
+
+$button: mat.define-typography-level(
+    //buttons
+    $font-family: 'Inter',
+    $font-size: pixelToRem(14),
+    $font-weight: $weight-semiBold,
+    $line-height: pixelToRem(21)
+);
+
+$caption: mat.define-typography-level(
+    //chips
+    $font-family: 'Inter',
+    $font-size: pixelToRem(13),
+    $font-weight: $weight-semiBold,
+    $line-height: pixelToRem(18)
+);
+
+$app-typography: mat.define-typography-config(
+    $headline-1: $headline-1,
+    $headline-2: $headline-2,
+    $headline-3: $headline-3,
+    $headline-4: $headline-4,
+    $headline-5: $headline-5,
+    $headline-6: $headline-6,
+    $subtitle-1: $subtitle-1,
+    $subtitle-2: $subtitle-2,
+    $body-1: $body-1,
+    $body-2: $body-2,
+    $button: $button,
+    $caption: $caption,
+);
