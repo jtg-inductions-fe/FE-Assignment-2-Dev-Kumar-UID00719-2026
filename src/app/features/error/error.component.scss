@@ -11,6 +11,7 @@
         overflow: hidden;
         width: 100%;
         max-width: pixelToRem(500);
+        min-height: pixelToRem(340);
     }
 
     &__image {

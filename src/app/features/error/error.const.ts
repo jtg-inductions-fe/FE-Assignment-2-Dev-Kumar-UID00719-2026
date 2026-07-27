@@ -11,6 +11,11 @@ export const PAGE_STATES = {
         description:
             'Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us.',
     },
+    WORK_IN_PROGRESS: {
+        image: 'assets/images/work-in-progress.webp',
+        title: 'Work in progress',
+        description: 'This feature is under construction',
+    },
 };
 
 export type PageState = (typeof PAGE_STATES)[keyof typeof PAGE_STATES];

@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     hide = true;
     ButtonType = ButtonType;
     InputType = InputType;
+    loading = false;
 
     constructor(
         private fb: FormBuilder,
@@ -45,7 +46,10 @@ export class LoginComponent implements OnInit {
         return this.fb.group({
             [LoginFormFields.Email]: [
                 '',
-                [Validators.required, Validators.email],
+                {
+                    validators: [Validators.required, Validators.email],
+                    updateOn: 'blur',
+                },
             ],
             [LoginFormFields.Password]: ['', Validators.required],
         });
@@ -58,6 +62,7 @@ export class LoginComponent implements OnInit {
         }
 
         const { email, password } = this.loginForm.value;
+        this.loading = true;
 
         setTimeout(() => {
             this.authenticationService
@@ -65,6 +70,7 @@ export class LoginComponent implements OnInit {
                 .pipe(takeUntilDestroyed(this.destroyRef))
                 .subscribe({
                     next: () => {
+                        this.loading = false;
                         this.router.navigate([`/${ROUTE_PATH.DASHBOARD}`]);
                         this.notificationService.showSuccessSnackBar(
                             LOGIN_MESSAGE.SUCCESS,
@@ -72,6 +78,7 @@ export class LoginComponent implements OnInit {
                         );
                     },
                     error: () => {
+                        this.loading = false;
                         this.notificationService.showErrorSnackBar(
                             LOGIN_MESSAGE.FAILED,
                             'cancel',

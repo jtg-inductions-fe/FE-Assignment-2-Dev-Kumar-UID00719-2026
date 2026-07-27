@@ -3,6 +3,7 @@ import { Role } from '@models/user';
 export interface SidenavItem {
     id: string;
     type: SidenavItemType;
+    workInProgress: boolean;
     roles: Role[];
     label?: string;
     icon?: string;

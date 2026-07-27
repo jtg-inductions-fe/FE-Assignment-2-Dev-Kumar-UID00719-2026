@@ -11,24 +11,29 @@
                 class="sidenav__tree"
             >
                 <mat-tree-node *matTreeNodeDef="let node; when: isLink">
-                    <a
-                        class="sidenav__link"
-                        [routerLink]="node.route"
-                        routerLinkActive="sidenav__link--active"
-                    >
-                        <div class="sidenav__item-left">
-                            <mat-icon>
-                                {{ node.icon }}
-                            </mat-icon>
-                            <span>
-                                {{ node.label }}
-                            </span>
-                        </div>
+                    <div class="sidenav__link-container sidenav__node">
+                        <a
+                            class="sidenav__link sidenav__tree-item"
+                            [routerLink]="node.route"
+                            routerLinkActive="sidenav__link--active"
+                            (click)="setStateToWorkInProgress(node)"
+                        >
+                            <div class="sidenav__item-left">
+                                <mat-icon>
+                                    {{ node.icon }}
+                                </mat-icon>
+                                <span>
+                                    {{ node.label }}
+                                </span>
+                            </div>
 
-                        <mat-chip *ngIf="node.badge" class="sidenav__chip">{{
-                            node.badge
-                        }}</mat-chip>
-                    </a>
+                            <mat-chip
+                                *ngIf="node.badge"
+                                class="sidenav__chip"
+                                >{{ node.badge }}</mat-chip
+                            >
+                        </a>
+                    </div>
                 </mat-tree-node>
 
                 <mat-tree-node *matTreeNodeDef="let node; when: isDivider">
@@ -38,9 +43,10 @@
                 <mat-nested-tree-node
                     *matTreeNodeDef="let node; when: hasChild"
                 >
-                    <div>
+                    <div class="sidenav__tree-button-container sidenav__node">
                         <button
                             class="mat-tree-node sidenav__tree-item sidenav__tree-button"
+                            title="expand"
                             matTreeNodeToggle
                         >
                             <div class="sidenav__item-left">

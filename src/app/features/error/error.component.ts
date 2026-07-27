@@ -19,8 +19,11 @@ export class ErrorComponent implements OnInit {
     private router = inject(Router);
 
     ngOnInit(): void {
+        const navigationState = history.state.pageState;
+
         if (
             this.router.url === `/${ROUTE_PATH.ERROR}` &&
+            !navigationState &&
             this.globalErrorHandler.getState() === PAGE_STATES.NOT_FOUND
         ) {
             this.router.navigate([`/${ROUTE_PATH.DASHBOARD}`]);
@@ -28,8 +31,14 @@ export class ErrorComponent implements OnInit {
         }
 
         this.state =
+            navigationState ??
             this.globalErrorHandler.getState() ??
             this.activatedRoute.snapshot.data['state'];
+
         this.globalErrorHandler.clearState();
+    }
+
+    goBackHome() {
+        this.router.navigate([`/${ROUTE_PATH.DASHBOARD}`]);
     }
 }

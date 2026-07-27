@@ -3,7 +3,6 @@
 
 .header {
     @include flex-layout(space-between, center, row);
-    // width: 100%;
     padding: pixelToRem(16);
     border-bottom: $border-primary;
 
@@ -23,33 +22,62 @@
 }
 
 .profile-card {
+    width: pixelToRem(300);
+
     &__container {
-        @include flex-layout(space-between, center, column, pixelToRem(16));
-        padding: pixelToRem(16);
-        width: pixelToRem(250);
-    }
-
-    &__value {
-        color: $font-color-secondary;
-    }
-
-    &__data {
-        @include text-ellipsis(1);
-        display: inline-block;
+        @include flex-layout(space-between, normal, column, pixelToRem(20));
         width: 100%;
+        padding: pixelToRem(18);
+    }
+
+    &__header {
+        text-align: center;
     }
 
     &__image-container {
         width: pixelToRem(100);
         height: pixelToRem(100);
-        border-radius: pixelToRem(50);
+        border-radius: 50%;
         overflow: hidden;
-        margin: 0 auto;
+        margin: 0 auto pixelToRem(16);
     }
 
     &__image {
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    &__name {
+        font-weight: $weight-semiBold;
+    }
+
+    &__email {
+        margin-top: pixelToRem(4);
+        color: $font-color-secondary;
+    }
+
+    &__details {
+        @include flex-layout(normal, normal, column, pixelToRem(16));
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: pixelToRem(32) 1fr auto;
+        align-items: center;
+        column-gap: pixelToRem(16);
+    }
+
+    &__label {
+        font-weight: $weight-medium;
+    }
+
+    &__value {
+        color: $font-color-secondary;
+        text-align: right;
+    }
+
+    &__data {
+        @include text-ellipsis(1);
     }
 }

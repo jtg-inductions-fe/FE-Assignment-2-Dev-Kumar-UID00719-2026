@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
     buttonVariant = ButtonVariant;
     appLogo = APP_LOGO;
     isDesktop = true;
-    role = Role;
+    Role = Role;
 
     constructor(
         private authenticationService: AuthenticationService,

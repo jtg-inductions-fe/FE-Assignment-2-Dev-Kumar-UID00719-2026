@@ -23,14 +23,12 @@ export class InputChipComponent {
     add(event: MatChipInputEvent): void {
         const value = (event.value || '').trim();
 
-        // Add our fruit
         if (value) {
             const data = [...(this.control.value ?? [])];
             data.push(value);
             this.control.setValue(data);
         }
 
-        // Clear the input value
         event.chipInput!.clear();
     }
 
@@ -48,13 +46,11 @@ export class InputChipComponent {
         const data = [...(this.control.value ?? [])];
         const value = event.value.trim();
 
-        // Remove item if it no longer has a name
         if (!value) {
             this.remove(item);
             return;
         }
 
-        // Edit existing item
         const index = data.indexOf(item);
         if (index >= 0) {
             data[index] = value;

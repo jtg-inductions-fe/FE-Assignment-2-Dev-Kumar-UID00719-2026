@@ -9,9 +9,20 @@
     overflow-x: auto;
 }
 
+//To make chip on message link red
 .sidenav__link {
     .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled)
         .mdc-evolution-chip__text-label {
         color: red !important;
     }
+}
+
+//To align the App button texts and icons
+.mat-mdc-button .mdc-button__label,
+.mat-mdc-unelevated-button .mdc-button__label,
+.mat-mdc-raised-button .mdc-button__label,
+.mat-mdc-outlined-button .mdc-button__label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
