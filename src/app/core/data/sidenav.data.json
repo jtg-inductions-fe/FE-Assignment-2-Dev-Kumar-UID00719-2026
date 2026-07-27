@@ -6,7 +6,8 @@
             "label": "Overview",
             "icon": "pie_chart",
             "route": "/dashboard",
-            "roles": [0, 1]
+            "roles": [0, 1],
+            "workInProgress": false
         },
 
         {
@@ -15,7 +16,8 @@
             "label": "Menu",
             "icon": "restaurant_menu",
             "route": "/menu",
-            "roles": [1]
+            "roles": [1],
+            "workInProgress": true
         },
 
         {
@@ -24,7 +26,8 @@
             "label": "Restaurants",
             "icon": "restaurant",
             "route": "/restaurants",
-            "roles": [0]
+            "roles": [0],
+            "workInProgress": false
         },
 
         {
@@ -40,7 +43,8 @@
                     "label": "Invoices",
                     "icon": "receipt",
                     "route": "/billing/invoices",
-                    "roles": [0, 1]
+                    "roles": [0, 1],
+                    "workInProgress": true
                 },
                 {
                     "id": "transactions",
@@ -48,7 +52,8 @@
                     "label": "Transactions",
                     "icon": "payments",
                     "route": "/billing/transactions",
-                    "roles": [0, 1]
+                    "roles": [0, 1],
+                    "workInProgress": true
                 }
             ]
         },
@@ -66,7 +71,8 @@
                     "label": "Stock",
                     "icon": "inventory",
                     "route": "/inventory/stock",
-                    "roles": [1]
+                    "roles": [1],
+                    "workInProgress": true
                 },
                 {
                     "id": "suppliers",
@@ -74,7 +80,8 @@
                     "label": "Suppliers",
                     "icon": "local_shipping",
                     "route": "/inventory/suppliers",
-                    "roles": [1]
+                    "roles": [1],
+                    "workInProgress": true
                 }
             ]
         },
@@ -86,7 +93,8 @@
             "icon": "message",
             "route": "/messages",
             "roles": [0, 1],
-            "badge": 1
+            "badge": 1,
+            "workInProgress": true
         },
 
         {
@@ -102,7 +110,8 @@
                     "label": "Users",
                     "icon": "person",
                     "route": "/access/users",
-                    "roles": [0, 1]
+                    "roles": [0, 1],
+                    "workInProgress": true
                 },
                 {
                     "id": "roles",
@@ -110,7 +119,8 @@
                     "label": "Roles",
                     "icon": "admin_panel_settings",
                     "route": "/access/roles",
-                    "roles": [0]
+                    "roles": [0],
+                    "workInProgress": true
                 }
             ]
         },
@@ -127,7 +137,8 @@
             "label": "My Profile",
             "icon": "assignment_ind",
             "route": "/profile",
-            "roles": [0, 1]
+            "roles": [0, 1],
+            "workInProgress": true
         },
 
         {
@@ -136,7 +147,8 @@
             "label": "Gallery",
             "icon": "collections",
             "route": "/gallery",
-            "roles": [0, 1]
+            "roles": [0, 1],
+            "workInProgress": true
         },
 
         {
@@ -145,7 +157,8 @@
             "label": "Help",
             "icon": "help",
             "route": "/help",
-            "roles": [0, 1]
+            "roles": [0, 1],
+            "workInProgress": true
         }
     ]
 }

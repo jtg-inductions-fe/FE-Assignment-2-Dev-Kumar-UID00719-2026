@@ -10,7 +10,6 @@
     &__text-box {
         @include flex-layout(center, center, column);
         max-width: pixelToRem(380);
-        padding: pixelToRem(16);
     }
 
     &__heading {

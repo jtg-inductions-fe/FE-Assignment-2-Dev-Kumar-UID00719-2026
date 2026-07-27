@@ -18,6 +18,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { LayoutHeaderComponent } from '@shared/components/layout-header/layout-header.component';
 import { AutocompleteComponent } from '@shared/components/autocomplete/autocomplete.component';
@@ -69,6 +70,7 @@ import { InputChipComponent } from './components/input-chip/input-chip.component
         NgIf,
         MatChipsModule,
         MatTableModule,
+        MatProgressSpinnerModule,
     ],
     exports: [
         ButtonComponent,

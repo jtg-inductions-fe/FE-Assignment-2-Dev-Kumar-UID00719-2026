@@ -23,6 +23,7 @@ export class ButtonComponent {
     @Input() icon? = '';
     @Input() isSuffix = false;
     @Input() menu: MatMenu | null = null;
+    @Input() loading = false;
 
     @Output() clicked = new EventEmitter<void>();
 

@@ -66,6 +66,7 @@ export class RestaurantFormComponent implements OnInit {
             ],
             owners: this.fb.control<string[]>(
                 this.currentRestaurant?.owners || [],
+                // [Validators.required, Validators.email],
             ),
         });
     }

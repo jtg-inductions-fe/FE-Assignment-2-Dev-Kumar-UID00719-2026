@@ -7,6 +7,8 @@ import {
     DestroyRef,
     signal,
 } from '@angular/core';
+
+import { Router } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -15,10 +17,12 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
 import { AuthenticationService } from '@services/authentication.service';
+import { GlobalErrorHandlerService } from '@services/global-error-handler.service';
 import { SidenavItem } from './sidebar.types';
 import { SidenavItemType } from './sidebar.types';
 import { SidebarMode } from './sidemenu.const';
 import SidenavData from '@data/sidenav.data.json';
+import { PAGE_STATES } from '@features/error/error.const';
 
 @Component({
     selector: 'app-sidemenu',
@@ -42,6 +46,8 @@ export class SidemenuComponent implements OnInit {
         private breakpointObserver: BreakpointObserver,
         private destroyRef: DestroyRef,
         private authenticationService: AuthenticationService,
+        private globalErrorHandlerService: GlobalErrorHandlerService,
+        private router: Router,
     ) {}
 
     ngOnInit(): void {
@@ -82,4 +88,12 @@ export class SidemenuComponent implements OnInit {
 
     isDivider = (_: number, node: SidenavItem): boolean =>
         node.type === SidenavItemType.Divider;
+
+    setStateToWorkInProgress(node: SidenavItem): void {
+        if (node.workInProgress) {
+            this.globalErrorHandlerService.setState(
+                PAGE_STATES.WORK_IN_PROGRESS,
+            );
+        }
+    }
 }

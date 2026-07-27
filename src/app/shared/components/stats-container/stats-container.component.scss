@@ -11,6 +11,7 @@
 
     @include breakpoint($viewPort-phone) {
         @include flex-layout(space-between, center, row, pixelToRem(16));
+        flex-wrap: wrap;
     }
 }
 

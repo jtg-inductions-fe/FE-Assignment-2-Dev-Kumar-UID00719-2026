@@ -37,8 +37,6 @@ export class AuthenticationService {
 
         const { password: _password, ...authenticatedUser } = user;
 
-        console.log('CHecking aurt', authenticatedUser);
-
         this.setInLocalStorage(STORAGE_KEYS.CURRENT_USER, authenticatedUser);
 
         this.currentUserSubject.next(authenticatedUser);

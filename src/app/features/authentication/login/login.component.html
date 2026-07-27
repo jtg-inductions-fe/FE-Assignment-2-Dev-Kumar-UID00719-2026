@@ -32,7 +32,11 @@
                 </app-form-field>
             </div>
 
-            <app-button label="LOGIN" [type]="ButtonType.Submit"></app-button>
+            <app-button
+                label="LOGIN"
+                [type]="ButtonType.Submit"
+                [loading]="loading"
+            ></app-button>
         </form>
     </mat-card>
 </div>

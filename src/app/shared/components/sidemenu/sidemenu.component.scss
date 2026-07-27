@@ -14,12 +14,18 @@
     margin-bottom: PixelToRem(200);
     position: relative;
 
+    &__link-container {
+        padding: pixelToRem(8) pixelToRem(16);
+        width: 100%;
+    }
+
     &__link {
         @include flex-layout(space-between, center, row, pixelToRem(16));
         width: 100%;
         color: $font-color-primary;
         font-weight: 500;
-        padding: pixelToRem(8) pixelToRem(16);
+        padding: pixelToRem(8);
+        background: transparent;
 
         &--active {
             color: $color-accent-primary;
@@ -28,9 +34,6 @@
 
     &__item {
         width: 100%;
-        :hover {
-            color: $font-color-secondary;
-        }
     }
 
     &__divider {
@@ -54,6 +57,12 @@
         overflow: auto;
     }
 
+    &__node {
+        :hover {
+            background-color: $color-background-primary;
+        }
+    }
+
     &__tree-hidden {
         display: none;
     }
@@ -61,11 +70,16 @@
     &__tree-item {
         @include flex-layout(space-between, center, row, pixelToRem(16));
         width: 100%;
-        padding: pixelToRem(8) pixelToRem(16);
+        :hover {
+            background-color: transparent;
+        }
     }
 
     &__item-left {
         @include flex-layout(space-between, center, row, pixelToRem(16));
+        :hover {
+            background-color: transparent;
+        }
     }
 
     &__chip {
@@ -73,8 +87,17 @@
         align-self: flex-end;
     }
 
+    &__tree-button-container {
+        width: 100%;
+        padding: pixelToRem(8) pixelToRem(16);
+    }
+
     &__tree-button {
         background: transparent;
+        padding: pixelToRem(8);
+        :hover {
+            background-color: transparent;
+        }
     }
 }
 

@@ -6,6 +6,7 @@
     <app-button
         *ngIf="!isDesktop && isLoggedIn"
         icon="menu"
+        title="Toggle sidebar"
         [variant]="buttonVariant.Icon"
         (click)="onMenuClick()"
     >
@@ -16,6 +17,7 @@
         buttonClass="profile-button"
         [variant]="buttonVariant.Icon"
         [menu]="menu"
+        title="Profile-button"
     >
         <img
             class="header__profile-button-image"
@@ -26,44 +28,53 @@
 
     <mat-menu #menu="matMenu" class="profile-card">
         <div class="profile-card__container">
-            <div class="profile-card__image-container">
-                <img
-                    class="profile-card__image"
-                    alt="User profile picture"
-                    [src]="currentUser?.profileImageUrl"
-                />
+            <div class="profile-card__header">
+                <div class="profile-card__image-container">
+                    <img
+                        class="profile-card__image"
+                        [src]="currentUser?.profileImageUrl"
+                        alt="Profile image"
+                    />
+                </div>
+                <h2 class="profile-card__name">{{ currentUser?.name }}</h2>
+                <p class="profile-card__email">
+                    {{ currentUser?.email }}
+                </p>
             </div>
 
-            <div class="profile-card__data-container">
-                <p class="profile-card__data">
-                    Name :
-                    <span
-                        class="profile-card__username mat-headline-6 profile-card__value"
-                    >
+            <mat-divider></mat-divider>
+
+            <div class="profile-card__details">
+                <div class="profile-card__row">
+                    <mat-icon>person_outline</mat-icon>
+                    <span class="profile-card__label">Name</span>
+                    <span class="profile-card__value">
                         {{ currentUser?.name }}
                     </span>
-                </p>
-                <p class="profile-card__data">
-                    Email :
-                    <span
-                        class="profile-card__username mat-headline-6 profile-card__value"
-                    >
+                </div>
+
+                <div class="profile-card__row">
+                    <mat-icon>mail_outline</mat-icon>
+                    <span class="profile-card__label">Email</span>
+                    <span class="profile-card__value profile-card__data">
                         {{ currentUser?.email }}
                     </span>
-                </p>
-                <p class="profile-card__data">
-                    Role :
-                    <span
-                        class="profile-card__username mat-headline-6 profile-card__value"
-                    >
+                </div>
+
+                <div class="profile-card__row">
+                    <mat-icon>verified_user</mat-icon>
+                    <span class="profile-card__label">Role</span>
+                    <span class="profile-card__value">
                         {{
-                            currentUser?.role === role.Admin ? 'Admin' : 'Owner'
+                            currentUser?.role === Role.Admin ? 'Admin' : 'Owner'
                         }}
                     </span>
-                </p>
+                </div>
             </div>
 
-            <app-button label="Log out" (clicked)="logout()"></app-button>
+            <button mat-flat-button color="primary" (click)="logout()">
+                Log out
+            </button>
         </div>
     </mat-menu>
 </div>
